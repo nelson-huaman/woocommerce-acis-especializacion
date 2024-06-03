@@ -1,0 +1,34 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.wc_dashboard {
+
+   &__user {
+      text-align: center;
+      font-size: 2.2rem;
+      color: v.$verde;
+      margin-bottom: 2rem;
+
+      span {
+         font-weight: bold;
+         color: darken(v.$verde, 10%);
+      }
+   }
+
+   &__titulo {
+      text-align: center;
+      color: v.$azul;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+   }
+
+   &__grid {
+      margin-top: 3rem;
+      @include m.grid(1, 2rem);
+      @include m.desktop {
+         @include m.grid(2, 2rem);
+      }
+      
+   }
+
+}

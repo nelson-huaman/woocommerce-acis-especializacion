@@ -1,0 +1,15 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.wc_calendario {
+   display: flex;
+   flex-direction: column;
+
+   &__link {
+      margin-bottom: 2rem;
+   }
+
+   &__imagen {
+      width: 100%;
+   }
+}

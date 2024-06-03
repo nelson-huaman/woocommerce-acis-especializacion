@@ -1,0 +1,81 @@
+@use 'variables' as v;
+
+/** Media Queries **/
+@mixin telefono {
+   @media (min-width: v.$telefono) {
+      @content;
+   }
+}
+@mixin tablet {
+   @media (min-width: v.$tablet) {
+      @content;
+   }
+}
+@mixin desktop {
+   @media (min-width: v.$desktop) {
+      @content;
+   }
+}
+@mixin xl_desktop {
+   @media (min-width: v.$xl_desktop) {
+      @content;
+   }
+}
+
+@mixin grid($columnas, $espacio) {
+   display: grid;
+   grid-template-columns: repeat($columnas, 1fr);
+   gap: $espacio;
+}
+
+@mixin reseter-lista {
+   padding: 0;
+   margin: 0;
+   list-style: none;
+}
+
+@mixin boton($bgColor, $colorTexto) {
+   background-color: $bgColor;
+   padding: 1.5rem 4rem;
+   color: $colorTexto;
+   margin-top: 2rem;
+   font-size: 2rem;
+   font-weight: 700;
+   border: none;
+   transition-property: background-color;
+   transition-duration: .3s;
+   text-align: center;
+   display: inline-block;
+   width: 100%;
+   border-radius: 1rem;
+
+   @include tablet {
+      width: auto;
+   }
+
+   &:hover {
+      background-color: darken($bgColor, 10%);
+      color: v.$blanco;
+      cursor: pointer;
+   }
+}
+
+@mixin precio {
+   all: unset;
+   span.price {
+      color: transparent !important;
+   }
+   
+   span {
+      font-weight: bold;
+      color: v.$negro;
+      font-size: 2.4rem;
+   }
+
+   del {
+      span {
+         font-size: 1.5rem;
+         font-weight: 400;
+      }
+   }
+}

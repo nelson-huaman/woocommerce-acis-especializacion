@@ -1,0 +1,50 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.woocommerce {
+
+   span.onsale {
+      display: none !important;
+   }
+
+   ul.products {
+
+      &::before {
+         display: none !important;
+      }
+
+      li.product {
+         width: 100% !important;
+         margin: 0 !important;
+         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+         border-radius: 1rem;
+
+         img {
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            margin-bottom: 0 !important;
+         }
+      }
+
+      @include m.grid(1, 3rem);
+
+      @include m.tablet {
+         @include m.grid(2, 3rem);
+      }
+
+      @include m.desktop {
+         @include m.grid(3, 3rem);
+      }
+   }
+}
+
+.woocommerce-breadcrumb {
+   margin: 0 0 1rem 0 !important;
+}
+
+.woocommerce div.product div.summary {
+   display: block;
+   width: 100%;
+   float: none;
+   clear: both;
+}

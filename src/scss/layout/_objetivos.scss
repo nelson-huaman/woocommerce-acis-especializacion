@@ -1,0 +1,20 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.wc_objetivos {
+   ul {
+      li {
+         @include m.reseter-lista;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         margin-bottom: 1rem;
+         &::before {
+            content: '•';
+            font-size: 3rem;
+            padding-right: 1.5rem;
+            color: v.$azul;
+         }
+      }
+   }
+}

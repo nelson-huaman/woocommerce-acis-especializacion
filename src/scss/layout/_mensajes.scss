@@ -1,0 +1,63 @@
+@use 'base/variables' as v;
+
+.wc_membresia {
+   padding: 3rem 1rem;
+   border-radius: 1rem;
+   font-size: 1.4rem;
+   text-align: left;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   
+   p {
+      line-height: 1.2;
+   }
+
+   i {
+      font-size: 5rem;
+      color: v.$blanco;
+      padding: 1rem;
+   }
+
+   &__info {
+      text-align: left;
+      padding-left: 1rem;
+   }
+
+   &--limete,
+   &--expirado {
+      background-color: lighten(v.$rojo, 15%);
+   }
+
+   &--activo {
+      background-color: darken(v.$verde, 8%);
+      
+   }
+
+   &--vacio {
+      background-color: darken(v.$verde, 10%);
+   }
+
+   &--aviso {
+      background-color: darken(v.$amarillo, 10%);
+   }
+
+   &__texto {
+      margin: 0 !important;
+      color: v.$blanco;
+      font-weight: bold;
+
+      &--disponible {
+         display: flex;
+         flex-direction: column;
+         margin-top: 1rem !important;
+         font-size: 1.8rem;
+
+         span {
+            font-size: 3rem;
+            margin-top: 1rem;
+         }
+      }
+   }
+
+}
