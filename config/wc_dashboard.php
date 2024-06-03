@@ -50,7 +50,7 @@ if(is_user_logged_in()) {
                             <i class="fas fa-clipboard-check"></i>
                             <div class="wc_membresia__info">
                                 <p class="wc_membresia__texto">Su Membresía <?php echo $plan->nombre; ?> esta Activo</p>
-                                <p class="wc_membresia__texto wc_membresia__texto--disponible">Disponible durante los <span><?php echo $plan->dias; ?> Días</span></p>
+                                <p class="wc_membresia__texto wc_membresia__texto--disponible">Disponible <span><?php echo $plan->dias; ?> Días</span></p>
                             </div>
                         </div>
                     <?php } else { ?>
@@ -68,7 +68,7 @@ if(is_user_logged_in()) {
                             <i class="fas fa-clipboard-check"></i>
                             <div class="wc_membresia__info">
                                 <p class="wc_membresia__texto">Su Membresía <?php echo $plan->nombre; ?> esta Activo</p>
-                                <p class="wc_membresia__texto wc_membresia__texto--disponible">Disponible durante los <span><?php echo $plan->dias; ?> Días</span></p>
+                                <p class="wc_membresia__texto wc_membresia__texto--disponible">Disponible <span><?php echo $plan->dias; ?> Días</span></p>
                             </div>
                         </div>
                     <?php } else { ?>
@@ -86,7 +86,7 @@ if(is_user_logged_in()) {
                             <i class="fas fa-clipboard-check"></i>
                             <div class="wc_membresia__info">
                                 <p class="wc_membresia__texto">Su Membresía <?php echo $plan->nombre; ?> esta Activo</p>
-                                <p class="wc_membresia__texto wc_membresia__texto--disponible">Disponible durante los <span><?php echo $plan->dias; ?> Días</span></p>
+                                <p class="wc_membresia__texto wc_membresia__texto--disponible">Disponible <span><?php echo $plan->dias; ?> Días</span></p>
                             </div>
                         </div>
                     <?php } else { ?>
@@ -105,9 +105,10 @@ if(is_user_logged_in()) {
             <?php foreach( $planes as $plan ) { ?>
                 <?php if($plan->estado === 'wcm-active') { ?>
                     <?php if($plan->dias < 15 ) { ?>
-                        <h2 class="wc_dashboard__titulo">Su Membresia esta por Finalizar - Renueva</h2>
+                        <h2 class="wc_dashboard__titulo">Su Membresia esta por Finalizar - Renueva Aquí</h2>
+                        <div class="wc_dashboard__descripcion">Promoción disponible hasta antes de finalizar su Membresía</div>
                         <div class="wcm_shop" id="shop-memebresia">
-                            <div class="wcm_shop__cart wcm_shop__cart--clasico" data-id="2388">
+                            <div class="wcm_shop__cart wcm_shop__cart--clasico" data-id="2388" data-add="2">
                                 <i class="wcm_shop__icono fas fa-star-half-alt"></i>
                                 <div class="wcm_shop__info">
                                     <div class="wcm_shop__name">Membrsía Clásica</div>
@@ -118,7 +119,7 @@ if(is_user_logged_in()) {
                                     <div class="wcm_shop__texto wcm_shop__texto--descripcion">Vuélvete <span>Miembro Clásico</span> y Certificate</div>
                                 </div>
                             </div>
-                            <div class="wcm_shop__cart wcm_shop__cart--premium" data-id="2390">
+                            <div class="wcm_shop__cart wcm_shop__cart--premium" data-id="2390" data-add="3">
                                 <i class="wcm_shop__icono fas fa-star"></i>
                                 <div class="wcm_shop__info">
                                     <div class="wcm_shop__name">Membrsía Premium</div>
@@ -136,6 +137,8 @@ if(is_user_logged_in()) {
             <?php } ?>
         </div>
 
+        <div class="wc_dashboard__pagar"></div>
+
     <?php } else { ?>
         <div class="wc_membresia wc_membresia--expirado">
             <i class="fas fa-shopping-cart"></i>
@@ -147,13 +150,13 @@ if(is_user_logged_in()) {
 <?php 
         
         
-foreach( $planes as $plan ) {
-    echo '<pre>';
-    var_dump($plan->nombre);
-    var_dump($plan->dias);
-    var_dump($plan->estado);
-    echo '</pre>';
+// foreach( $planes as $plan ) {
+//     echo '<pre>';
+//     var_dump($plan->nombre);
+//     var_dump($plan->dias);
+//     var_dump($plan->estado);
+//     echo '</pre>';
         
-}
+// }
 
 ?>

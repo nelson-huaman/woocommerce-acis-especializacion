@@ -1,82 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.wcm_dashboard {
-   @include m.grid(1, 3rem);
-   @include m.desktop {
-      @include m.grid(2, 2rem);
-   }
-
-   &__opcion {
-      display: flex;
-      flex-direction: row;
-      overflow: auto;
-      border-radius: 1.5rem;
-      text-align: left;
-
-      &--clasico {
-         border: 2px solid darken(v.$celeste, 10%);
-         background-color: lighten(v.$celeste, 30%);
-         .wcm_dashboard__simple {
-            background-color: darken(v.$celeste, 10%);
-         }
-
-         .tiempo {
-            color: v.$azul;
-         }
-      }
-
-      &--premium {
-         border: 3px solid darken(v.$amarillo, 10%);
-         background-color: lighten(v.$amarillo, 30%);
-         .wcm_dashboard__simple {
-            background-color: darken(v.$amarillo, 10%);
-         }
-
-         .tiempo {
-            color: v.$azul;
-         }
-      }
-   }
-
-   &__simple {
-      width: 8rem;
-      display: flex;
-      justify-content: center;
-      background-color: darken(v.$gris, 10%);
-   }
-
-   &__radio {
-      width: 2rem;
-      accent-color: v.$verde;
-   }
-
-   &__contenido {
-      padding: 1rem 1rem 1rem 2rem;      
-      flex: 1;
-   }
-
-   &__slogan {
-      color: v.$negro;
-      font-size: 1.2rem;
-      margin: 0;
-
-      span {
-         font-weight: bold;
-      }
-   }
-
-   &__tiempo {
-      color: darken(v.$azul, 5%);
-      font-size: 1.4rem;
-   }
-
-   &__precio {
-      @include m.precio;
-   }
-
-}
-
 .wcm_shop {
    margin-top: 3rem;
    @include m.grid(1, 2rem);
@@ -89,15 +13,14 @@
       display: flex;
       align-items: center;
       border-radius: 1rem;
+      transition: transform 0.3s ease;
 
       &--clasico {
-         border: 3px solid darken(v.$celeste, 5%);
-         background-color: lighten(v.$celeste, 10%);
+         background-color: lighten(v.$celeste, 8%);
       }
 
       &--premium {
-         border: 3px solid darken(v.$amarillo, 5%);
-         background-color: lighten(v.$amarillo, 10%);
+         background-color: lighten(v.$amarillo, 8%);
       }
    }
 
@@ -128,13 +51,13 @@
    }
 
    &__activo.wcm_shop__cart--clasico {
-      background-color: darken(v.$celeste, 5%);
-      border: 3px solid darken(v.$celeste, 10%);
+      background-color: darken(v.$celeste, 8%);
+      transform: scale(1.1);
    }
 
    &__activo.wcm_shop__cart--premium {
-      background-color: darken(v.$amarillo, 5%);
-      border: 3px solid darken(v.$amarillo, 10%);
+      background-color: darken(v.$amarillo, 8%);
+      transform: scale(1.1);
    }
 
    &__activo .wcm_shop__name {

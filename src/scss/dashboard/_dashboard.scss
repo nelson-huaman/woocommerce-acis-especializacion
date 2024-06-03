@@ -31,4 +31,24 @@
       
    }
 
+   &__descripcion {
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+   }
+
+   &__pagar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+   }
+
+   &__add-to-cart {
+      @include m.boton(v.$azul, v.$blanco !important);
+      padding: 1rem 3rem;
+   }
+
 }

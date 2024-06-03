@@ -10,25 +10,23 @@
       @include m.grid(3, 2rem);
    }
 
-   &__opcion {
+   &__variacion {
       display: flex;
-      flex-direction: row;
-      overflow: auto;
+      flex-direction: column;
+      background-color: v.$gris;
       border-radius: 1.5rem;
-      border: 1px solid darken(v.$gris, 20%);
-      background-color: lighten(v.$gris, 5%);
+      padding: 2rem;
+      transition: transform 0.3s ease;
    }
 
-   &__div {
-      width: 5rem;
-      display: flex;
-      justify-content: center;
-      background-color: darken(v.$gris, 10%);
-   }
+   &__activo {
+      background-color: darken(v.$celeste, 1%);
+      transform: scale(1.1);
 
-   &__radio {
-      width: 2rem;
-      accent-color: v.$verde;
+      .wc_variaciones__slogan {
+         text-transform: uppercase;
+         font-weight: bold;
+      }
    }
 
    &__contenido {
@@ -67,5 +65,17 @@
       p {
          margin: 0;
       }
+   }
+}
+
+.wcv_pagar {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 1rem;
+
+   &__add-to-cart {
+      @include m.boton(v.$azul, v.$blanco !important);
+      padding: 1rem 3rem;
    }
 }
