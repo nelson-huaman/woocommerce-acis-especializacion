@@ -1,0 +1,20 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.buscar {
+   width: 100%;
+   margin-bottom: 5rem;
+   padding: 2rem;
+
+   input {
+      border: 1px solid v.$azul !important;
+      color: v.$azul !important;
+      font-weight: bold !important;
+      border-radius: 1rem !important;
+      &::placeholder {
+         color: v.$azul !important;
+         font-weight: bold !important;
+      }
+   }
+
+}

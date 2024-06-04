@@ -1,4 +1,4 @@
-<p class="wc_info">Selecciona haciendo click una de los cuadros para realizar el Pago</p>
+<p class="wc_info">Selecciona el cuadro haciendo Click para realizar el Pago</p>
 <div class="wc_variaciones" id="variaciones">
    <?php foreach ($product->get_available_variations() as $variation) { ?>
       <?php foreach (wc_get_product($variation['variation_id'])->get_variation_attributes() as $nombreVariacion) { ?>

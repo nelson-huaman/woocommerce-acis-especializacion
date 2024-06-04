@@ -76,3 +76,18 @@ add_filter('woocommerce_account_menu_item_classes', function( $classes, $endpoin
    return $classes;
 },10,2);
 
+
+// Añadir acción en todas las categorías de WooCommerce
+function mi_accion_personalizada_todas_categorias() {
+   if (is_product_category()) {
+      ?>
+         <div class="buscar">
+            <?php echo do_shortcode('[fibosearch]'); ?>
+         </div>
+      <?php
+   }
+}
+
+// Hook para ejecutar la función antes del loop de productos
+add_action('woocommerce_before_shop_loop', 'mi_accion_personalizada_todas_categorias');
+

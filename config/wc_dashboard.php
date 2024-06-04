@@ -107,56 +107,22 @@ if(is_user_logged_in()) {
                     <?php if($plan->dias < 15 ) { ?>
                         <h2 class="wc_dashboard__titulo">Su Membresia esta por Finalizar - Renueva Aquí</h2>
                         <div class="wc_dashboard__descripcion">Promoción disponible hasta antes de finalizar su Membresía</div>
-                        <div class="wcm_shop" id="shop-memebresia">
-                            <div class="wcm_shop__cart wcm_shop__cart--clasico" data-id="2388" data-add="2">
-                                <i class="wcm_shop__icono fas fa-star-half-alt"></i>
-                                <div class="wcm_shop__info">
-                                    <div class="wcm_shop__name">Membrsía Clásica</div>
-                                    <div class="wcm_shop__texto wcm_shop__texto--slogan">Accede a <span>todos</span> los cursos por <span>30 Días</span></div>
-                                    <div class="wcm_shop__texto wcm_shop__texto--precio">
-                                        <?php echo $clasico->get_price_html();?>
-                                    </div>
-                                    <div class="wcm_shop__texto wcm_shop__texto--descripcion">Vuélvete <span>Miembro Clásico</span> y Certificate</div>
-                                </div>
-                            </div>
-                            <div class="wcm_shop__cart wcm_shop__cart--premium" data-id="2390" data-add="3">
-                                <i class="wcm_shop__icono fas fa-star"></i>
-                                <div class="wcm_shop__info">
-                                    <div class="wcm_shop__name">Membrsía Premium</div>
-                                    <div class="wcm_shop__texto wcm_shop__texto--slogan">Accede a <span>todos</span> los cursos por <span>30 Días</span></div>
-                                    <div class="wcm_shop__texto wcm_shop__texto--precio">
-                                        <?php echo $clasico->get_price_html();?>
-                                    </div>
-                                    <div class="wcm_shop__texto wcm_shop__texto--descripcion">Vuélvete <span>Miembro Clásico</span> y Certificate</div>
-                                </div>
-                            </div>
-                            
-                        </div>
+                        <?php include 'wc_membresia.php'; ?>
                     <?php } ?>
                 <?php } ?>
             <?php } ?>
         </div>
-
-        <div class="wc_dashboard__pagar"></div>
-
     <?php } else { ?>
         <div class="wc_membresia wc_membresia--expirado">
             <i class="fas fa-shopping-cart"></i>
             <p class="wc_membresia__texto">No Cuenta con una Membresía, Obten uno aquí</p>
         </div>
+
+        <h2 class="wc_dashboard__titulo">Puede adquir una Membresía</h2>
+        <div class="wc_dashboard__descripcion">Accesdo a +160 Cursos con un solo Pago</div>
+
+        <?php include 'wc_membresia.php'; ?>
+        
     <?php } ?>
 </div>
-
-<?php 
-        
-        
-// foreach( $planes as $plan ) {
-//     echo '<pre>';
-//     var_dump($plan->nombre);
-//     var_dump($plan->dias);
-//     var_dump($plan->estado);
-//     echo '</pre>';
-        
-// }
-
-?>
+<div class="wc_dashboard__pagar"></div>
