@@ -35,10 +35,9 @@ add_shortcode( 'calendario', 'wc_calendario' );
 function my_account_menu_order() {
    $menuOrder = array(
       'dashboard'          => __( 'Inicio', 'woocommerce' ),
-      'orders'             => __( 'Mis Comprar', 'woocommerce' ),
+      'orders'             => __( 'Mis Compras', 'woocommerce' ),
       'edit-account'    => __( 'Mis Datos', 'woocommerce' ),
       'customer-logout'    => __( 'Cerrar Sesión', 'woocommerce' ),
-      
    );
    return $menuOrder;
 } add_filter ( 'woocommerce_account_menu_items', 'my_account_menu_order' );

@@ -8,6 +8,12 @@
       @include m.grid(2, 2rem);
    }
 
+   &--grid {
+      @include m.desktop {
+         @include m.grid(3, 2rem);
+      }
+   }
+
    &__cart {
       padding: 2rem;
       display: flex;
@@ -20,18 +26,18 @@
       }
 
       &--clasico {
-         background-color: lighten(v.$celeste, 8%);
+         background-color: lighten(v.$celeste, 30%);
       }
 
       &--premium {
-         background-color: lighten(v.$amarillo, 8%);
+         background-color: lighten(v.$amarillo, 30%);
       }
    }
 
    &__icono {
-      font-size: 6rem;
+      font-size: 6rem !important;
       margin-right: 1.5rem;
-      color: v.$gris;
+      color: darken(v.$gris, 30%);
    }
 
    &__texto {
@@ -52,15 +58,21 @@
 
    &__name {
       font-weight: bold;
+      color: v.$negro;
+   }
+
+   &__activo.wcm_shop__cart--regular {
+      background-color: darken(v.$gris, 15%);
+      transform: scale(1.05);
    }
 
    &__activo.wcm_shop__cart--clasico {
-      background-color: darken(v.$celeste, 8%);
+      background-color: v.$celeste;
       transform: scale(1.1);
    }
 
    &__activo.wcm_shop__cart--premium {
-      background-color: darken(v.$amarillo, 8%);
+      background-color: v.$amarillo;
       transform: scale(1.1);
    }
 
@@ -71,6 +83,8 @@
    &__activo .wcm_shop__icono {
       color: v.$blanco;
    }
+
+
 
 }
 

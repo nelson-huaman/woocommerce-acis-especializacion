@@ -123,8 +123,7 @@
       <?php } ?>
    <?php } ?>
 
-   <div class="wc_pagar">
-   </div>
+   <div class="wc_pagar"></div>
    <?php } ?>
    <div class="wc_descripcion">
       <h2>Descripcion</h2>
