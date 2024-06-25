@@ -10,6 +10,9 @@
    <p class="wc_info">Selecciona el cuadro haciendo Click para realizar el Pago</p>
 <?php } ?>
 
+<!-- <?php $hola = '/build/img/logo-acis.webp'; ?>
+<?php echo URL . $hola; ?> -->
+
 <div class="wcm_shop wcm_shop--grid" id="simple">
    <div class="wcm_shop__cart wcm_shop__cart--regular" data-id="<?php echo $product->id; ?>" data-add="1">
       <i class="wcm_shop__icono wcm_shop__icono--simple fa fa-cart-plus" aria-hidden="true"></i>

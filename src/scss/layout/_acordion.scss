@@ -1,0 +1,50 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.wc_acordion {
+
+   &__header {
+      font-size: 2.2rem;
+      color: v.$azul;
+      font-weight: v.$delgado;
+      margin-top: 3rem;
+      padding-bottom: .5rem;
+      padding-left: 1rem;
+      border-bottom: 1px solid darken(v.$azul, 20%);
+      border-left: 5px solid darken(v.$azul, 20%);
+      border-bottom-left-radius: 1rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+
+      &:hover {
+         cursor: pointer;
+      }
+   }
+
+   &__body {
+      display: none;
+      padding: 2rem;
+      // background-color: v.$gris;
+      border-radius: 1rem;
+      @include m.sombra;
+   }
+
+   &__open &__body{
+      display: block;
+   }
+
+   &__open &__header {
+      color: v.$verde;
+      color: v.$verde;
+      border-bottom: 1px solid darken(v.$verde, 20%);
+      border-left: 5px solid darken(v.$verde, 20%);
+      font-weight: v.$bold;
+   }
+
+   &__open &__icono {
+      rotate: 45deg;
+      
+   }
+}

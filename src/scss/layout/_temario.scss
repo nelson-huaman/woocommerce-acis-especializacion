@@ -3,14 +3,18 @@
 
 .wc_temario {
    ul {
+      margin: 0;
+      padding: 0;
+      
       li {
          @include m.reseter-lista;
          padding: 1rem;
          background-color: lighten(v.$gris, 5);
-         font-weight: 500;
-         display: flex;
-         flex-direction: row;
-         align-items: center;
+         line-height: 1.5;
+         font-weight: v.$delgado;
+         color: v.$negro;
+         margin-bottom: .5rem;
+         border-radius: .5rem;
 
          &::before {
             content: '►';
@@ -21,7 +25,7 @@
          }
          
          &:nth-child(even) {
-            background-color: darken(v.$gris, 5);
+            background-color: darken(v.$gris, 2);
          }
       }
 

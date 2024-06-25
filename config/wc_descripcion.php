@@ -42,7 +42,7 @@
          <div class="wc_tag">
             #Enfermeria
          </div>
-         <div class="wc_header__contenido">
+         <div class="wc_header__item">
             <p class="wc_header__coordinador">
                <span>Coordinador: </span>
                <?php echo $coordinador; ?>
@@ -64,91 +64,78 @@
       </div> 
    <?php } else { ?>
 
-   <?php if($product->attributes) {
-      include_once 'wc_variacion.php';
-      ?>
-
-   <?php } else {
-
-      include_once 'wc_simple.php';
+   <?php 
       
-      
-      ?>
-
-  
-      <div class="wc_simple" id="simple">
-         <div class="wc_simple__opcion wc_simple__opcion--regular">
-            <div class="wc_simple__simple">
-               <input class="wc_simple__radio" type="radio" name="simple" id="curso" value="<?php echo $product->id; ?>" data-id="0" checked>
-            </div>
-            <div class="wc_simple__contenido active">
-               <p class="wc_simple__slogan">Accede <span>sólo</span> a este curso</p>
-               <div class="wc_simple__precio">
-                  <?php echo $product->get_price_html();?>
-               </div>
-               <p class="wc_simple__slogan">Duración 30 Días</p>
-            </div>
-         </div>
-         <?php if(!$memberships) { ?>
-            <div class="wc_simple__opcion wc_simple__opcion--clasico">
-               <div class="wc_simple__simple">
-                  <input class="wc_simple__radio" type="radio" name="simple" id="curso" value="<?php echo $clasico->id; ?>" data-id="1">
-               </div>
-               <div class="wc_simple__contenido active">
-                  <p class="wc_simple__slogan">Accede a <span>todos</span> los cursos por <span class="wc_simple__tiempo">30 Días</span></p>
-                  <div class="wc_simple__precio">
-                     <?php echo $clasico->get_price_html();?>
-                  </div>
-                  <p class="wc_simple__slogan">Vuélvete <span>Miembro Clásico</span> y Certificate</p>
-               </div>
-            </div>
-            <div class="wc_simple__opcion wc_simple__opcion--premium">
-               <div class="wc_simple__simple">
-                  <input class="wc_simple__radio" type="radio" name="simple" id="curso" value="<?php echo $premium->id; ?>"  data-id="2">
-               </div>
-               <div class="wc_simple__contenido active">
-                  <p class="wc_simple__slogan">Accede a <span>todos</span> los cursos por <span class="wc_simple__tiempo">1 Año</span></p>
-                  <div class="wc_simple__precio">
-                     <?php echo $premium->get_price_html();?>
-                  </div>
-                  <p class="wc_simple__slogan">Vuélvete <span>Miembro Premium</span> y Certificate</p>
-               </div>
-            </div>
-         </div>
-      <?php } else { ?>
-         </div>
-      <div class="wc_membresia wc_membresia--activo">
-         <p class="wc_membresia__texto">Su Membresia sigue Activo</p>
-      </div>
-      <?php } ?>
-   <?php } ?>
+      if($product->attributes) {
+         include_once 'wc_variacion.php';
+      } else {
+         include_once 'wc_simple.php';
+      }
+   ?>
 
    <div class="wc_pagar"></div>
    <?php } ?>
-   <div class="wc_descripcion">
-      <h2>Descripcion</h2>
-      <article id="post-<?php the_ID(); ?>" >
-         <?php the_content(); ?>
-      </article>
-   </div>
 
-   <div class="wc_temario">
-      <h2>Lo que Aprenderas</h2>
-      <?php echo $temario; ?>
-   </div>
-
-   <div class="wc_objetivos">
-      <h2>Dirigido a</h2>
-      <?php echo $dirigido; ?>
-   </div>
-
-   <div class="wc_objetivos">
-      <h2>Objetivos</h2>
-      <?php echo $objetivos; ?>
+   <div class="wc_acordion" id="acordion">
+      <div class="wc_acordion__item">
+         <h2 class="wc_acordion__header">
+            <i class="wc_acordion__icono fa fa-plus-circle" aria-hidden="true"></i>
+            Descripción
+         </h2>
+         <div class="wc_acordion__body">
+            <div id="post-<?php the_ID(); ?>" >
+               <?php the_content(); ?>
+            </div>
+         </div>
+      </div>
+      <div class="wc_acordion__item">
+         <h2 class="wc_acordion__header">
+            <i class="wc_acordion__icono fa fa-plus-circle" aria-hidden="true"></i>
+            Plan de Estudio
+         </h2>
+         <div class="wc_acordion__body">
+            <div class="wc_temario">
+               <?php echo $temario; ?>
+            </div>
+         </div>
+      </div>
+      <div class="wc_acordion__item">
+         <h2 class="wc_acordion__header">
+            <i class="wc_acordion__icono fa fa-plus-circle" aria-hidden="true"></i>
+            Dirigido a
+         </h2>
+         <div class="wc_acordion__body">
+            <div class="wc_dirigido">
+               <?php echo $dirigido; ?>
+            </div>
+         </div>
+      </div>
+      <div class="wc_acordion__item">
+         <h2 class="wc_acordion__header">
+            <i class="wc_acordion__icono fa fa-plus-circle" aria-hidden="true"></i>
+            Objetivos
+         </h2>
+         <div class="wc_acordion__body">
+            <div class="wc_objetivos">
+               <?php echo $objetivos; ?>
+            </div>
+         </div>
+      </div>
+      <div class="wc_acordion__item">
+         <h2 class="wc_acordion__header">
+            <i class="wc_acordion__icono fa fa-plus-circle" aria-hidden="true"></i>
+            Docentes
+         </h2>
+         <div class="wc_acordion__body">
+            <div class="wc_docentes">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, sit nam dicta, perferendis facilis quis cupiditate rerum cumque ratione corporis temporibus molestias veritatis minima laudantium neque iste. Qui, doloremque autem?
+            </div>
+         </div>
+      </div>
    </div>
 
    <div class="wc_docentes">
-      <h2>Docentes que Dictaran</h2>
+      <h2 class="wc_acordion__header">Docentes que Dictaran</h2>
       <?php if( $docentes ) { ?>
          <div class="wc_docentes__docente">
             <?php foreach( $docentes as $docente ) {

@@ -19,6 +19,10 @@ const svg = require('gulp-svgmin');
 
 const notify = require('gulp-notify');
 
+// WebPack
+const webpack = require('webpack-stream');
+const rename = require('gulp-rename');
+
 const path = {
    scss: 'src/scss/**/*.scss',
    css: 'build/css/app.css',
@@ -37,11 +41,17 @@ function compileSass() {
       .pipe(dest('build/css'));
 }
 
-function compileJS(){
+function compileJS() {
    return src(path.js)
+      .pipe(webpack({
+         mode: 'production',
+         entry: './src/js/app.js'
+      }))
       .pipe(sourcemaps.init())
+      .pipe(concat('app.js'))
       .pipe(terser())
       .pipe(sourcemaps.write('.'))
+      .pipe(rename({suffix: '.min' }))
       .pipe(dest('build/js'));
 }
 

@@ -30,5 +30,8 @@
       "gulp-webp": "^4.0.1",
       "sass": "^1.43.4",
       "terser": "^5.3.8"
+   },
+   "dependencies": {
+      "webpack-stream": "^7.0.0"
    }
 }

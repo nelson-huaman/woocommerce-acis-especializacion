@@ -11,6 +11,8 @@
  *
 */
 
+define('URL', '/wordpress/wp-content/plugins/woocommerce-acis-especializacion/');
+
 add_action('after_setup_theme','producto_woocommerce');
 function producto_woocommerce() {
 

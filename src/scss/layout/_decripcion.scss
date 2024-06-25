@@ -1,14 +1,14 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.wc_descripcion {
-   margin-top: 5rem;
+// .wc_descripcion {
+//    margin-top: 5rem;
 
-   p {
-      color: v.$negro;
-      text-align: justify;
-   }
-}
+//    p {
+//       color: v.$negro;
+//       text-align: justify;
+//    }
+// }
 
 .wc_pagar {
    text-align: center;
