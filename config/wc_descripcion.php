@@ -8,6 +8,9 @@
    $clasico = wc_get_product(2388);
    $premium = wc_get_product(2390);
 
+   $offSelinClasico = $clasico->price - $product->price;
+   $offSelinPremiun = $premium->price - $product->price;
+
    $notificacion = '';
    $memberships = '';
    $limiteDiario = 3;
@@ -64,14 +67,14 @@
       </div> 
    <?php } else { ?>
 
-   <?php 
-      
-      if($product->attributes) {
-         include_once 'wc_variacion.php';
-      } else {
-         include_once 'wc_simple.php';
-      }
-   ?>
+      <?php 
+         
+         if($product->attributes) {
+            include_once 'wc_variacion.php';
+         } else {
+            include_once 'wc_simple.php';
+         }
+      ?>
 
    <div class="wc_pagar"></div>
    <?php } ?>

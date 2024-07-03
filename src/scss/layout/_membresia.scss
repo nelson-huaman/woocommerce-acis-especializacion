@@ -1,7 +1,7 @@
 @use 'base/variables' as v;
 
 .wc_membresia {
-   padding: 3rem 1rem;
+   padding: 2rem 1rem;
    border-radius: 1rem;
    font-size: 1.4rem;
    text-align: left;
@@ -15,14 +15,9 @@
    }
 
    i {
-      font-size: 5rem;
+      font-size: 3rem;
       color: v.$blanco;
       padding: 1rem;
-   }
-
-   &__info {
-      text-align: left;
-      padding-left: 1rem;
    }
 
    &__texto {

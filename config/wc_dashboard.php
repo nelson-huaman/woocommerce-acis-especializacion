@@ -38,8 +38,8 @@ if(is_user_logged_in()) {
     <?php if($memberships) { ?>
         <div class="wc_membresia wc_membresia--aviso">
             <i class="fas fa-exclamation-circle"></i>
-                <div class="wc_membresia__info">
-                    <p class="wc_membresia__texto">Los certificados serán enviados siempre y cuando cuentes con membresía activa / vigente.</p>
+            <div class="wc_membresia__info">
+                <p class="wc_membresia__texto">Los certificados serán enviados siempre y cuando cuentes con membresía activa / vigente.</p>
             </div>
         </div>
         <div class="wc_dashboard__grid">
