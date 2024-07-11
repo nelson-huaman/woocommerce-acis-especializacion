@@ -16,7 +16,69 @@
 <div class="wc_planes">
    <div class="wc_planes__simple">
       <div class="wc_planes__cart wc_planes__cart--regular" data-id="<?php echo $product->id; ?>" data-add="1">
-         <i class="wc_planes__icono wc_planes__icono--simple fa fa-cart-plus" aria-hidden="true"></i>
+         <div class="wc_planes__body">
+            <div class="wc_planes__head">
+               <div class="wc_planes__precio">S/ 120</div>
+               <div class="wc_planes__porcurso">x Curso</div>
+            </div>
+            <div class="wc_planes__contenido">
+               <h3 class="wc_planes__h3">Basico</h3>
+               <ul class="wc_planes__ul">
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Un curso por un mes</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>1 curso por 30 Días</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso al Aula Virtual</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Certificado del Curso</li>
+               </ul>
+            </div>
+         </div>
+         <div class="wc_planes__footer">
+            <div class="wc_planes__pagar">S/ 120</div>
+         </div>
+      </div>
+
+      <div class="wc_planes__cart wc_planes__cart--regular" data-id="<?php echo $product->id; ?>" data-add="1">
+         <div class="wc_planes__body">
+            <div class="wc_planes__head">
+               <div class="wc_planes__precio">S/ 8</div>
+               <div class="wc_planes__porcurso">x Curso</div>
+            </div>
+            <div class="wc_planes__contenido">
+               <h3 class="wc_planes__h3">Clasico</h3>
+               <ul class="wc_planes__ul">
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Tu capacitación x 1 mes</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>+ 25 Cursos</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso al Aula Virtual</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Certificado x Curso</li>
+               </ul>
+            </div>
+         </div>
+         <div class="wc_planes__footer">S/ 200</div>
+      </div>
+
+      <div class="wc_planes__cart wc_planes__cart--regular" data-id="<?php echo $product->id; ?>" data-add="1">
+         <div class="wc_planes__body">
+            <div class="wc_planes__head">
+               <div class="wc_planes__precio">S/ 2</div>
+               <div class="wc_planes__porcurso">x Curso</div>
+            </div>
+            <div class="wc_planes__contenido">
+               <h3 class="wc_planes__h3">Premium</h3>
+               <ul class="wc_planes__ul">
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Empoderate en 1 año</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>+ 170 Cursos</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso al Aula Virtual</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Certificado x Curso</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso a la programación anual</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso a talleres</li>
+                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Descuentos en diplomados</li>
+               </ul>
+            </div>
+         </div>
+         <div class="wc_planes__footer">S/ 360</div>
+      </div>
+
+
+         <!-- <i class="wc_planes__icono wc_planes__icono--simple fa fa-cart-plus" aria-hidden="true"></i>
          <div class="wc_planes__info">
             <div class="wc_planes__name">Precio</div>
             <div class="wc_planes__texto wc_planes__texto--slogan">Accede <span>sólo</span> a este Curso</div>
@@ -24,8 +86,10 @@
                <?php echo $product->get_price_html();?>
             </div>
             <div class="wc_planes__texto wc_planes__texto--descripcion">Duración 30 Días</div>
-         </div>
+         </div> -->
       </div>
+
+      
 
       <?php if($membershipsActivo) { ?>
          <?php foreach( $planes as $plan ) { ?>
@@ -38,7 +102,6 @@
             <?php } ?>
          <?php } ?>
       <?php } else { ?>
-         <h2>Promosion Exlusiva</h2>
          <?php include 'wc_planes.php'; ?>
       <?php } ?>
       
