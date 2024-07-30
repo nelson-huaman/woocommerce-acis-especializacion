@@ -1,9 +1,12 @@
 <?php
 
-$inicio = date('d M. Y', strtotime($fechaUno));
+setlocale(LC_TIME, "spanish");
+date_default_timezone_set("America/Lima");
+$inicio = date('d F Y', strtotime($fechaUno));
 $year = date('Y', strtotime($fechaUno));
 $fechaActual = strtotime(date("d-m-Y"));
 $fechaFinal = strtotime($fechaDos);
+
 
 if($categoria === 'Curso') {
    if($fechaActual <= $fechaFinal) {

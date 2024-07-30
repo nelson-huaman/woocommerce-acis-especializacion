@@ -5,15 +5,17 @@
  * Plugin Name: WooCommerce ACIS Especialización
  * Plugin URI:  https://nelsondev.info
  * Description: WooCommerce con nuestro plugin personalizado! Optimiza la experiencia de compra con funciones únicas diseñadas según tus necesidades.
- * Version:     14.00
+ * Version:     15.00
  * Author:      Nelson Huamán H.
  * Author URI:  https://nelsondev.info
  *
 */
 
-define('URL', '/wordpress/wp-content/plugins/woocommerce-acis-especializacion/');
+define('IMG', plugin_dir_url(__FILE__) . 'build/img/');
 
 add_action('after_setup_theme','producto_woocommerce');
+
+
 function producto_woocommerce() {
 
    include_once 'app.php';
@@ -53,7 +55,9 @@ function producto_woocommerce() {
 
       ?>
       <div class="wc_btn_inicio">
-         <a class="wc_btn_inicio__boton" href="<?php echo $link; ?>"><?php echo ($categoria === 'Curso') ? 'Ver Detalles del Curso' : 'Ver Detalles del Programa'; ?></a>
+         <a class="wc_btn_inicio__boton" href="<?php echo $link; ?>">´
+            <?php echo ($categoria === 'Curso') ? 'Ver Detalles del Curso' : 'Ver Detalles del ' . $categoria; ?>
+         </a>
       </div>
       <?php
 

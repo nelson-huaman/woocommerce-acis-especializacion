@@ -9,6 +9,14 @@
 
    ul.products {
 
+      @include m.grid(1, 3rem);
+      @include m.tablet {
+         @include m.grid(2, 3rem);
+      }
+      @include m.desktop {
+         @include m.grid(3, 3rem);
+      }
+
       &::before {
          display: none !important;
       }
@@ -26,15 +34,10 @@
          }
       }
 
-      @include m.grid(1, 3rem);
+      
+      // @include m.grid(1, 3rem);
 
-      @include m.tablet {
-         @include m.grid(2, 3rem);
-      }
-
-      @include m.desktop {
-         @include m.grid(3, 3rem);
-      }
+      
    }
 }
 

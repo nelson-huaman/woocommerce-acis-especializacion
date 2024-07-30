@@ -65,19 +65,13 @@
       <div class="wc_membresia wc_membresia--limete">
          <p class="wc_membresia__texto"><?php echo $notificacion; ?></p>
       </div> 
-   <?php } else { ?>
-
-      <?php 
-         
-         if($product->attributes) {
-            include_once 'wc_variacion.php';
-         } else {
-            include_once 'wc_simple.php';
-         }
-      ?>
-
-   <div class="wc_pagar"></div>
-   <?php } ?>
+   <?php } else {
+      if($product->attributes) {
+         include_once 'wc_variacion.php';
+      } else {
+         include_once 'wc_simple.php';
+      }
+   } ?>
 
    <div class="wc_acordion" id="acordion">
       <div class="wc_acordion__item">
@@ -131,31 +125,25 @@
          </h2>
          <div class="wc_acordion__body">
             <div class="wc_docentes">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, sit nam dicta, perferendis facilis quis cupiditate rerum cumque ratione corporis temporibus molestias veritatis minima laudantium neque iste. Qui, doloremque autem?
+               <?php if( $docentes ) { ?>
+                  <div class="wc_docentes__docente">
+                     <?php foreach( $docentes as $docente ) {
+                        $title = $docente->post_title;
+                        $slug = $docente->post_name;
+                        $lista = $docente->post_content;
+                     ?>
+
+                     <div class="wc_docentes__item">
+                        <img loading="lazy" src="https://acis.edu.pe/RECURSOS_PROGRAMA/DOCENTES/<?php echo $slug; ?>.webp" alt="<?php echo $title; ?>" width="50" height="50" class="wc_docentes__imagen">
+                        <label class="wc_docentes__label"><?php echo $title; ?></label>
+                        <?php echo $lista; ?>
+                     </div>
+
+                     <?php } ?>
+                  </div>
+               <?php } ?>
             </div>
          </div>
       </div>
    </div>
-
-   <div class="wc_docentes">
-      <h2 class="wc_acordion__header">Docentes que Dictaran</h2>
-      <?php if( $docentes ) { ?>
-         <div class="wc_docentes__docente">
-            <?php foreach( $docentes as $docente ) {
-               $title = $docente->post_title;
-               $slug = $docente->post_name;
-               $lista = $docente->post_content;
-            ?>
-
-            <div class="wc_docentes__item">
-               <img loading="lazy" src="https://acis.edu.pe/RECURSOS_PROGRAMA/DOCENTES/<?php echo $slug; ?>.webp" alt="<?php echo $title; ?>" width="50" height="50" class="wc_docentes__imagen">
-               <label class="wc_docentes__label"><?php echo $title; ?></label>
-               <?php echo $lista; ?>
-            </div>
-
-            <?php } ?>
-         </div>
-      <?php } ?>
-   </div>
-
 </div>

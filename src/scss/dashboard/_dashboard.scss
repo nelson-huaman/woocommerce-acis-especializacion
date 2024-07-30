@@ -48,7 +48,9 @@
 
    &__add-to-cart {
       @include m.boton(v.$azul, v.$blanco !important);
-      padding: 1rem 3rem;
+      & {
+         padding: 1rem 5rem;
+      }
    }
 
 }

@@ -5,7 +5,7 @@ function woocommerce_acis_style() {
    wp_enqueue_style (
       'public-css',
       plugins_url('/build/css/app.css', __FILE__),
-      array(), '6.4.3'
+      array(), '1.0'
    );
 
    wp_enqueue_script (

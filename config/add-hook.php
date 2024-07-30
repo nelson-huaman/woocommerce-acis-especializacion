@@ -32,6 +32,28 @@ function wc_calendario ( $content = null ) {
 }
 add_shortcode( 'calendario', 'wc_calendario' );
 
+// Pagina de Membresia shortcode
+function page_membresia ( $content = null ) {
+   $content = "<div class='pagina'>";
+   // $content .= "Hola";
+   include 'page/membresia.php';
+   $content .= "</div>";
+
+   return do_shortcode( $content ); 
+}
+add_shortcode( 'page_membresia', 'page_membresia' );
+
+// Home Membresia shortcode
+function home_membresia ( $content = null ) {
+   $content = "<div class='pagina'>";
+   // $content .= "Hola";
+   include 'page/homemembresia.php';
+   $content .= "</div>";
+
+   return do_shortcode( $content ); 
+}
+add_shortcode( 'home_membresia', 'home_membresia' );
+
 function my_account_menu_order() {
    $menuOrder = array(
       'dashboard'          => __( 'Inicio', 'woocommerce' ),

@@ -44,24 +44,6 @@ if(is_user_logged_in()) {
         </div>
         <div class="wc_dashboard__grid">
             <?php foreach( $planes as $plan ) { ?>
-                <?php if($plan->nombre === 'Gratis') { ?>
-                    <?php if($plan->estado === 'wcm-active') { ?>
-                        <div class="wc_membresia wc_membresia--activo">
-                            <i class="fas fa-clipboard-check"></i>
-                            <div class="wc_membresia__info">
-                                <p class="wc_membresia__texto">Su Membresía <?php echo $plan->nombre; ?> esta Activo</p>
-                                <p class="wc_membresia__texto wc_membresia__texto--disponible">Disponible <span><?php echo $plan->dias; ?> Días</span></p>
-                            </div>
-                        </div>
-                    <?php } else { ?>
-                        <div class="wc_membresia wc_membresia--expirado">
-                            <i class="fas fa-eye-slash"></i>
-                            <div class="wc_membresia__info">
-                                <p class="wc_membresia__texto">Su Membresía <?php echo $plan->nombre; ?> a Finalizado</p>
-                            </div>
-                        </div>
-                    <?php } ?>
-                <?php } ?>
                 <?php if($plan->nombre === 'Clásico') { ?>
                     <?php if($plan->estado === 'wcm-active') { ?>
                         <div class="wc_membresia wc_membresia--activo">
@@ -119,7 +101,7 @@ if(is_user_logged_in()) {
         </div>
 
         <h2 class="wc_dashboard__titulo">Puede adquir una Membresía</h2>
-        <div class="wc_dashboard__descripcion">Accesdo a +160 Cursos con un solo Pago</div>
+        <div class="wc_dashboard__descripcion">Accesdo a +170 Cursos con un solo Pago</div>
 
         <?php include 'wc_membresia.php'; ?>
         

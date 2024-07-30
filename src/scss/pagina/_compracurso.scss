@@ -1,0 +1,295 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.wc_planes {
+   display: flex;
+   flex-direction: column;
+   gap: 3rem;
+   margin-top: 3rem;
+
+   &__simple {
+      @include m.grid(1, 2rem);
+      margin: 0 auto;
+
+      @include m.desktop {
+         @include m.grid(3, 2rem);
+      }
+   }
+
+   &__item {
+      display: flex;
+      flex-direction: column;
+      color: v.$blanco;
+      border-radius: 1rem;
+      max-width: 32rem;
+      min-width: 32rem;
+   }
+
+   &__tag {
+      background-color: v.$premium;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      justify-content: center;
+      max-width: 20rem;
+      margin: 0 auto;
+      color: v.$blanco;
+      padding: 0 1.5rem;
+      width: auto;
+      font-size: 1.2rem;
+      font-weight: v.$bold;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+
+      &--oculto {
+         visibility: hidden;
+      }
+
+      i {
+         font-size: 2rem;
+      }
+   }
+
+   &__info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      
+      &--basico {
+         background-color: v.$basico;
+      }
+
+      &--clasico {
+         @include m.degradado(v.$azul, v.$clasico);
+      }
+
+      &--premium {
+         @include m.degradado(v.$premium, v.$premiumdos);
+      }
+
+   }
+
+   &__contenido {
+      display: none;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+
+      &--clasico {
+         background-color: v.$fondoclasico;
+
+         i {
+            background-color: v.$azul;
+         }
+      }
+
+      &--premium {
+         background-color: v.$fondopremium;
+
+         i {
+            background-color: v.$premium;
+         }
+      }
+   }
+
+   &__icono {
+      font-size: 4rem;
+   }
+
+   &__datos {
+      font-weight: v.$bold;
+      display: flex;
+      flex-direction: row;
+      gap: .5rem;
+      align-items: center;
+      line-height: .8;
+      font-size: 5rem;
+      // background-color: green;
+
+      &--basico {
+         display: flex;
+         flex-direction: row-reverse;
+
+         bdi {
+            display: flex;
+            align-items: center;
+         }
+
+         .woocommerce-Price-currencySymbol {
+            font-size: 2.5rem;
+         }
+      }
+      
+      &--moneda {
+         font-size: 2.5rem;
+      }
+
+      &--slogan {
+         font-size: 2.2rem;
+      }
+
+      del {
+         font-size: 2rem;
+         color: darken(v.$gris, 10%);
+      }
+
+      ins {
+         all: unset;
+
+         bdi {
+            display: flex;
+            align-items: center;
+            gap: 0;
+         }
+
+         .woocommerce-Price-currencySymbol {
+            font-size: 2.5rem;
+         }
+      }
+   }
+
+   &__frase {
+      font-size: 1.2rem;
+      line-height: 2;
+   }
+
+   &__forma {
+      &--clasico {
+         fill: v.$clasico;
+      }
+      &--premium {
+         fill: darken(v.$premium, 5%);
+      }
+   }
+
+   &__ul {
+      padding: 1rem 3rem;
+      line-height: normal;
+   }
+
+   &__li {
+      margin: .5rem 0;
+      color: v.$negro;
+      
+      i {
+         border-radius: 50%;
+         color: v.$blanco;
+
+         &::before {
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+         }
+      }
+   }
+
+   &__total {
+      font-weight: v.$bold;
+      text-align: center;
+      font-size: 1.8rem;
+
+      &--clasico {
+         color: v.$azul;
+      }
+
+      &--premium {
+         color: v.$premium;
+      }
+   }
+
+   &__eira {
+      padding: 0 3rem;
+      display: flex;
+      margin-bottom: 2rem;
+   }
+
+   &__img {
+      width: 7rem;
+      z-index: 1;
+   }
+
+   &__monto {
+      margin-top: 1.5rem;
+      flex-grow: 1;
+      background-color: v.$blanco;
+      color: v.$negro;
+      position: relative;
+      font-weight: v.$bold;
+      line-height: normal;
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      align-items: center;
+      font-size: 3rem;
+      padding: 0 2rem;
+      border-bottom-right-radius: 1rem;
+      border-top-right-radius: 1rem;
+      flex-direction: column-reverse;
+
+      &--clasico {
+         color: v.$azul;
+      }
+
+      &--premium {
+         color: v.$premium;
+      }
+
+      &::before {
+         position: absolute;
+         left: -3rem;
+         display: block;
+         content: "";
+         width: 3rem;
+         height: 100%;
+         background-color: v.$blanco;
+      }
+
+      .woocommerce-Price-currencySymbol {
+         font-size: 2.2rem;
+      }
+
+      ins {
+         all: unset;
+      }
+
+      del {
+         font-size: 2rem;
+         color: darken(v.$gris, 40%);
+      }
+
+
+   }
+
+   &__activo {
+
+      .wc_planes__info--clasico,
+      .wc_planes__info--premium {
+         border-bottom-left-radius: 0;
+         border-bottom-right-radius: 0;
+      }
+
+      .wc_planes__contenido {
+         display: block;
+      }
+      
+   }
+
+   &__compra {
+      display: flex;
+      justify-content: center;
+   }
+
+   &__pago {
+      @include m.boton(v.$azul, v.$blanco);
+      & {
+         color: v.$blanco !important;
+      }
+   }
+}
+

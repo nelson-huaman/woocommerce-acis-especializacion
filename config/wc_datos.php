@@ -1,7 +1,6 @@
 <?php
 
-setlocale(LC_TIME, "spanish");
-date_default_timezone_set("America/Lima");
+
 $categoria = get_field('programa');
 $fechaUno = get_field('dia_inicio');
 $fechaDos = get_field('dia_final');

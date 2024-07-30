@@ -51,7 +51,9 @@
 
    &__add-to-cart {
       @include m.boton(v.$rojo, v.$blanco);
-      padding: 1rem 3rem;
+      & {
+         padding: 1rem 3rem;
+      }
 
       i {
          font-size: 2rem;

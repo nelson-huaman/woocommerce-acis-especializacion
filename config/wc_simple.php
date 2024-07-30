@@ -6,157 +6,131 @@
       <div class="wc_notificacion__descripcion">
          <div class="wc_notificacion__texto">Su Membresía sigue Activo</div>
       </div>
-      
    </div>
-   <p class="wc_guiadecompra">Realice click en el cuadro para realizar su compra</p>
-<?php } else {?>
-   <p class="wc_guiadecompra">Realice click en el cuadro para realizar su compra</p>
 <?php } ?>
 
-<div class="wc_planes">
+<div class="wc_planes" id="planes">
    <div class="wc_planes__simple">
-      <div class="wc_planes__cart wc_planes__cart--regular" data-id="<?php echo $product->id; ?>" data-add="1">
-         <div class="wc_planes__body">
-            <div class="wc_planes__head">
-               <div class="wc_planes__precio">S/ 120</div>
-               <div class="wc_planes__porcurso">x Curso</div>
+      <div class="wc_planes__item" data-producto="<?php echo $product->id; ?>" data-id="1">
+         <div class="wc_planes__tag wc_planes__tag--oculto">Basico</div>
+         <div class="wc_planes__info wc_planes__info--basico">
+            <div class="wc_planes__icono">
+               <i class="fa fa-star-o" aria-hidden="true"></i>
             </div>
-            <div class="wc_planes__contenido">
-               <h3 class="wc_planes__h3">Basico</h3>
-               <ul class="wc_planes__ul">
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Un curso por un mes</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>1 curso por 30 Días</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso al Aula Virtual</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Certificado del Curso</li>
-               </ul>
+            <div class="wc_planes__shop">
+               <div class="wc_planes__datos wc_planes__datos--basico">
+                  <?php echo $product->get_price_html();?>
+               </div>
+               <div class="wc_planes__frase">Sólo este Curso</div>
             </div>
          </div>
-         <div class="wc_planes__footer">
-            <div class="wc_planes__pagar">S/ 120</div>
-         </div>
       </div>
-
-      <div class="wc_planes__cart wc_planes__cart--regular" data-id="<?php echo $product->id; ?>" data-add="1">
-         <div class="wc_planes__body">
-            <div class="wc_planes__head">
-               <div class="wc_planes__precio">S/ 8</div>
-               <div class="wc_planes__porcurso">x Curso</div>
+      <div class="wc_planes__item" data-producto="<?php echo $clasico->id; ?>" data-id="2">
+         <div class="wc_planes__tag wc_planes__tag--oculto">Clasico</div>
+         <div class="wc_planes__info wc_planes__info--clasico">
+            <div class="wc_planes__icono">
+               
+               <i class="fa fa-star-o" aria-hidden="true"></i>
             </div>
-            <div class="wc_planes__contenido">
-               <h3 class="wc_planes__h3">Clasico</h3>
-               <ul class="wc_planes__ul">
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Tu capacitación x 1 mes</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>+ 25 Cursos</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso al Aula Virtual</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Certificado x Curso</li>
-               </ul>
+            <div class="wc_planes__shop">
+               <div class="wc_planes__datos">
+                  <span class="wc_planes__datos--moneda">S/</span>
+                  <span class="wc_planes__datos--precio">8</span>
+                  <span class="wc_planes__datos--slogan">x curso</span>
+               </div>
+               <div class="wc_planes__frase">Vuélvete Miembro Clásico</div>
             </div>
          </div>
-         <div class="wc_planes__footer">S/ 200</div>
-      </div>
-
-      <div class="wc_planes__cart wc_planes__cart--regular" data-id="<?php echo $product->id; ?>" data-add="1">
-         <div class="wc_planes__body">
-            <div class="wc_planes__head">
-               <div class="wc_planes__precio">S/ 2</div>
-               <div class="wc_planes__porcurso">x Curso</div>
+         <div class="wc_planes__contenido wc_planes__contenido--clasico">
+            <svg class="wc_planes__forma" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.28 39.86">
+               <path class="wc_planes__forma--clasico" d="M297.64,39.86C271.71,39.86,0,0,0,0H595.28S326.14,39.86,297.64,39.86Z"/>
+            </svg>
+            <div class="wc_planes__ul">
+               <p class="wc_planes__li">
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  Tu capacitación por 1 mes
+               </p>
+               <p class="wc_planes__li">
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  +25 cursos
+               </p>
+               <p class="wc_planes__li">
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  Acceso al aula virtual
+               </p>
+               <p class="wc_planes__li">
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  Certificado por curso
+               </p>
             </div>
-            <div class="wc_planes__contenido">
-               <h3 class="wc_planes__h3">Premium</h3>
-               <ul class="wc_planes__ul">
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Empoderate en 1 año</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>+ 170 Cursos</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso al Aula Virtual</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Certificado x Curso</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso a la programación anual</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Acceso a talleres</li>
-                  <li class="wc_planes__li"><i class="fa fa-check" aria-hidden="true"></i>Descuentos en diplomados</li>
-               </ul>
+            <div class="wc_planes__total wc_planes__total--clasico">Precio total</div>
+            <div class="wc_planes__eira">
+               <img class="wc_planes__img" src="https://acis.edu.pe/RECURSOS_PROGRAMA/ICON/eira-clasico.svg" alt="Eira Membresía Clásico">
+               <div class="wc_planes__monto wc_planes__monto--clasico">
+                  <?php echo $clasico->get_price_html();?>
+               </div>
             </div>
          </div>
-         <div class="wc_planes__footer">S/ 360</div>
       </div>
-
-
-         <!-- <i class="wc_planes__icono wc_planes__icono--simple fa fa-cart-plus" aria-hidden="true"></i>
-         <div class="wc_planes__info">
-            <div class="wc_planes__name">Precio</div>
-            <div class="wc_planes__texto wc_planes__texto--slogan">Accede <span>sólo</span> a este Curso</div>
-            <div class="wc_planes__texto wc_planes__texto--precio">
-               <?php echo $product->get_price_html();?>
+      <div class="wc_planes__item" data-producto="<?php echo $premium->id; ?>" data-id="3">
+         <div class="wc_planes__tag">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            Sé un profesional premium
+         </div>
+         <div class="wc_planes__info wc_planes__info--premium">
+            <div class="wc_planes__icono">
+               <i class="fa fa-star-o" aria-hidden="true"></i>
             </div>
-            <div class="wc_planes__texto wc_planes__texto--descripcion">Duración 30 Días</div>
-         </div> -->
+            <div class="wc_planes__shop">
+               <div class="wc_planes__datos">
+                  <span class="wc_planes__datos--moneda">S/</span>
+                  <span class="wc_planes__datos--precio">2</span>
+                  <span class="wc_planes__datos--slogan">x curso</span>
+               </div>
+               <div class="wc_planes__frase">Vuélvete Miembro Clásico</div>
+            </div>
+         </div>
+         <div class="wc_planes__contenido wc_planes__contenido--premium">
+            <svg class="wc_planes__forma" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.28 39.86">
+               <path class="wc_planes__forma--premium" d="M297.64,39.86C271.71,39.86,0,0,0,0H595.28S326.14,39.86,297.64,39.86Z"/>
+            </svg>
+            <div class="wc_planes__ul">
+               <p class="wc_planes__li">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  Empoderate en 1 año
+               </p>
+               <p class="wc_planes__li">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  + 170 cursos
+               </p>
+               <p class="wc_planes__li">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  Certificación incluida
+               </p>
+               <p class="wc_planes__li">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  Acceso a la programación anual
+               </p>
+               <p class="wc_planes__li">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  Acceso a talleres
+               </p>
+               <p class="wc_planes__li">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  Descuentos en diplomados
+               </p>
+            </div>
+            <div class="wc_planes__total wc_planes__total--premium">Precio total</div>
+            <div class="wc_planes__eira">
+               <img class="wc_planes__img" src="https://acis.edu.pe/RECURSOS_PROGRAMA/ICON/eira-premium.svg" alt="Eira Membresía Clásico">
+               <div class="wc_planes__monto wc_planes__monto--premium">
+                  <?php echo $premium->get_price_html();?>
+                  <!-- <span class="wc_planes__monto--moneda">S/.</span>
+                  <span class="wc_planes__monto--precio">400</span> -->
+               </div>
+            </div>
+         </div>
       </div>
-
-      
-
-      <?php if($membershipsActivo) { ?>
-         <?php foreach( $planes as $plan ) { ?>
-            <?php if($plan->estado === 'wcm-active') { ?>
-               <?php if($plan->dias < 15 ) { ?>
-                  <h2 class="wc_dashboard__titulo">Su Membresia esta por Finalizar - Renueva Aquí</h2>
-                  <div class="wc_dashboard__descripcion">Promoción disponible hasta antes de finalizar su Membresía</div>
-                  <?php include 'wc_planes.php'; ?>
-               <?php } ?>
-            <?php } ?>
-         <?php } ?>
-      <?php } else { ?>
-         <?php include 'wc_planes.php'; ?>
-      <?php } ?>
-      
    </div>
-   <div class="wc_simples__detalle">
-      <div class="wc_simples__contenido"></div>
-   </div>
+   <div class="wc_planes__compra"></div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="wcm_shop wcm_shop--grid" id="simple">
-   <div class="wcm_shop__cart wcm_shop__cart--regular" data-id="<?php echo $product->id; ?>" data-add="1">
-      <i class="wcm_shop__icono wcm_shop__icono--simple fa fa-cart-plus" aria-hidden="true"></i>
-      <div class="wcm_shop__info">
-         <div class="wcm_shop__name">Precio</div>
-         <div class="wcm_shop__texto wcm_shop__texto--slogan">Accede <span>sólo</span> a este Curso</div>
-         <div class="wcm_shop__texto wcm_shop__texto--precio">
-            <?php echo $product->get_price_html();?>
-         </div>
-         <div class="wcm_shop__texto wcm_shop__texto--descripcion">Duración 30 Días</div>
-      </div>
-   </div>
-   <div class="wcm_shop__cart wcm_shop__cart--clasico" data-id="<?php echo $clasico->id; ?>" data-add="2">
-      <i class="wcm_shop__icono wcm_shop__icono--simple fa fa-star-half-o"></i>
-      <div class="wcm_shop__info">
-         <div class="wcm_shop__name">Membresía Clásica</div>
-         <div class="wcm_shop__texto wcm_shop__texto--slogan">Accede a <span>todos</span> los cursos por <span>30 Días</span></div>
-         <div class="wcm_shop__texto wcm_shop__texto--precio">
-            <?php echo $clasico->get_price_html();?>
-         </div>
-         <div class="wcm_shop__texto wcm_shop__texto--descripcion">Vuélvete <span>Miembro Clásico</span> y Certificate</div>
-      </div>
-   </div>
-   <div class="wcm_shop__cart wcm_shop__cart--premium" data-id="<?php echo $premium->id; ?>" data-add="3">
-      <i class="wcm_shop__icono wcm_shop__icono--simple fa fa-star"></i>
-      <div class="wcm_shop__info">
-         <div class="wcm_shop__name">Membresía Premium</div>
-         <div class="wcm_shop__texto wcm_shop__texto--slogan">Accede a <span>todos</span> los cursos por <span>30 Días</span></div>
-         <div class="wcm_shop__texto wcm_shop__texto--precio">
-            <?php echo $premium->get_price_html();?>
-         </div>
-         <div class="wcm_shop__texto wcm_shop__texto--descripcion">Vuélvete <span>Miembro Clásico</span> y Certificate</div>
-      </div>
-   </div>
-</div> -->
-
-<div class="wc_pagar"></div>
-
-<hr>

@@ -1,0 +1,515 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+$headerwebp: '../../build/img/header.webp';
+$headerjpg: '../../build/img/header.jpg';
+$headeravif: '../../build/img/header.avif';
+
+.pagina {
+
+   &__header {
+      background-color: v.$azul;
+      background-image: linear-gradient(to bottom, rgba(v.$azul, 1), rgba(v.$azul, .4)),
+                        image-set(url($headeravif) 1x, url($headerwebp) 1x, url($headerjpg) 1x);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: auto;
+      @include m.desktop {
+         background-image: linear-gradient(to right, rgba(v.$azul, 1), rgba(v.$azul, .4)),
+                        image-set(url($headeravif) 1x, url($headerwebp) 1x, url($headerjpg) 1x);
+      }
+   }
+
+   &__contenedor {
+      @include m.contenedor;
+
+      &--header {
+         @include m.grid(1, 2rem);
+         align-items: center;
+         padding-top: 5rem;
+   
+         @include m.desktop {
+            @include m.grid(2, 2rem);
+         }
+      }
+      
+   }
+
+   &__h1 {
+      color: v.$blanco;
+      font-size: 3rem;
+      line-height: 1.2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include m.tablet {
+         font-size: 6rem;
+      }
+      @include m.desktop {
+         align-items: start;
+         font-size: 7rem;
+      }
+      
+      &--header {
+         font-weight: 500;
+         font-size: 2.6rem;
+         @include m.tablet {
+            font-size: 4.5rem;
+         }
+         @include m.desktop {
+            font-size: 5.5rem;
+         }
+      }
+
+      &--footer {
+         display: flex;
+         flex-direction: row;
+         gap: 1rem;
+         line-height: 1;
+      }
+
+      &--peque {
+         display: flex;
+         flex-direction: column;
+         font-size: 1.8rem;
+         color: v.$blanco;
+         @include m.tablet {
+            font-size: 3rem;
+         }
+         @include m.desktop {
+            font-size: 4rem;
+         }
+      }
+
+      &--premium {
+         font-size: 4.5rem;
+         color: v.$premiumdos;
+         font-weight: 900;
+         @include m.tablet {
+            font-size: 7rem;
+         }
+         @include m.desktop {
+            font-size: 8rem;
+         }
+      }
+   }
+
+   &__enlace {
+      color: v.$premiumdos;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.8rem;
+      text-align: center;
+      display: block;
+
+      margin-bottom: 3rem;
+
+      &:hover {
+         cursor: pointer;
+         color: v.$premium;
+      }
+
+      @include m.tablet {
+         font-size: 2.3rem;
+      }
+
+      &--header {
+         @include m.desktop {
+            display: inline-block;
+         }
+      }
+      
+   }
+
+   &__imagen-enfermera {
+      max-width: 40rem;
+      margin: 0 auto;
+      @include m.desktop {
+         margin: 0;
+      }
+   }
+
+   &__seccion {
+      padding-top: 5rem;
+
+      &--fondo {
+         background-color: v.$azul;
+      }
+   }
+
+   &__h2 {
+      font-size: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: v.$azul;
+      line-height: 1.2;
+      font-weight: 900;
+
+      @include m.tablet {
+         font-size: 4.5rem;
+      }
+
+      @include m.desktop {
+         font-size: 5rem;
+      }
+      
+      &--blanco {
+         color: v.$blanco;
+      }
+
+      &--span {
+         font-weight: 500;
+      }
+
+      &--premiun {
+         font-size: 4rem;
+         color: v.$premiumdos;
+         @include m.tablet {
+            font-size: 6rem;
+         }
+      }
+
+      &--elige {
+         font-weight: 500;
+      }
+
+   }
+
+   &__flex {
+      position: relative;
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 5rem;
+      @include m.desktop {
+         flex-direction: row;
+         justify-content: flex-end;
+      }
+   }
+
+   &__picture {
+      @include m.desktop {
+         position: absolute;
+         left: 0;
+         bottom: 0;
+         width: 70rem;
+      }
+   }
+
+   &__enfermeras {
+      width: 100%;
+   }
+
+   &__iconos {
+      @include m.grid(2, 2rem);
+      margin-bottom: 2rem;
+
+      &:last-of-type {
+         margin-bottom: 5rem;
+      }
+
+      @include m.desktop {
+         max-width: 50rem;
+         z-index: 1;
+
+         &:last-of-type {
+            margin-bottom: 6rem;
+         }
+      }
+   }
+
+   &__icono {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      @include m.sombra;
+      padding: 2rem;
+      border-radius: 1rem;
+      background-color: v.$blanco;
+
+      @include m.tablet {
+         // max-width: 25rem;
+         padding: 3rem;
+      }
+ 
+      &--img {
+         width: 5rem;
+         height: 5rem;
+         margin-bottom: 1rem;
+      }
+   }
+
+   &__h3 {
+      color: v.$azul;
+      font-size: 1.8rem;
+      margin: 0;
+      line-height: 1.2;
+   }
+
+   // Membresia
+   &__membresias {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 4rem;
+      padding: 8rem 0;
+
+      @include m.desktop {
+         flex-direction: row;
+         justify-content: center;
+      }
+   }
+
+   &__membresia {
+      background-color: v.$blanco;
+      border-radius: 2rem;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: auto;
+      
+      @include m.tablet {
+         width: 50rem;
+      }
+   }
+
+   &__cuerpo,
+   &__cabecera {
+      padding-bottom: 3rem;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+      overflow: auto;
+   }
+
+   &__cuerpo {
+      &--clasico {
+         background-color: rgba(v.$celeste, .3);
+      }
+
+      &--premium {
+         background-color: rgba(v.$premiumdos, .3);
+      }
+   }
+
+   &__cabecera {
+      &--clasico {
+         @include m.degradado(lighten(v.$azul, 6%), v.$clasico);
+      }
+
+      &--premium {
+         @include m.degradado(v.$premium, v.$premiumdos);
+      }
+   }
+
+   &__nombre {
+      font-size: 4rem;
+      text-align: center;
+      font-weight: 900;
+      color: v.$blanco;
+      padding-top: 4rem;
+      margin: 0;
+      z-index: 999;
+      @include m.tablet {
+         font-size: 6rem;
+      }
+   }
+
+   &__stars {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      color: v.$blanco;
+
+      i {
+         font-size: 3rem;
+      }
+
+      i.idos {
+         font-size: 5rem;
+      }
+   }
+
+   &__precio {
+      padding-top: 3rem;
+      color: v.$negro;
+      font-weight: 900;
+      font-size: 4rem;
+
+      &--clasico {
+         color: v.$azul;
+      }
+
+      &--premium {
+         color: v.$premium;
+      }
+
+      .woocommerce-Price-currencySymbol {
+         font-size: 2.2rem;
+      }
+
+      ins {
+         all: unset;
+      }
+
+      del {
+         font-size: 2.5rem;
+         color: darken(v.$gris, 40%);
+      }
+   }
+
+   &__ul {
+      padding: 2rem 3rem;
+      line-height: 1.5;
+      font-size: 1.8rem;
+
+      @include m.tablet {
+         padding: 1rem 5rem;
+      }
+
+      &--clasico {
+
+         i {
+            background-color: v.$azul;
+         }
+      }
+
+      &--premium {
+
+         i {
+            background-color: v.$premiumdos;
+         }
+      }
+   }
+
+   &__li {
+      margin: .5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      
+      i {
+         border-radius: 50%;
+         color: v.$blanco;
+
+         &::before {
+            width: 2.2rem;
+            height: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            @include m.tablet {
+               font-size: 1.8rem;
+               width: 3rem;
+               height: 3rem;
+            }
+         }
+      }
+   }
+
+   &__boton {
+      color: v.$blanco;
+      font-weight: 900;
+      padding: 1rem 2.5rem;
+      display: inline-block;
+      margin: 5rem auto;
+      font-size: 1.8rem;
+      border-radius: 1rem;
+      cursor: pointer;
+
+      @include m.tablet {
+         font-size: 2.2rem;
+         padding: 1.5rem 3rem;
+      }
+
+      &--clasico {
+         background-color: v.$azul;
+
+         &:hover {
+            background-color: darken(v.$azul, 15%);
+            color: v.$blanco;
+         }
+      }
+
+      &--premium {
+         background-color: v.$premium;
+
+         &:hover {
+            background-color: darken(v.$premium, 15%);
+            color: v.$blanco;
+         }
+      }
+      
+   }
+
+   &__eira {
+      width: 8rem;
+      position: absolute;
+      left: 1rem;
+      bottom: 0;
+   }
+
+   // Detalles
+   &__tabla {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 3rem;
+      border: none;
+
+      @include m.tablet {
+         max-width: 70rem;
+         margin: 0 auto;
+      }
+   }
+
+   &__th {
+      text-align: center;
+      font-weight: 900;
+      font-size: 1.5rem;
+      border: none;
+
+      @include m.tablet {
+         font-size: 2rem;
+      }
+
+      &--clasico {
+         color: v.$azul;
+      }
+
+      &--premium {
+         color: v.$premiumdos;
+      }
+   }
+
+   &__td {
+      text-align: center;
+      font-weight: 500;
+      font-size: 1.5rem;
+      border: 5px solid v.$blanco;
+      border-radius: 2rem;
+
+      @include m.tablet {
+         font-size: 2rem;
+         padding: 1.5rem;
+      }
+
+      &--titulo {
+         text-align: left;
+         background-color: darken(v.$gris, 10%);
+      }
+
+      &--clasico {
+         color: v.$azul;
+         background-color: rgba(v.$azul, .3);
+      }
+
+      &--premium {
+         color: v.$premiumdos;
+         background-color: rgba(v.$premiumdos, .3);
+      }
+   }
+
+}

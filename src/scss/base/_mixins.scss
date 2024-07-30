@@ -22,9 +22,9 @@
    }
 }
 
-@mixin grid($columnas, $espacio) {
+@mixin grid($columna, $espacio) {
    display: grid;
-   grid-template-columns: repeat($columnas, 1fr);
+   grid-template-columns: repeat($columna, 1fr);
    gap: $espacio;
 }
 
@@ -82,4 +82,13 @@
 
 @mixin sombra {
    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+@mixin degradado($fondo_uno, $fondo_dos) {
+   background-image: linear-gradient(90deg, $fondo_uno, $fondo_uno, $fondo_dos);
+}
+
+@mixin contenedor {
+   width: min(95%, 140rem);
+   margin: 0 auto;
 }
