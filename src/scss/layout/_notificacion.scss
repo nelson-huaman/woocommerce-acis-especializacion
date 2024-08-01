@@ -2,20 +2,33 @@
 
 .wc_notificacion {
    display: flex;
-   flex-direction: row;
    align-items: center;
    gap: 1rem;
    padding: 2rem;
    border-radius: 1rem;
    margin-bottom: 3rem;
+   color: v.$blanco;
+
+   p {
+      margin: 0 !important;
+      line-height: normal;
+   }
 
    &--activo {
       background-color: darken(v.$verde, 1%);
       color: v.$blanco;
    }
 
-   &__icono {
-      font-size: 2rem !important;
+   &--inactivo {
+      background-color: darken(v.$rojo, 1%);
+   }
+
+   &--aviso {
+      background-color: darken(v.$celeste, 1%);
+   }
+
+   i {
+      font-size: 2.5rem !important;
    }
 
    &__texto {

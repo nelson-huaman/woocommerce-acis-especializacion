@@ -1,14 +1,15 @@
 <?php
 /**
- * WooCommerce ACIS Especialización
- *
  * Plugin Name: WooCommerce ACIS Especialización
  * Plugin URI:  https://nelsondev.info
- * Description: WooCommerce con nuestro plugin personalizado! Optimiza la experiencia de compra con funciones únicas diseñadas según tus necesidades.
- * Version:     15.00
+ * Description: Plugin personalizado! restrocturación de Woocommerce.
+ * Version:     16.10
  * Author:      Nelson Huamán H.
  * Author URI:  https://nelsondev.info
- *
+ * Text Domain: woocommerce-acis-especializacion
+ * Requires at least: 6.5
+ * Requires PHP: 8.0
+ * @package WooCommerce ACIS Especialización
 */
 
 define('IMG', plugin_dir_url(__FILE__) . 'build/img/');
@@ -55,8 +56,16 @@ function producto_woocommerce() {
 
       ?>
       <div class="wc_btn_inicio">
-         <a class="wc_btn_inicio__boton" href="<?php echo $link; ?>">´
-            <?php echo ($categoria === 'Curso') ? 'Ver Detalles del Curso' : 'Ver Detalles del ' . $categoria; ?>
+         <div class="wc_btn_inicio--precio">
+            <?php echo $product->get_price_html(); ?>
+         </div>
+         <div class="wc_btn_inicio--id">
+            <span>ID: </span>
+            <?php echo $product->sku; ?>
+         </div>
+         <a class="wc_btn_inicio__boton" href="<?php echo $link; ?>">
+            
+            <?php echo ($categoria === 'Curso') ? 'Ver Curso' : 'Ver ' . $categoria; ?>
          </a>
       </div>
       <?php

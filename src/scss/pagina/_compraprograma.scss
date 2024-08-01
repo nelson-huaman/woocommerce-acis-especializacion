@@ -1,0 +1,70 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.wc_variaciones {
+   color: v.$negro;
+   max-width: 50rem;
+   margin: 0 auto;
+
+   &__h3 {
+      font-size: 1.6rem;
+      text-align: center;
+   }
+
+   &__item {
+      background-color: v.$gris;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+
+      &:hover {
+         cursor: pointer;
+         background-color: v.$azul;
+         color: v.$blanco;
+         text-transform: uppercase;
+         font-weight: v.$bold;
+      }
+   }
+
+   &__nombre {
+      flex-grow: 1;
+   }
+
+   &__precio {
+      font-size: 1.5rem;
+      font-weight: v.$bold;
+
+      span.price {
+         all: unset !important;
+      }
+
+   }
+
+   &__detalle {
+      text-align: center;
+   }
+
+   &__add-to-cart {
+      @include m.boton(v.$rojo, v.$blanco);
+      & {
+         padding: 1rem 3rem;
+      }
+
+      i {
+         font-size: 2rem;
+      }
+   }
+
+   &__activo {
+      background-color: v.$azul;
+      color: v.$blanco;
+      text-transform: uppercase;
+      font-weight: v.$bold;
+   }
+
+}

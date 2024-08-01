@@ -34,77 +34,68 @@ if(is_user_logged_in()) {
 ?>
 
 <div class="wc_dashboard">
-    <div class="wc_dashboard__user">Bienvenido/a de nuevo: <span><?php echo $usuario->user_firstname; ?></span></div>
+    <div class="wc_dashboard__user">
+        Bienvenido/a de nuevo: <span><?php echo $usuario->user_firstname; ?></span>
+    </div>
     <?php if($memberships) { ?>
-        <div class="wc_membresia wc_membresia--aviso">
+        <div class="wc_notificacion wc_notificacion--aviso">
             <i class="fas fa-exclamation-circle"></i>
-            <div class="wc_membresia__info">
-                <p class="wc_membresia__texto">Los certificados serán enviados siempre y cuando cuentes con membresía activa / vigente.</p>
+            <div class="wc_notificacion__info">
+                <p class="wc_notificacion__texto">Los certificados serán enviados siempre y cuando cuentes con membresía activa / vigente.</p>
             </div>
         </div>
-        <div class="wc_dashboard__grid">
-            <?php foreach( $planes as $plan ) { ?>
-                <?php if($plan->nombre === 'Clásico') { ?>
-                    <?php if($plan->estado === 'wcm-active') { ?>
-                        <div class="wc_membresia wc_membresia--activo">
-                            <i class="fas fa-clipboard-check"></i>
-                            <div class="wc_membresia__info">
-                                <p class="wc_membresia__texto">Su Membresía <?php echo $plan->nombre; ?> esta Activo</p>
-                                <p class="wc_membresia__texto wc_membresia__texto--disponible">Disponible <span><?php echo $plan->dias; ?> Días</span></p>
-                            </div>
-                        </div>
-                    <?php } else { ?>
-                        <div class="wc_membresia wc_membresia--expirado">
-                            <i class="fas fa-eye-slash"></i>
-                            <div class="wc_membresia__info">
-                                <p class="wc_membresia__texto">Su Membresía <?php echo $plan->nombre; ?> a Finalizado</p>
-                            </div>
-                        </div>
-                    <?php } ?>
-                <?php } ?>
-                <?php if($plan->nombre === 'Premium') { ?>
-                    <?php if($plan->estado === 'wcm-active') { ?>
-                        <div class="wc_membresia wc_membresia--activo">
-                            <i class="fas fa-clipboard-check"></i>
-                            <div class="wc_membresia__info">
-                                <p class="wc_membresia__texto">Su Membresía <?php echo $plan->nombre; ?> esta Activo</p>
-                                <p class="wc_membresia__texto wc_membresia__texto--disponible">Disponible <span><?php echo $plan->dias; ?> Días</span></p>
-                            </div>
-                        </div>
-                    <?php } else { ?>
-                        <div class="wc_membresia wc_membresia--expirado">
-                            <i class="fas fa-eye-slash"></i>
-                            <div class="wc_membresia__info">
-                                <p class="wc_membresia__texto">Su Membresía <?php echo $plan->nombre; ?> a Finalizado</p>
-                            </div>
-                        </div>
-                    <?php } ?>
-                <?php } ?>
-            <?php } ?>
+    <?php } else { ?>
+        <div class="wc_notificacion wc_notificacion--inactivo">
+            <i class="fas fa-shopping-cart"></i>
+            <p class="wc_notificacion__texto">No cuenta con una Membresía, obten uno aquí</p>
         </div>
-
-        <div class="wc_dashboard__membresia">
-            <?php foreach( $planes as $plan ) { ?>
+        <h2 class="wc_dashboard__titulo">Puede adquir una Membresía</h2>
+        <div class="wc_planes" id="planes">
+            <div class="wc_planes__simple">
+                <?php include 'wc_planes.php'; ?>
+            </div>
+            <div class="wc_planes__compra"></div>
+        </div>
+    <?php } ?>
+    <?php if($memberships) { ?>
+        <div class="wc_dashboard__grid">
+            <?php foreach( $planes as $plan ) : ?>
                 <?php if($plan->estado === 'wcm-active') { ?>
-                    <?php if($plan->dias < 15 ) { ?>
+                    <div class="wc_membresia wc_membresia--activo">
+                        <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                        <div class="wc_membresia__info">
+                            <p class="wc_membresia__texto">Su <?php echo $plan->nombre; ?> esta activo</p>
+                            <p class="wc_membresia__texto wc_membresia__texto--disponible">
+                                Disponible
+                                <span><?php echo $plan->dias; ?> Días</span>
+                            </p>
+                        </div>
+                    </div>
+                <?php } else { ?>
+                    <div class="wc_membresia wc_membresia--expirado">
+                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                        <div class="wc_membresia__info">
+                            <p class="wc_membresia__texto">Su <?php echo $plan->nombre; ?> a finalizado</p>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php endforeach; ?>
+        </div>
+        <div class="wc_dashboard__membresia">
+            <?php foreach( $planes as $plan ) : ?>
+                <?php if($plan->estado === 'wcm-active') { ?>
+                    <?php if($plan->dias < 5 ) { ?>
                         <h2 class="wc_dashboard__titulo">Su Membresia esta por Finalizar - Renueva Aquí</h2>
                         <div class="wc_dashboard__descripcion">Promoción disponible hasta antes de finalizar su Membresía</div>
-                        <?php include 'wc_membresia.php'; ?>
+                        <div class="wc_planes" id="planes">
+                            <div class="wc_planes__simple">
+                                <?php include 'wc_planes.php'; ?>
+                            </div>
+                            <div class="wc_planes__compra"></div>
+                        </div>
                     <?php } ?>
                 <?php } ?>
-            <?php } ?>
+            <?php endforeach; ?>
         </div>
-    <?php } else { ?>
-        <div class="wc_membresia wc_membresia--expirado">
-            <i class="fas fa-shopping-cart"></i>
-            <p class="wc_membresia__texto">No Cuenta con una Membresía, Obten uno aquí</p>
-        </div>
-
-        <h2 class="wc_dashboard__titulo">Puede adquir una Membresía</h2>
-        <div class="wc_dashboard__descripcion">Accesdo a +170 Cursos con un solo Pago</div>
-
-        <?php include 'wc_membresia.php'; ?>
-        
     <?php } ?>
 </div>
-<div class="wc_dashboard__pagar"></div>

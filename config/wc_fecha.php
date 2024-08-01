@@ -1,12 +1,27 @@
 <?php
-
-setlocale(LC_TIME, "spanish");
-date_default_timezone_set("America/Lima");
-$inicio = date('d F Y', strtotime($fechaUno));
+// $inicio = date('d M Y', strtotime($fechaUno));
+$dia = date('d', strtotime($fechaUno));
+$mes = date('F', strtotime($fechaUno));
 $year = date('Y', strtotime($fechaUno));
 $fechaActual = strtotime(date("d-m-Y"));
 $fechaFinal = strtotime($fechaDos);
 
+$meses = array(
+   'January' => 'Ene.',
+   'February' => 'Feb.',
+   'March' => 'Mar.',
+   'April' => 'Abr.',
+   'May' => 'May.',
+   'June' => 'Jun.',
+   'July' => 'Jul.',
+   'August' => 'Ago.',
+   'September' => 'Sep.',
+   'October' => 'Oct.',
+   'November' => 'Nov.',
+   'December' => 'Dic.'
+);
+
+$inicio = $dia . ' ' . $meses[$mes] . ' ' . $year;
 
 if($categoria === 'Curso') {
    if($fechaActual <= $fechaFinal) {

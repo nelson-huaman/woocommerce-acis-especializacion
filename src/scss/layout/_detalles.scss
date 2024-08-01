@@ -4,7 +4,7 @@
 .wc_titulo {
    display: flex;
    margin-bottom: 1rem;
-   padding: 0 2rem;
+   padding: 0 1.5rem;
 
    @include m.tablet {
       height: 7rem;
@@ -21,12 +21,12 @@
 
 .wc_detalles {
    @include m.grid(2, 1rem);
-   padding: 0 2rem;
-   margin-bottom: 2rem;
+   padding: 0 1.5rem;
+   max-width: 40rem;
+   margin: 0 auto;
 
    &__detalle {
       border-right: 1px solid lighten(v.$negro, 80%);
-      padding: 0 1rem;
       display: flex;
       flex-direction: column;
 
@@ -65,6 +65,43 @@
 .wc_btn_inicio {
    display: flex;
    flex-direction: column;
+   justify-content: center;
+   margin-top: 1.5rem;
+
+   &--precio {
+      color: v.$azul;
+      font-weight: v.$bold;
+      line-height: normal;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      align-items: center;
+      font-size: 3rem;
+
+      .woocommerce-Price-currencySymbol {
+         font-size: 1.8rem;
+      }
+
+      ins {
+         all: unset;
+      }
+
+      del {
+         font-size: 1.8rem;
+         color: darken(v.$gris, 40%);
+      }
+   }
+
+   &--id {
+      color: darken(v.$gris, 40%);
+      text-align: center;
+      padding-bottom: 1rem;
+      font-size: 1.3rem;
+
+      span {
+         font-weight: bold;
+      }
+   }
 
    &__boton {
       padding: 1rem;

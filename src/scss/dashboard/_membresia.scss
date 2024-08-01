@@ -1,90 +1,41 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.wcm_shop {
-   margin-top: 3rem;
-   @include m.grid(1, 2rem);
-   @include m.desktop {
-      @include m.grid(2, 2rem);
+.wc_membresia {
+   display: flex;
+   gap: 1rem;
+   align-items: center;
+   border-radius: 1rem;
+   padding: 2rem;
+   color: v.$blanco;
+
+   p {
+      margin: 0 !important;
    }
 
-   &--grid {
-      @include m.desktop {
-         @include m.grid(3, 2rem);
-      }
+   i {
+      font-size: 2.5rem;
    }
 
-   &__cart {
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      border-radius: 1rem;
-      transition: transform 0.3s ease;
-
-      &--regular {
-         background-color: v.$gris;
-      }
-
-      &--clasico {
-         background-color: lighten(v.$celeste, 30%);
-      }
-
-      &--premium {
-         background-color: lighten(v.$amarillo, 30%);
-      }
+   &--activo {
+      background-color: darken(v.$verde, 5%);
    }
 
-   &__icono {
-      font-size: 6rem !important;
-      margin-right: 1.5rem;
-      color: darken(v.$gris, 30%);
+   &--expirado {
+      background-color: darken(v.$rojo, 5%);
    }
 
    &__texto {
-      font-size: 1.1rem;
-      color: v.$negro;
-      margin: 0 !important;
-      line-height: 2;
+      line-height: 1.5;
 
-      &--precio {
-         @include m.precio;
-      }
+      &--disponible {
+         font-size: 2.3rem;
+         font-weight: 500;
 
-      span {
-         font-weight: bold;
-         color: v.$negro;
+         span {
+            font-weight: 900;
+         }
       }
    }
-
-   &__name {
-      font-weight: bold;
-      color: v.$negro;
-   }
-
-   &__activo.wcm_shop__cart--regular {
-      background-color: darken(v.$gris, 15%);
-      transform: scale(1.05);
-   }
-
-   &__activo.wcm_shop__cart--clasico {
-      background-color: v.$celeste;
-      transform: scale(1.1);
-   }
-
-   &__activo.wcm_shop__cart--premium {
-      background-color: v.$amarillo;
-      transform: scale(1.1);
-   }
-
-   &__activo .wcm_shop__name {
-      text-transform: uppercase;
-   }
-
-   &__activo .wcm_shop__icono {
-      color: v.$blanco;
-   }
-
-
 
 }
-

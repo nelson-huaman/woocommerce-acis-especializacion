@@ -42,7 +42,12 @@
       border-top-right-radius: 1rem;
 
       &--oculto {
-         visibility: hidden;
+         display: none;
+         // visibility: hidden;
+         @include m.desktop {
+            display: block;
+            visibility: hidden;
+         }
       }
 
       i {

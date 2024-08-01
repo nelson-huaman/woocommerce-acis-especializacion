@@ -18,13 +18,15 @@
    &__titulo {
       text-align: center;
       color: v.$azul;
-      margin-bottom: 2rem;
+      margin-bottom: 0rem;
       font-size: 2rem;
    }
 
    &__grid {
       margin-top: 3rem;
       @include m.grid(1, 2rem);
+      align-items: center;
+
       @include m.desktop {
          @include m.grid(2, 2rem);
       }
@@ -37,20 +39,6 @@
       justify-content: center;
       align-items: center;
 
-   }
-
-   &__pagar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-   }
-
-   &__add-to-cart {
-      @include m.boton(v.$azul, v.$blanco !important);
-      & {
-         padding: 1rem 5rem;
-      }
    }
 
 }
