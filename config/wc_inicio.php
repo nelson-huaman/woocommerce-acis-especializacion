@@ -5,6 +5,7 @@
    global $product;
 
 ?>
+
 <div class="wc_detalles__detalle">
    
    <p class="wc_detalles__icono">

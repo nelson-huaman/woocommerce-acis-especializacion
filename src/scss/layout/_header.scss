@@ -17,6 +17,15 @@
       order: 2;
    }
 
+   &__sku {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+
+      span {
+         font-weight: 900;
+      }
+   }
+
    .wc_imagen {
       order: 1;
    }

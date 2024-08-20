@@ -42,9 +42,7 @@
          <div class="wc_detalles">
             <?php include 'wc_inicio.php'; ?>
          </div>
-         <div class="wc_tag">
-            #Enfermeria
-         </div>
+         <div class="wc_header__sku"><span>ID: </span><?php echo $product->sku; ?></div>
          <div class="wc_header__item">
             <p class="wc_header__coordinador">
                <span>Coordinador: </span>

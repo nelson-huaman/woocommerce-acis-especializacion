@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce ACIS Especialización
  * Plugin URI:  https://nelsondev.info
  * Description: Plugin personalizado! restrocturación de Woocommerce.
- * Version:     16.10
+ * Version:     16.30
  * Author:      Nelson Huamán H.
  * Author URI:  https://nelsondev.info
  * Text Domain: woocommerce-acis-especializacion
@@ -31,13 +31,12 @@ function producto_woocommerce() {
       $categoria = get_field('programa');
 
       ?>
+         <img width="1000" height="660" src="<?php echo wp_get_attachment_url( $product->get_image_id() ); ?>" alt="Imagen del Curso">
          <div class="wc_etiqueta">
             <p><?php echo ($categoria === 'Curso') ? $categoria . ' de Actualización' : $categoria; ?></p>
          </div>
          <div class="wc_titulo">
-            <h2 class="wc_titulo__title">
-            <?php echo $product->name; ?>
-            </h2>
+            <h2 class="wc_titulo__title"><?php echo $product->name; ?></h2>
          </div>
          <div class="wc_detalles wc_inicio">
             <?php include 'config/wc_inicio.php'; ?>

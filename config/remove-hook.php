@@ -32,3 +32,6 @@ function remove_term_description() {
         remove_action('woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10);
     }
 }
+
+// Eliminar imagen de producto de la lista de productos en WooCommerce
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
