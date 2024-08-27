@@ -1,11 +1,12 @@
 <?php
 /**
  * Plugin Name: WooCommerce ACIS Especialización
- * Plugin URI:  https://nelsondev.info
  * Description: Plugin personalizado! restrocturación de Woocommerce.
- * Version:     16.30
- * Author:      Nelson Huamán H.
- * Author URI:  https://nelsondev.info
+ * Version: 16.50
+ * GitHub Plugin URI:  https://github.com/nelson-huaman/woocommerce-acis-especializacion
+ * GitHub Branch: main
+ * Author: Nelson Huamán H.
+ * Author URI: https://nelsondev.info
  * Text Domain: woocommerce-acis-especializacion
  * Requires at least: 6.5
  * Requires PHP: 8.0
