@@ -8,7 +8,7 @@ $usuario = wp_get_current_user();
 
 $membershipsActivo = '';
 $aviso = '';
-$limite = 1;
+$limite = 2;
 $fechaHoy = date('Y-m-d');
 $planes = [];
 
@@ -51,7 +51,7 @@ if(is_user_logged_in()) {
     $comprasHoy = wc_get_orders($arreglo);
     foreach ($planes as $plan) {
         if($plan->nombre === 'Plan Premium') {
-            $limite = 2;
+            $limite = 3;
         }
     }
      
