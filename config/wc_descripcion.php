@@ -9,7 +9,7 @@
 <div class="wc_decripcion">
    <div class="wc_header">
       <div class="wc_datos">
-         <h1><span><?php echo ($categoria === 'Curso') ? $categoria . ' de Actualización' : $categoria; ?>:</span> <?php echo $product->name; ?></h1>
+         <h1 class="wc_header__h1"><span><?php echo ($categoria === 'Curso') ? $categoria . ' de Actualización' : $categoria; ?>:</span> <?php echo $product->name; ?></h1>
          <div class="wc_detalles wc_detalles--descripcion">
             <?php include 'wc_inicio.php'; ?>
          </div>
