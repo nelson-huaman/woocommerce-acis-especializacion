@@ -1,7 +1,7 @@
 <?php
 
-$clasico = wc_get_product(2388);
-$premium = wc_get_product(2390);
+$clasico = wc_get_product(CLASICO);
+$premium = wc_get_product(PREMIUM);
 $usuario = wp_get_current_user();
 
 function dias($fecha1, $fecha2) {
@@ -58,6 +58,48 @@ if(is_user_logged_in()) {
         </div>
     <?php } ?>
     <?php if($memberships) { ?>
+
+        <div class="incluye">
+            <h2 class="incluye__h2">Detalles</h2>
+            <div class="incluye__detalle">
+                <div class="incluye__campo">
+                    <div class="incluye__header incluye__titulo"></div>
+                    <div class="incluye__header--clasico incluye__clasico">Clásico</div>
+                    <div class="incluye__header--premium incluye__premium">Premium</div>
+                </div>
+                <div class="incluye__campo">
+                    <div class="incluye__body--titulo incluye__titulo">Acceso a curso por día</div>
+                    <div class="incluye__body--clasico incluye__clasico">1</div>
+                    <div class="incluye__body--premium incluye__premium">3</div>
+                </div>
+                <div class="incluye__campo">
+                    <div class="incluye__body--titulo incluye__titulo">Acceso al aula virtual</div>
+                    <div class="incluye__body--clasico incluye__clasico"><i class="fa fa-check" aria-hidden="true"></i></div>
+                    <div class="incluye__body--premium incluye__premium"><i class="fa fa-check" aria-hidden="true"></i></div>
+                </div>
+                <div class="incluye__campo">
+                    <div class="incluye__body--titulo incluye__titulo">Certificación incluida</div>
+                    <div class="incluye__body--clasico incluye__clasico"><i class="fa fa-check" aria-hidden="true"></i></div>
+                    <div class="incluye__body--premium incluye__premium"><i class="fa fa-check" aria-hidden="true"></i></div>
+                </div>
+                <div class="incluye__campo">
+                    <div class="incluye__body--titulo incluye__titulo">Acceso a talleres</div>
+                    <div class="incluye__body--clasico incluye__clasico"><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
+                    <div class="incluye__body--premium incluye__premium"><i class="fa fa-check" aria-hidden="true"></i></div>
+                </div>
+                <div class="incluye__campo">
+                    <div class="incluye__body--titulo incluye__titulo">Acceso a la programación anual</div>
+                    <div class="incluye__body--clasico incluye__clasico"><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
+                    <div class="incluye__body--premium incluye__premium"><i class="fa fa-check" aria-hidden="true"></i></div>
+                </div>
+                <div class="incluye__campo">
+                    <div class="incluye__body--titulo incluye__titulo">Descuento en diplomado</div>
+                    <div class="incluye__body--clasico incluye__clasico"><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
+                    <div class="incluye__body--premium incluye__premium"><i class="fa fa-check" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </div>
+
         <div class="wc_dashboard__grid">
             <?php foreach( $planes as $plan ) : ?>
                 <?php if($plan->estado === 'wcm-active') { ?>

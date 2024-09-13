@@ -97,8 +97,6 @@
          <img class="wc_planes__img" src="https://acis.edu.pe/RECURSOS_PROGRAMA/ICON/eira-premium.svg" alt="Eira Membresía Clásico">
          <div class="wc_planes__monto wc_planes__monto--premium">
             <?php echo $premium->get_price_html();?>
-            <!-- <span class="wc_planes__monto--moneda">S/.</span>
-            <span class="wc_planes__monto--precio">400</span> -->
          </div>
       </div>
    </div>

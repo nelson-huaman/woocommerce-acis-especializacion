@@ -68,7 +68,8 @@ function my_account_menu_order() {
 function add_endpoint_membresia( $menu_links ){
    
    $new = array(
-      'skucursos' => 'Mis Cursos'       
+      'skucursos' => 'Mis Cursos',
+      'tutoriales' => 'Tutoriales'
    );
    $menu_links = array_slice( $menu_links, 0, 2, true ) 
    + $new 
@@ -83,6 +84,10 @@ function add_endpoint_url_membresia( $url, $endpoint, $value, $permalink ){
    if ( 'skucursos' === $endpoint ) {
       $url = site_url('/intranet/eb_my_courses/');
    }
+
+   if( 'tutoriales' === $endpoint) {
+      $url = site_url('/intranet/tutoriales/');
+   }
    return $url;
 
 } add_filter( 'woocommerce_get_endpoint_url', 'add_endpoint_url_membresia', 10, 4 );
@@ -94,9 +99,24 @@ add_filter('woocommerce_account_menu_item_classes', function( $classes, $endpoin
       $urlStub = "/intranet/eb_my_courses/";
       if( substr_compare( $_SERVER['REQUEST_URI'], $urlStub, -strlen( $urlStub ) ) === 0 ) $classes[] = 'is-active';
    }
+
+   if ( $endpoint == "tutoriales" ) {
+      $urlStub = "/intranet/tutoriales/";
+      if( substr_compare( $_SERVER['REQUEST_URI'], $urlStub, -strlen( $urlStub ) ) === 0 ) $classes[] = 'is-active';
+   }
    return $classes;
 },10,2);
 
+
+add_action( 'init', 'endpoin_tutoriales' );
+function endpoin_tutoriales() {
+	add_rewrite_endpoint( 'tutoriales', EP_PAGES );
+}
+
+add_action( 'woocommerce_account_tutoriales_endpoint', 'wc_tutoriales' );
+function wc_tutoriales() {
+   require 'tutoriales.php';
+}
 
 // Añadir acción en todas las categorías de WooCommerce
 function mi_accion_personalizada_todas_categorias() {

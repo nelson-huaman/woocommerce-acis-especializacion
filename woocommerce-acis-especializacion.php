@@ -1,22 +1,20 @@
 <?php
 /**
- * Plugin Name: WooCommerce ACIS Especialización
+ * Plugin Name: ACIS Especialización - WooCommerce 
  * Description: Plugin personalizado! restrocturación de Woocommerce.
- * Version: 16.50
- * GitHub Plugin URI:  https://github.com/nelson-huaman/woocommerce-acis-especializacion
- * GitHub Branch: main
+ * Version: 17.00
  * Author: Nelson Huamán H.
  * Author URI: https://nelsondev.info
  * Text Domain: woocommerce-acis-especializacion
  * Requires at least: 6.5
  * Requires PHP: 8.0
- * @package WooCommerce ACIS Especialización
 */
 
 define('IMG', plugin_dir_url(__FILE__) . 'build/img/');
+define('PREMIUM', 2390);
+define('CLASICO', 2388);
 
 add_action('after_setup_theme','producto_woocommerce');
-
 
 function producto_woocommerce() {
 
@@ -55,19 +53,19 @@ function producto_woocommerce() {
       $categoria = get_field('programa');
 
       ?>
-      <div class="wc_btn_inicio">
-         <div class="wc_btn_inicio--precio">
-            <?php echo $product->get_price_html(); ?>
+         <div class="wc_btn_inicio">
+            <div class="wc_btn_inicio--precio">
+               <?php echo $product->get_price_html(); ?>
+            </div>
+            <div class="wc_btn_inicio--id">
+               <span>ID: </span>
+               <?php echo $product->sku; ?>
+            </div>
+            <a class="wc_btn_inicio__boton" href="<?php echo $link; ?>">
+               
+               <?php echo ($categoria === 'Curso') ? 'Ver Curso' : 'Ver ' . $categoria; ?>
+            </a>
          </div>
-         <div class="wc_btn_inicio--id">
-            <span>ID: </span>
-            <?php echo $product->sku; ?>
-         </div>
-         <a class="wc_btn_inicio__boton" href="<?php echo $link; ?>">
-            
-            <?php echo ($categoria === 'Curso') ? 'Ver Curso' : 'Ver ' . $categoria; ?>
-         </a>
-      </div>
       <?php
 
    }

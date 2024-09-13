@@ -1,6 +1,5 @@
 <?php
 
-
 $categoria = get_field('programa');
 $fechaUno = get_field('dia_inicio');
 $fechaDos = get_field('dia_final');

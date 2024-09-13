@@ -1,8 +1,6 @@
-<?php include_once 'wc_informacion.php'; ?>
-
 <?php if($membershipsActivo) { ?>
    <div class="wc_notificacion wc_notificacion--activo">
-      <i class="wc_notificacion__icono fa fa-check" aria-hidden="true"></i>
+      <i class="fa fa-bullhorn" aria-hidden="true"></i>
       <div class="wc_notificacion__descripcion">
          <div class="wc_notificacion__texto">Su Membresía sigue Activo</div>
       </div>

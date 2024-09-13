@@ -1,45 +1,16 @@
-<div class="wc_decripciones">
-   <?php
-
+<?php
    global $product;
    include 'wc_datos.php';
    include 'wc_fecha.php';
-
-   $clasico = wc_get_product(2388);
-   $premium = wc_get_product(2390);
-
-   $offSelinClasico = $clasico->price - $product->price;
-   $offSelinPremiun = $premium->price - $product->price;
-
-   $notificacion = '';
-   $memberships = '';
-   $limiteDiario = 3;
-
-   if ( is_user_logged_in() ) {
-
-      $usuarioID = get_current_user_id();
-      $fechaHoy = date('Y-m-d');
-      $args = array(
-         'customer_id' => $usuarioID,
-         'date_created' => $fechaHoy . '...now',
-         'status' => array('wc-completed', 'wc-processing', 'wc-on-hold'),
-         'return' => 'ids',
-      );
-   
-      $pedidosHoy = wc_get_orders($args);
-      if ( count($pedidosHoy) >= $limiteDiario ) {
-         $notificacion = 'Has alcanzado tu límite diario de compras. Por favor, vuelve mañana.';
-      }
-
-      $memberships = wc_memberships_get_user_active_memberships($usuarioID);
-   }
-
+   include 'wc_informacion.php';
 ?>
+
+
+<div class="wc_decripcion">
    <div class="wc_header">
       <div class="wc_datos">
          <h1><span><?php echo ($categoria === 'Curso') ? $categoria . ' de Actualización' : $categoria; ?>:</span> <?php echo $product->name; ?></h1>
-         <!-- <p class="wc_header__descripcion"></p> -->
-         <div class="wc_detalles">
+         <div class="wc_detalles wc_detalles--descripcion">
             <?php include 'wc_inicio.php'; ?>
          </div>
          <div class="wc_header__sku"><span>ID: </span><?php echo $product->sku; ?></div>
@@ -55,13 +26,14 @@
          </div>
       </div>
       <div class="wc_imagen">
-         <img src="<?php echo wp_get_attachment_url( $product->get_image_id() ); ?>" alt="Imagen del Curso">
+         <img src="<?php echo wp_get_attachment_url( $product->get_image_id() ); ?>" alt="<?php echo ($categoria === 'Curso') ? $categoria . ' de Actualización' : $categoria; ?>: <?php echo $product->name; ?>">
       </div>
    </div>
 
-   <?php if($notificacion) { ?>
-      <div class="wc_membresia wc_membresia--limete">
-         <p class="wc_membresia__texto"><?php echo $notificacion; ?></p>
+   <?php if($aviso) { ?>
+      <div class="wc_membresia wc_membresia--limite">
+         <i class="fa fa-bullhorn" aria-hidden="true"></i>
+         <p class="wc_membresia__texto"><?php echo $aviso; ?></p>
       </div> 
    <?php } else {
       if($product->attributes) {

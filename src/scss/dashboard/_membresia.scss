@@ -17,6 +17,10 @@
       font-size: 2.5rem;
    }
 
+   &--limite {
+      background-color: darken(v.$rojo, 5%);
+   }
+
    &--activo {
       background-color: darken(v.$verde, 5%);
    }
