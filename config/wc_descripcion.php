@@ -6,7 +6,7 @@
 ?>
 
 
-<div class="wc_decripcion">
+<div class="wc_descripcion">
    <div class="wc_header">
       <div class="wc_datos">
          <h1 class="wc_header__h1"><span><?php echo ($categoria === 'Curso') ? $categoria . ' de Actualización' : $categoria; ?>:</span> <?php echo $product->name; ?></h1>
@@ -19,10 +19,6 @@
                <span>Coordinador: </span>
                <?php echo $coordinador; ?>
             </p>
-            <a href="<?php echo $botonDescargar . $product->sku; ?>.pdf" download="Brochure <?php echo $product->sku; ?>.pdf" target="_blank" class="wc_header__descargar">
-               <i class="fa fa-download" aria-hidden="true"></i>
-               Descargar Brochure
-            </a>
          </div>
       </div>
       <div class="wc_imagen">
@@ -116,4 +112,12 @@
          </div>
       </div>
    </div>
+
+   <div class="wc_descripcion__descargar">
+      <a href="<?php echo $botonDescargar . $product->sku; ?>.pdf" download="Brochure <?php echo $product->sku; ?>.pdf" target="_blank" class="">
+         <i class="fa fa-download" aria-hidden="true"></i>
+         Descargar Brochure
+      </a>
+   </div>
+   
 </div>

@@ -1,5 +1,4 @@
 <div class="wc_planes__item" data-producto="<?php echo $clasico->id; ?>" data-id="2">
-   <div class="wc_planes__tag wc_planes__tag--oculto">Clásico</div>
    <div class="wc_planes__info wc_planes__info--clasico">
       <div class="wc_planes__icono">
          <i class="fa fa-star-o" aria-hidden="true"></i>
@@ -11,6 +10,9 @@
             <span class="wc_planes__datos--slogan">x curso</span>
          </div>
          <div class="wc_planes__frase">Vuélvete Miembro Clásico</div>
+      </div>
+      <div class="wc_planes__cursor">
+         <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
       </div>
    </div>
    <div class="wc_planes__contenido wc_planes__contenido--clasico">
@@ -45,10 +47,6 @@
    </div>
 </div>
 <div class="wc_planes__item" data-producto="<?php echo $premium->id; ?>" data-id="3">
-   <div class="wc_planes__tag">
-      <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-      Sé un profesional premium
-   </div>
    <div class="wc_planes__info wc_planes__info--premium">
       <div class="wc_planes__icono">
          <i class="fa fa-star-o" aria-hidden="true"></i>
@@ -60,6 +58,9 @@
             <span class="wc_planes__datos--slogan">x curso</span>
          </div>
          <div class="wc_planes__frase">Vuélvete Miembro Premium</div>
+      </div>
+      <div class="wc_planes__cursor">
+         <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
       </div>
    </div>
    <div class="wc_planes__contenido wc_planes__contenido--premium">
@@ -100,4 +101,5 @@
          </div>
       </div>
    </div>
+   
 </div>

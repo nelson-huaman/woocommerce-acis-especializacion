@@ -34,7 +34,7 @@ if($categoria === 'Curso') {
       $duracionIcono = '30 Días';
    }
 
-   $programa = 'Cetificado';
+   $programa = 'Certificado';
    $botonDescargar = "/RECURSOS_PROGRAMA/" . $year . "/CURSOS/BROCHURE-";
 } else {
 
@@ -44,7 +44,7 @@ if($categoria === 'Curso') {
       $duracionIcono = $duracion . ' Meses';
    } else {
       $textoIcono = 'Finalizado';
-      $fechaIcono = 'Proximamente';
+      $fechaIcono = 'Próximamente';
       $duracionIcono = $duracion . ' Meses';
    }
 

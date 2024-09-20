@@ -1,7 +1,20 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
+.wc_descripcion {
 
+   &__descargar {
+      display: flex;
+      justify-content: center;
+      a {
+         @include m.boton(v.$verde, v.$blanco);
+      }
+   }
+
+   p {
+      color: v.$negro;
+   }
+}
 .wc_pagar {
    text-align: center;
 

@@ -64,14 +64,4 @@
          font-weight: bold;
       }
    }
-
-   &__descargar {
-      font-weight: bold;
-      font-size: 2rem;
-      color: v.$verde;
-
-      &:hover {
-         color: darken(v.$verde, 10%);
-      }
-   }
 }
