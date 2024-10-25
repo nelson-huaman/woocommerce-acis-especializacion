@@ -11,7 +11,7 @@
 
 <div class="wc_planes" id="planes">
    <div class="wc_planes__simple">
-      <div class="wc_planes__item" data-producto="<?php echo $product->id; ?>" data-id="1">
+      <div class="wc_planes__item">
          <div class="wc_planes__info wc_planes__info--basico">
             <div class="wc_planes__icono">
                <i class="fa fa-star-o" aria-hidden="true"></i>
@@ -26,9 +26,8 @@
                <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
             </div>
          </div>
-         
+         <a class="wc_planes__boton" href="?add-to-cart=<?php echo $product->id; ?>">Comprar el Curso</a>
       </div>
       <?php include 'wc_planes.php'; ?>
    </div>
-   <div class="wc_planes__compra"></div>
 </div>

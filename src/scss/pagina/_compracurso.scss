@@ -291,11 +291,14 @@
       justify-content: center;
    }
 
-   &__pago {
-      @include m.boton(v.$azul, v.$blanco);
+   &__boton {
+      @include m.boton(v.$verde, v.$blanco);
       & {
-         color: v.$blanco !important;
+         padding: 1rem;
+         font-size: 1.5rem;
+         margin-top: 1rem;
       }
    }
+
 }
 

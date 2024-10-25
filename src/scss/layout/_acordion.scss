@@ -31,9 +31,10 @@
       @include m.sombra;
    }
 
-   &__open &__body{
+   &__body.active {
       display: block;
    }
+
 
    &__open &__header {
       color: v.$verde;
@@ -43,8 +44,4 @@
       font-weight: v.$bold;
    }
 
-   &__open &__icono {
-      rotate: 45deg;
-      
-   }
 }

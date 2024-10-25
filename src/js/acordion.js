@@ -3,24 +3,33 @@
    const acordion = document.querySelector('#acordion');
    if(acordion) {
 
-      const acordionItem = document.querySelectorAll('.wc_acordion__item');
-      acordionItem.forEach(item => {
-         item.addEventListener('click', function() {
-            // Verifica si el elemento ya está abierto
-            const isOpen = item.classList.contains('wc_acordion__open');
-
-            // Cierra todos los elementos
-            acordionItem.forEach(item => {
-               item.classList.remove('wc_acordion__open');
-            });
-
-            // Si el elemento no estaba abierto, lo abre; si ya estaba abierto, lo deja cerrado
-            if (!isOpen && item.querySelector('.wc_acordion__body')) {
-               item.classList.add('wc_acordion__open');
+      document.querySelectorAll('.wc_acordion__header').forEach(header => {
+         header.addEventListener('click', () => {
+            // Encuentra el cuerpo relacionado a este encabezado
+            const body = header.nextElementSibling;
+            const icono = header.querySelector('.wc_acordion__icono');
+     
+            // Si el cuerpo ya está abierto, simplemente ciérralo
+            if (body.classList.contains('active')) {
+               body.classList.remove('active');
+               icono.classList.add('fa-plus-circle');
+               icono.classList.remove('fa-minus-circle');
+            } else {
+               // Cierra todos los cuerpos activos del acordeón
+               document.querySelectorAll('.wc_acordion__body.active').forEach(activeBody => {
+                  activeBody.classList.remove('active');
+                  activeBody.previousElementSibling.querySelector('.wc_acordion__icono').classList.add('fa-plus-circle');
+                  activeBody.previousElementSibling.querySelector('.wc_acordion__icono').classList.remove('fa-minus-circle');
+               });
+     
+               // Abre el cuerpo actual y cambia el icono
+               body.classList.add('active');
+               icono.classList.remove('fa-plus-circle');
+               icono.classList.add('fa-minus-circle');
             }
          });
       });
-
+     
    }
 
 })();

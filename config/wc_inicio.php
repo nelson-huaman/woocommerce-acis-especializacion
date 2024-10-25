@@ -1,13 +1,10 @@
 <?php
+   global $product;
    include 'wc_datos.php';
    include 'wc_fecha.php';
-
-   global $product;
-
 ?>
 
 <div class="wc_detalles__detalle">
-   
    <p class="wc_detalles__icono">
       <i class="fa fa-youtube-play" aria-hidden="true"></i>
       <?php echo $textoIcono; ?>
@@ -28,7 +25,7 @@
    </p>
    <p class="wc_detalles__icono">
       <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-      <?php echo $creditos; ?> Creditos
+      <?php echo $creditos; ?> Créditos
    </p>
    <p class="wc_detalles__icono">
       <i class="fa fa-trophy" aria-hidden="true"></i>

@@ -1,4 +1,4 @@
-<div class="wc_planes__item" data-producto="<?php echo $clasico->id; ?>" data-id="2">
+<div class="wc_planes__item">
    <div class="wc_planes__info wc_planes__info--clasico">
       <div class="wc_planes__icono">
          <i class="fa fa-star-o" aria-hidden="true"></i>
@@ -45,8 +45,9 @@
          </div>
       </div>
    </div>
+   <a href="?add-to-cart=<?php echo $clasico->id; ?>" class="wc_planes__boton">Pagar Membresía Clásico</a>
 </div>
-<div class="wc_planes__item" data-producto="<?php echo $premium->id; ?>" data-id="3">
+<div class="wc_planes__item">
    <div class="wc_planes__info wc_planes__info--premium">
       <div class="wc_planes__icono">
          <i class="fa fa-star-o" aria-hidden="true"></i>
@@ -101,5 +102,5 @@
          </div>
       </div>
    </div>
-   
+   <a href="?add-to-cart=<?php echo $premium->id; ?>" class="wc_planes__boton">Pagar Membresia Premium</a>
 </div>
