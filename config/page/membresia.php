@@ -46,7 +46,7 @@
             <source srcset="<?php echo IMG . 'enfermeras'; ?>.webp" type="image/webp">
             <source srcset="<?php echo IMG . 'enfermeras'; ?>.avif" type="image/avif">
             <source srcset="<?php echo IMG . 'enfermeras'; ?>.png" type="image/png">
-            <img class="pagina__enfermeras" loading="lazy" width="500" height="500"  src="<?php echo IMG . 'enfermeras'; ?>.png" alt="Imagen enfermeras">
+            <img class="pagina__enfermeras" loading="lazy" width="500" height="500" src="<?php echo IMG . 'enfermeras'; ?>.png" alt="Imagen enfermeras">
          </picture>
          <div class="pagina__iconos">
             <div class="pagina__icono">

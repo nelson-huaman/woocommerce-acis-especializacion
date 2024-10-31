@@ -10,24 +10,19 @@
 <div class="wc_guiadecompra">Elige una opción de compra</div>
 
 <div class="wc_planes" id="planes">
-   <div class="wc_planes__simple">
-      <div class="wc_planes__item">
-         <div class="wc_planes__info wc_planes__info--basico">
-            <div class="wc_planes__icono">
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-            </div>
-            <div class="wc_planes__shop">
-               <div class="wc_planes__datos wc_planes__datos--basico">
-                  <?php echo $product->get_price_html();?>
-               </div>
-               <div class="wc_planes__frase">Sólo este Curso</div>
-            </div>
-            <div class="wc_planes__cursor">
-               <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
+   <div class="wc_planes__item">
+      <div class="wc_planes__contenido wc_planes__contenido--regular">
+         <div class="wc_planes__header wc_planes__header--regular">
+            <div class="wc_planes__icono"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+            <div class="wc_planes__informacion">
+               <div class="wc_planes__precio wc_planes__precio--regular"><?php echo $product->get_price_html();?></div>
+               <span class="wc_planes__frase">Sólo este Curso</span>
             </div>
          </div>
-         <a class="wc_planes__boton" href="?add-to-cart=<?php echo $product->id; ?>">Comprar el Curso</a>
+         <div class="wc_planes__footer wc_planes__footer--regular">
+            <a href="?add-to-cart=<?php echo $product->id; ?>" class="wc_planes__boton">Comprar Curso</a>
+         </div>
       </div>
-      <?php include 'wc_planes.php'; ?>
    </div>
+   <?php include 'wc_planes.php'; ?>
 </div>

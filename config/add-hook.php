@@ -133,7 +133,7 @@ function mi_accion_personalizada_todas_categorias() {
 add_action('woocommerce_before_shop_loop', 'mi_accion_personalizada_todas_categorias');
 
 
-// Añadir campos personalizados para las cuotas, precio regular y precio rebajado en la página de edición de productos variables
+// Añadir campos personalizados para las cuotas en la página de edición de productos variables
 add_action('woocommerce_product_after_variable_attributes', 'custom_variation_fields', 10, 3);
 function custom_variation_fields($loop, $variation_data, $variation) {
    // Campo de Cuotas
@@ -144,15 +144,7 @@ function custom_variation_fields($loop, $variation_data, $variation) {
       'description' => __('Número de cuotas para esta variación.', 'woocommerce'),
       'value' => get_post_meta($variation->ID, '_variation_cuotas_field', true)
    ));
-  
-   // Campo de Precio Regular
-   woocommerce_wp_text_input( array(
-      'id' => 'variation_regular_price_field[' . $variation->ID . ']',
-      'label' => __('Precio Regular', 'woocommerce'),
-      'desc_tip' => 'true',
-      'description' => __('Precio regular para esta variación.', 'woocommerce'),
-      'value' => get_post_meta($variation->ID, '_variation_regular_price_field', true)
-   ));
+
 }
 
 // Guardar los valores de los campos personalizados
@@ -161,10 +153,6 @@ function save_custom_variation_fields($variation_id, $i) {
    // Guardar el valor de las Cuotas
    $custom_variation_cuotas_value = $_POST['variation_cuotas_field'][$variation_id];
    update_post_meta($variation_id, '_variation_cuotas_field', esc_attr($custom_variation_cuotas_value));
-
-   // Guardar el valor del Precio Regular
-   $custom_variation_regular_price_value = $_POST['variation_regular_price_field'][$variation_id];
-   update_post_meta($variation_id, '_variation_regular_price_field', esc_attr($custom_variation_regular_price_value));
 }
 
 // Mostrar el valor de los campos personalizados en la página del producto
@@ -172,17 +160,7 @@ add_filter('woocommerce_available_variation', 'display_custom_variation_fields')
 function display_custom_variation_fields($variations) {
    // Obtener el ID de la variación
    $variation_id = $variations['variation_id'];
-
-   // Obtener los campos personalizados
-   $cuotas = get_post_meta($variation_id, '_variation_cuotas_field', true);
-   $regular_price = get_post_meta($variation_id, '_variation_regular_price_field', true);
-
-   // Añadir los campos personalizados a las variaciones disponibles
-   $variations['variation_cuotas_field'] = $cuotas ? $cuotas : __('No disponible', 'woocommerce');
-   $variations['variation_regular_price_field'] = $regular_price ? $regular_price : __('No disponible', 'woocommerce');
-
+   $cuotas = get_post_meta($variation_id, '_variation_cuotas_field', true); // Obtener los campos personalizados
+   $variations['variation_cuotas_field'] = $cuotas ? $cuotas : __('No disponible', 'woocommerce'); // Añadir los campos personalizados a las variaciones disponibles
    return $variations;
 }
-
-
-

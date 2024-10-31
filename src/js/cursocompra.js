@@ -3,20 +3,28 @@
    const planes = document.querySelector('#planes');
    if(planes) {
 
-      const item = document.querySelectorAll('.wc_planes__item');
-      item.forEach( input => input.addEventListener('click', seleccionado) );
-
-      function seleccionado() {
-
-         // Elimina class activo
-         const activoPrevio = document.querySelector('.wc_planes__activo')
-         if(activoPrevio) {
-            activoPrevio.classList.remove('wc_planes__activo')           
-         }
-
-         this.classList.add('wc_planes__activo')
-      }
-
+      document.querySelectorAll('.wc_planes__plus').forEach( input => {
+         input.addEventListener('click', () => {
+            const body = input.nextElementSibling;
+            const icono = input.querySelector('.fa');
+   
+            if(body.classList.contains('activo')) {
+               body.classList.remove('activo');
+               icono.classList.add('fa-plus');
+               icono.classList.remove('fa-times');
+            } else {
+               document.querySelectorAll('.wc_planes__descripcion.activo').forEach(bodyActivo => {
+                  bodyActivo.classList.remove('activo');
+                  bodyActivo.previousElementSibling.querySelector('.fa').classList.add('fa-plus');
+                  bodyActivo.previousElementSibling.querySelector('.fa').classList.remove('fa-times');
+               });
+   
+               body.classList.add('activo');
+               icono.classList.remove('fa-plus');
+               icono.classList.add('fa-times');
+            }
+         });
+      });
    }
 
 })();

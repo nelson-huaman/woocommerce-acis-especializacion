@@ -4,15 +4,16 @@
       <?php foreach ($product->get_available_variations() as $variation) { ?>
          <?php foreach (wc_get_product($variation['variation_id'])->get_variation_attributes() as $nombreVariacion) { ?>
             <?php
+               if($nombreVariacion === 'Precio Regular') {
+                  $precioRegular = $variation['display_regular_price'];
+               }
                $cuotasCantidad = (int) $variation['variation_cuotas_field'];
-               $precioRegular = (int) $variation['variation_regular_price_field'];
                $precioPago = (int) $variation['display_regular_price'];
 
                $calculoPrecio = $cuotasCantidad * $precioPago;
                $ahorro = $precioRegular - $calculoPrecio;
 
-               $regular = $variation['display_regular_price'];
-               $rebajado = $variation['display_price'];
+               $precio = $variation['display_price'];
                
                if($precioRegular > $calculoPrecio) {
                   $descuento = ( ( $precioRegular - $calculoPrecio ) / $precioRegular) * 100;
@@ -28,8 +29,8 @@
                <div class="wc_variaciones__item wc_variaciones__item--regular">
                   <div class="wc_variaciones__contenido wc_variaciones__contenido--regular">
                      <h4 class="wc_variaciones__h4"><?php echo $nombreVariacion ?></h4>
-                     <p class="wc_variaciones__dscto">Pago total</p>
-                     <p class="wc_variaciones__dscto-final">S/. <?php echo $regular; ?></p>
+                     <p class="wc_variaciones__etiqueta">Pago total</p>
+                     <p class="wc_variaciones__dscto">S/. <?php echo $precioRegular; ?></p>
                   </div>
                </div>
             <?php } else if($nombreVariacion === 'Opción 1') { ?>
@@ -38,7 +39,7 @@
                   <div class="wc_variaciones__contenido wc_variaciones__contenido--recomendado">
                      <h4 class="wc_variaciones__h4"><?php echo $nombreVariacion ?></h4>
                      <span class="wc_variaciones__cuota wc_variaciones__cuota--recomendado"><?php echo $cuotas; ?></span>
-                     <span class="wc_variaciones__precio wc_variaciones__precio--recomendado">S/. <?php echo $rebajado; ?></span>
+                     <span class="wc_variaciones__precio wc_variaciones__precio--recomendado">S/. <?php echo $precio; ?></span>
                      <span class="wc_variaciones__etiqueta"><?php echo $etiqueta; ?></span>
                      <span class="wc_variaciones__ahorro">AHORRAS</span>
                      <span class="wc_variaciones__dscto">S/. <?php echo $ahorro; ?></span>
@@ -50,7 +51,7 @@
                   <div class="wc_variaciones__contenido">
                      <h4 class="wc_variaciones__h4"><?php echo $nombreVariacion ?></h4>
                      <span class="wc_variaciones__cuota"><?php echo $cuotas; ?></span>
-                     <span class="wc_variaciones__precio">S/. <?php echo $rebajado; ?></span>
+                     <span class="wc_variaciones__precio">S/. <?php echo $precio; ?></span>
                      <span class="wc_variaciones__etiqueta"><?php echo $etiqueta; ?></span>
                      <span class="wc_variaciones__ahorro">AHORRAS</span>
                      <span class="wc_variaciones__dscto">S/. <?php echo $ahorro; ?></span>

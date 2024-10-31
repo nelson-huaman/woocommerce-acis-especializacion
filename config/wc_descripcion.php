@@ -116,7 +116,7 @@
    <div class="wc_descripcion__descargar">
       <a href="<?php echo $botonDescargar . $product->sku; ?>.pdf" download="Brochure <?php echo $product->sku; ?>.pdf" target="_blank" class="">
          <i class="fa fa-download" aria-hidden="true"></i>
-         Descargar Brochure
+         Descargar Temario
       </a>
    </div>
    

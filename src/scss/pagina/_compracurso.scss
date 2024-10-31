@@ -2,85 +2,163 @@
 @use 'base/mixins' as m;
 
 .wc_planes {
+   padding: 3.5rem 0;
    display: flex;
    flex-direction: column;
-   gap: 3rem;
-   margin-top: 3rem;
+   align-items: center;
+   gap: 2rem;
 
-   &__simple {
-      @include m.grid(1, 2rem);
-      margin: 0 auto;
+   @include m.desktop {
+      align-items: flex-start;
+   }
 
-      @include m.desktop {
-         @include m.grid(3, 2rem);
-      }
+   @include m.desktop {
+      flex-direction: row;
+      justify-content: center
    }
 
    &__item {
+      width: 32rem;
       display: flex;
       flex-direction: column;
-      color: v.$blanco;
-      border-radius: 1rem;
-      max-width: 32rem;
-      min-width: 32rem;
-      position: relative;
-      // border: 2px solid red;
-
-      &:hover {
-         cursor: pointer;
-
-         .wc_planes__cursor {
-            color: darken(v.$blanco, 5%);
-            transform: scale(0.7);
-            animation: transform;
-            animation-duration: .5ms;
-            animation-delay: .5ms;
-         }
-      }
-   }
-
-   &__cursor {
-      color: v.$blanco;
-      position: absolute;
-      right: 1rem;
-      bottom: .5rem;
-
-      i {
-         font-size: 3rem;
-      }
-   }
-
-   &__info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      border: 4px solid v.$azul;
-      position: relative;
-      @include m.sombra;
-      
-      &--basico {
-         background-color: v.$basico;
-      }
-
-      &--clasico {
-         @include m.degradado(v.$azul, v.$clasico);
-      }
-
-      &--premium {
-         @include m.degradado(v.$premium, v.$premiumdos);
-      }
-
+      justify-content: space-between;
    }
 
    &__contenido {
-      display: none;
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem;
+      border: 1px solid;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
+      &--regular {
+         border-color: v.$basico;
+      }
+
+      &--clasico {
+         border-color: v.$azul;
+      }
+
+      &--premium {
+         border-color: v.$premium;
+      }
+   }
+
+   &__header {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: v.$negro;
+
+      &--regular {
+         background-color: rgba(v.$basico, .2);
+      }
+
+      &--clasico {
+         background-color: rgba(v.$clasico, .3);
+         // color: v.$azul;
+      }
+
+      &--premium {
+         background-color: rgba(v.$premium, .4);
+         // color: v.$premium;
+      }
+   }
+
+   &__icono {
+      i {
+         font-size: 4rem;
+      }
+   }
+
+   &__informacion {
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__precio {
+      font-weight: v.$bold;
+      display: flex;
+      flex-direction: row;
+      gap: .5rem;
+      align-items: center;
+      line-height: .8;
+      font-size: 4rem;
+
+      del {
+         font-size: 2rem;
+         color: darken(v.$gris, 30%);
+      }
+
+      ins {
+         all: unset;
+
+         bdi {
+            display: flex;
+            align-items: center;
+            gap: 0;
+         }
+
+         .woocommerce-Price-currencySymbol {
+            font-size: 2.5rem;
+         }
+      }
+
+      &--regular {
+         display: flex;
+         flex-direction: row-reverse;
+      }
+
+      &--moneda {
+         font-size: 2.5rem;
+      }
+
+      &--slogan {
+         font-size: 2.2rem;
+      }
+   }
+
+   &__frase {
+      font-size: 1.2rem;
+      line-height: 2;
+      font-weight: 600;
+      letter-spacing: .1rem;
+      text-align: center;
+      margin-top: .6rem;
+   }
+
+   &__body {
+      position: relative;
+   }
+
+   &__plus {
+      all: unset;
+      position: absolute;
+      top: -1.1rem;
+      right: .5rem;
+      line-height: 1;
+      color: v.$blanco;
+      font-weight: 900;
+      font-size: 1.2rem;
+      padding: .5rem;
+      border-radius: .3rem;
+
+      &:hover {
+         cursor: pointer;
+      }
+
+      &--clasico {
+         background-color: v.$azul;
+      }
+
+      &--premium {
+         background-color: v.$premium;
+      }
+   }
+
+   &__descripcion {
+      display: none;
       &--clasico {
          background-color: v.$fondoclasico;
 
@@ -98,71 +176,11 @@
       }
    }
 
-   &__icono {
-      font-size: 4rem;
+   &__descripcion.activo {
+      display: block;
    }
 
-   &__datos {
-      font-weight: v.$bold;
-      display: flex;
-      flex-direction: row;
-      gap: .5rem;
-      align-items: center;
-      line-height: .8;
-      font-size: 5rem;
-      // background-color: green;
-
-      &--basico {
-         display: flex;
-         flex-direction: row-reverse;
-
-         bdi {
-            display: flex;
-            align-items: center;
-         }
-
-         .woocommerce-Price-currencySymbol {
-            font-size: 2.5rem;
-         }
-      }
-      
-      &--moneda {
-         font-size: 2.5rem;
-      }
-
-      &--slogan {
-         font-size: 2.2rem;
-      }
-
-      del {
-         font-size: 2rem;
-         color: darken(v.$gris, 10%);
-      }
-
-      ins {
-         all: unset;
-
-         bdi {
-            display: flex;
-            align-items: center;
-            gap: 0;
-         }
-
-         .woocommerce-Price-currencySymbol {
-            font-size: 2.5rem;
-         }
-      }
-   }
-
-   &__frase {
-      font-size: 1.2rem;
-      line-height: 2;
-      font-weight: 900;
-      letter-spacing: .1rem;
-      margin-top: .6rem;
-   }
-
-   &__forma {
+   &__vector {
       &--clasico {
          fill: v.$clasico;
       }
@@ -212,7 +230,6 @@
    &__eira {
       padding: 0 3rem;
       display: flex;
-      margin-bottom: 2rem;
    }
 
    &__img {
@@ -238,14 +255,6 @@
       border-top-right-radius: 1rem;
       flex-direction: column-reverse;
 
-      &--clasico {
-         color: v.$azul;
-      }
-
-      &--premium {
-         color: v.$premium;
-      }
-
       &::before {
          position: absolute;
          left: -3rem;
@@ -269,34 +278,42 @@
          color: darken(v.$gris, 40%);
       }
 
-
-   }
-
-   &__activo {
-
-      .wc_planes__info--clasico,
-      .wc_planes__info--premium {
-         border-bottom-left-radius: 0;
-         border-bottom-right-radius: 0;
+      &--clasico {
+         color: v.$azul;
       }
 
-      .wc_planes__contenido {
-         display: block;
+      &--premium {
+         color: v.$premium;
       }
-      
    }
 
-   &__compra {
-      display: flex;
-      justify-content: center;
+   &__footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid;
+
+      border-color: rgb(v.$negro, .3);
+
+      &--regular {
+         background-color: rgba(v.$basico, .1);
+      }
+
+      &--clasico {
+         background-color: v.$fondoclasico;
+      }
+
+      &--premium {
+         background-color: v.$fondopremium;
+      }
    }
 
    &__boton {
       @include m.boton(v.$verde, v.$blanco);
       & {
-         padding: 1rem;
+         padding: .8rem 2rem;
          font-size: 1.5rem;
-         margin-top: 1rem;
+         width: auto;
+         margin: 0;
       }
    }
 

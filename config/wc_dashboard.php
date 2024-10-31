@@ -51,10 +51,7 @@ if(is_user_logged_in()) {
         </div>
         <h2 class="wc_dashboard__titulo">Puede adquir una Membresía</h2>
         <div class="wc_planes" id="planes">
-            <div class="wc_planes__simple">
-                <?php include 'wc_planes.php'; ?>
-            </div>
-            <div class="wc_planes__compra"></div>
+            <?php include 'wc_planes.php'; ?>
         </div>
     <?php } ?>
     <?php if($memberships) { ?>
@@ -130,10 +127,7 @@ if(is_user_logged_in()) {
                         <h2 class="wc_dashboard__titulo">Su Membresia esta por Finalizar - Renueva Aquí</h2>
                         <div class="wc_dashboard__descripcion">Promoción disponible hasta antes de finalizar su Membresía</div>
                         <div class="wc_planes" id="planes">
-                            <div class="wc_planes__simple">
-                                <?php include 'wc_planes.php'; ?>
-                            </div>
-                            <div class="wc_planes__compra"></div>
+                            <?php include 'wc_planes.php'; ?>
                         </div>
                     <?php } ?>
                 <?php } ?>

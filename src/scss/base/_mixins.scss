@@ -37,7 +37,7 @@
 @mixin boton($bgColor, $colorTexto) {
    background-color: $bgColor;
    padding: 1.5rem 4rem;
-   color: $colorTexto;
+   color: $colorTexto !important;
    margin-top: 2rem;
    font-size: 2rem;
    font-weight: 700;
