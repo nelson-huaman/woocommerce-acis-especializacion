@@ -2,11 +2,149 @@
 @use 'base/mixins' as m;
 
 .wc_calendario {
-   display: flex;
-   flex-direction: column;
 
-   &__link {
-      margin-bottom: 2rem;
+   &__header {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+   }
+
+   &__boton {
+      color: v.$azul;
+      border: 1px solid v.$azul;
+      padding: .5rem 1.5rem;
+   }
+
+   &__boton.activo {
+      background-color: v.$azul;
+      color: v.$blanco;
+      border: none;
+   }
+
+   &__contenido {
+      // background-color: green;
+      text-align: center
+      
+   }
+
+   &__contenido.grid {
+      @include m.grid(1, 2rem);
+
+      @include m.tablet {
+         @include m.grid(2, 2rem);
+      }
+
+      @include m.desktop {
+         @include m.grid(4, 2rem);
+      }
+   }
+
+   &__contenido.flex {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+   }
+
+   &__contenido.flex &__item {
+      display: flex;
+   }
+
+   &__contenido.flex &__item img {
+      max-width: 30rem;
+   }
+
+   // &__contenido.flex &__item &__info {
+   //    display: flex;
+   //    align-items: flex-start;
+   //    flex-wrap: wrap;
+   //    // wrap: nowrap;
+   //    gap: 2rem
+   // }
+
+   &__info {
+      p {
+         margin: 0 !important;
+      }
+      i {
+         color: v.$azul;
+      }
+   }
+
+   &__enlace {
+      background-color: v.$azul;
+      color: v.$blanco;
+      display: inline-block;
+      padding: .5rem 2rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      border-radius: .5rem;
+
+      &:hover {
+         color: v.$blanco;
+      }
+   }
+
+   &__item {
+      border: 1px solid v.$azul;
+      @include m.sombra;
+      border-radius: 1rem;
+      overflow: auto;
+   }
+
+   &__content {
+      padding: 2rem;
+   }
+
+   &__h2 {
+      font-size: 1.4rem;
+      margin: 0;
+      margin-bottom: 1rem;
+      // color: v.$azul;
+   }
+
+   &__fecha {
+      // background-color: v.$azul;
+      color: v.$azul;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+
+      &--texto {
+         margin-bottom: 1rem;
+         font-weight: 600;
+         text-transform: capitalize;
+         color: v.$rojo;
+      }
+
+      &--fecha {
+         display: flex;
+         align-items: center;
+         gap: .5rem;
+      }
+
+      &--dia {
+         font-size: 5rem;
+         font-weight: 900;
+      }
+
+      &--mes {
+         text-transform: capitalize;
+      }
+
+      &--div {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         font-size: 1.2rem;
+         text-align: left;
+
+         span {
+            line-height: 1.2;
+         }
+      }
+      
    }
 
    &__imagen {
