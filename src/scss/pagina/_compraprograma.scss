@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .wc_variaciones {
    color: v.$negro;
@@ -40,9 +41,9 @@
       justify-content: flex-end;
 
       &--regular {
-         background-color: adjust-color(v.$gris, $lightness: 7%);
+         background-color: color.adjust(v.$gris, $lightness: 7%);
          flex: 1;
-         border: 1px solid adjust-color(v.$gris, $lightness: -7%);
+         border: 1px solid color.adjust(v.$gris, $lightness: -7%);
          justify-content: center;
       }
    }

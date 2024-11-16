@@ -2,101 +2,81 @@
 
 wc_delete_product_transients();
 // Calendario shortcode
-function wc_calendario ( $content = null ) {
+function wc_calendario( $content = null ) {
    $args = [
-      'status'    => 'publish',
-      'limit'     => 20,
-      'page'      => 1,
+      'status' => 'publish',
+      'limit'  => 20,
+      'page'   => 1,
    ];
-  
-   $products = wc_get_products($args);
+
+   $products = wc_get_products( $args );
    $product_data = [];
 
-   foreach ($products as $product) {
-      $metaDato = get_post_meta($product->get_id()); // Meta Datos
-      $link = $product->get_permalink(); // Link del Producto
-      $fechaActual = strtotime(date("Y-m-d")); // Fecha Actual
-      $diaDelServicio = isset($metaDato['dia_inicio'][0]) ? $metaDato['dia_inicio'][0] : ''; // Extraer y convertir
+   foreach ( $products as $product ) {
+      $metaDato = get_post_meta( $product->get_id() );
+      $link = $product->get_permalink();
+      $fechaActual = strtotime( date( "Y-m-d" ) );
+      $diaDelServicio = !empty( $metaDato['dia_inicio'][0] ) ? $metaDato['dia_inicio'][0] : '';
 
-      // Convertir 'dia_inicio' al formato 'YYYY-MM-DD' para asegurar que strtotime lo entienda
-      if (!empty($diaDelServicio) && strlen($diaDelServicio) == 8) {
-         $fechaFinal = strtotime(substr($diaDelServicio, 0, 4) . '-' . substr($diaDelServicio, 4, 2) . '-' . substr($diaDelServicio, 6, 2));
+      // Validar y convertir la fecha de inicio
+      if ( !empty( $diaDelServicio ) && strlen( $diaDelServicio ) === 8 ) {
+         $fechaFinal = strtotime( substr( $diaDelServicio, 0, 4 ) . '-' . substr( $diaDelServicio, 4, 2 ) . '-' . substr( $diaDelServicio, 6, 2 ) );
+         $fechaDiaTexto = date_i18n( 'l', $fechaFinal );
+         $fechaDia = sprintf('%02d', date_i18n('j', $fechaFinal));
+         $fechaMes = date_i18n( 'F', $fechaFinal );
+         $fechaYear = date_i18n( 'Y', $fechaFinal );
 
-         $fechaDiaTexto = date_i18n('l', $fechaFinal);
-         $fechaDia = date_i18n('j', $fechaFinal);
-         $fechaMes = date_i18n('F', $fechaFinal);
-         $fechaYear = date_i18n('Y', $fechaFinal);
-
-         // Guardar solo si la fecha es futura
-         if ($fechaFinal > $fechaActual) {
+         if ( $fechaFinal > $fechaActual ) {
             $product_data[] = [
-               // 'product' => $product,
-               'fecha' => $fechaFinal,
+               'fecha'    => $fechaFinal,
                'diaTexto' => $fechaDiaTexto,
-               'dia' => $fechaDia,
-               'mes' => $fechaMes,
-               'year' => $fechaYear,
-               'link' => $link,
-               'sku' => $product->get_sku(),
-               'titulo' => $product->get_name(),
+               'dia'      => $fechaDia,
+               'mes'      => $fechaMes,
+               'year'     => $fechaYear,
+               'link'     => $link,
+               'sku'      => $product->get_sku(),
+               'titulo'   => $product->get_name(),
                'servicio' => $metaDato['programa'][0],
-               'horas' => $metaDato['horas'][0],
+               'horas'    => $metaDato['horas'][0],
                'duracion' => $metaDato['duracion'][0],
-               'imagen' => wp_get_attachment_url( $product->get_image_id() )
+               'imagen'   => wp_get_attachment_url( $product->get_image_id() )
             ];
          }
       }
    }
 
-   usort($product_data, function($a, $b) {
-      return $a['fecha'] <=> $b['fecha']; // Ordernar por fecha
+   // Ordenar productos por fecha
+   usort( $product_data, function( $a, $b ) {
+      return $a['fecha'] <=> $b['fecha'];
    });
 
-   $content = "<div class='wc_calendario' id='calendario'>";
-      ?>
-         <!-- <div class="wc_calendario__header">
-            <button type="button" class="wc_calendario__boton activo"><i class="fa fa-windows" aria-hidden="true"></i></button>
-            <button type="button" class="wc_calendario__boton"><i class="fa fa-bars" aria-hidden="true"></i></button>
-         </div> -->
-         <div class="wc_calendario__contenido grid">
-      <?php
+   $content = "<div class='wc_calendario' id='calendario'><div class='wc_calendario__contenido grid'>";
 
-  // Mostrar productos en orden de fecha
-  foreach ($product_data as $data) {
-
-      if($data['servicio'] === 'Curso') {
-         $categoria = $data['servicio'] . ' de Actulizacion: ';
-      } else {
-         $categoria = $data['servicio'];
-      }
-
-      ?>
-         <div class="wc_calendario__item">
-            <img src="<?php echo esc_url($data['imagen']); ?>" alt="<?php echo esc_attr($data['titulo']); ?>" loading="lazy" width="800" height="100">
-            <div class="wc_calendario__content">
-               <h2 class="wc_calendario__h2"><?php echo esc_html($categoria . $data['titulo']); ?></h2>
-               <div class="wc_calendario__info">
-                  <div class="wc_calendario__fecha">
-                     <span class="wc_calendario__fecha--texto">En vivo <?php echo esc_html($data['diaTexto']); ?></span>
-                     <div class="wc_calendario__fecha--fecha">
-                        <span class="wc_calendario__fecha--dia"><?php echo esc_html($data['dia']); ?></span>
-                        <div class="wc_calendario__fecha--div">
-                           <span class="wc_calendario__fecha--mes"><?php echo esc_html($data['mes']); ?></span>
-                           <span class="wc_calendario__fecha--year"><?php echo esc_html($data['year']); ?></span>
+   foreach ( $product_data as $data ) {
+      $categoria = ( $data['servicio'] === 'Curso' ) ? $data['servicio'] . ' de Actualización: ' : $data['servicio'] . ' ';
+      $content .= "<div class='wc_calendario__item'>
+                     <img src='" . esc_url( $data['imagen'] ) . "' alt='" . esc_attr( $data['titulo'] ) . "' loading='lazy' width='800' height='100'>
+                     <div class='wc_calendario__content'>
+                        <h2 class='wc_calendario__h2'>" . esc_html( $categoria . $data['titulo'] ) . "</h2>
+                        <div class='wc_calendario__info'>
+                           <div class='wc_calendario__fecha'>
+                              <span class='wc_calendario__fecha--texto'>En vivo " . esc_html( $data['diaTexto'] ) . "</span>
+                              <div class='wc_calendario__fecha--fecha'>
+                                 <span class='wc_calendario__fecha--dia'>" . esc_html( $data['dia'] ) . "</span>
+                                 <div class='wc_calendario__fecha--div'>
+                                    <span class='wc_calendario__fecha--mes'>" . esc_html( $data['mes'] ) . "</span>
+                                    <span class='wc_calendario__fecha--year'>" . esc_html( $data['year'] ) . "</span>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
+                        <a href='" . esc_url( $data['link'] ) . "' class='wc_calendario__enlace'>Comprar Curso</a>
                      </div>
-                  </div>
-               </div>
-               <a href="<?php echo esc_url($data['link']); ?>" class="wc_calendario__enlace">Comprar Curso</a>
-            </div>
-         </div>
-      <?php
+                  </div>";
    }
 
-      $content .= "</div>";
-   $content .= "</div>";
-
-   return do_shortcode( $content ); 
+   $content .= "</div></div>";
+   return do_shortcode( $content );
 }
 add_shortcode( 'calendario', 'wc_calendario' );
 

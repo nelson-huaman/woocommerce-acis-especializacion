@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .wc_dashboard {
 
@@ -11,7 +12,7 @@
 
       span {
          font-weight: bold;
-         color: darken(v.$verde, 10%);
+         color: color.adjust(v.$verde, $lightness: -10%);
       }
    }
 
@@ -66,11 +67,7 @@
    }
 
    &__titulo {
-      grid-area: 1 / 1 / 2 / 4;
-   }
-
-   &__clasico {
-      grid-area: 1 / 4 / 2 / 5;
+      grid-area: 1 / 1 / 2 / 5;
    }
 
    &__premium {
@@ -81,11 +78,6 @@
       padding: 1rem ;
       font-weight: 900;
       text-align: center;
-
-      &--clasico {
-         @extend .incluye__header;
-         color: v.$azul;
-      }
 
       &--premium {
          @extend .incluye__header;
@@ -103,13 +95,7 @@
          @extend .incluye__body;
          text-align: left;
          font-weight: normal;
-         background-color: darken(v.$gris, 10%);
-      }
-
-      &--clasico {
-         @extend .incluye__body;
-         color: v.$azul;
-         background-color: rgba(v.$azul, .3);
+         background-color: color.adjust(v.$gris, $lightness: -10%);
       }
 
       &--premium {

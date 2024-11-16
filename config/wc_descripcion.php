@@ -32,8 +32,13 @@
          <p class="wc_membresia__texto"><?php echo $aviso; ?></p>
       </div> 
    <?php } else {
+      
       if($product->attributes) {
-         include_once 'wc_variacion.php';
+         if($categoria === 'Curso') {
+            include_once 'wc_curso.php';
+         } else {
+            include_once 'wc_diplomado.php';
+         }
       } else {
          include_once 'wc_simple.php';
       }

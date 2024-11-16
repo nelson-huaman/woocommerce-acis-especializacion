@@ -1,8 +1,6 @@
 <?php
 
 // Valiables
-
-$clasico = wc_get_product(CLASICO);
 $premium = wc_get_product(PREMIUM);
 $usuario = wp_get_current_user();
 
@@ -12,7 +10,6 @@ $limite = 2;
 $fechaHoy = date('Y-m-d');
 $planes = [];
 
-$precioClasio = $clasico->price;
 $precioPremium = $premium->price;
 
 // Funciones
@@ -41,12 +38,12 @@ if(is_user_logged_in()) {
         ];
     }
 
-    $arreglo = array(
+    $arreglo = [
         'customer_id' => $usuario->ID,
         'date_created' => $fechaHoy,
         'status' => array('wc-completed', 'wc-processing', 'wc-on-hold'),
         'return' => 'ids',
-    );
+    ];
 
     $comprasHoy = wc_get_orders($arreglo);
     foreach ($planes as $plan) {

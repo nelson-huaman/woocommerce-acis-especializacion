@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 $headerwebp: '../../build/img/header.webp';
 $headerjpg: '../../build/img/header.jpg';
@@ -256,7 +257,7 @@ $headeravif: '../../build/img/header.avif';
       flex-direction: column-reverse;
       align-items: center;
       gap: 4rem;
-      padding: 8rem 0;
+      padding: 3rem 0 8rem 0;
 
       @include m.desktop {
          flex-direction: row;
@@ -285,23 +286,11 @@ $headeravif: '../../build/img/header.avif';
    }
 
    &__cuerpo {
-      &--clasico {
-         background-color: rgba(v.$celeste, .3);
-      }
-
-      &--premium {
-         background-color: rgba(v.$premiumdos, .3);
-      }
+      background-color: rgba(v.$premiumdos, .3);
    }
 
    &__cabecera {
-      &--clasico {
-         @include m.degradado(lighten(v.$azul, 6%), v.$clasico);
-      }
-
-      &--premium {
-         @include m.degradado(v.$premium, v.$premiumdos);
-      }
+      @include m.degradado(v.$premium, v.$premiumdos);
    }
 
    &__nombre {
@@ -309,7 +298,7 @@ $headeravif: '../../build/img/header.avif';
       text-align: center;
       font-weight: 900;
       color: v.$blanco;
-      padding-top: 4rem;
+      padding-top: 2rem;
       margin: 0;
       z-index: 999;
       @include m.tablet {
@@ -334,17 +323,9 @@ $headeravif: '../../build/img/header.avif';
 
    &__precio {
       padding-top: 3rem;
-      color: v.$negro;
       font-weight: 900;
       font-size: 4rem;
-
-      &--clasico {
-         color: v.$azul;
-      }
-
-      &--premium {
-         color: v.$premium;
-      }
+      color: v.$premium;
 
       .woocommerce-Price-currencySymbol {
          font-size: 2.2rem;
@@ -356,7 +337,7 @@ $headeravif: '../../build/img/header.avif';
 
       del {
          font-size: 2.5rem;
-         color: darken(v.$gris, 40%);
+         color: color.adjust(v.$gris, $lightness: -10%);
       }
    }
 
@@ -365,22 +346,12 @@ $headeravif: '../../build/img/header.avif';
       line-height: 1.5;
       font-size: 1.8rem;
 
+      i {
+         background-color: v.$premiumdos;
+      }
+
       @include m.tablet {
          padding: 1rem 5rem;
-      }
-
-      &--clasico {
-
-         i {
-            background-color: v.$azul;
-         }
-      }
-
-      &--premium {
-
-         i {
-            background-color: v.$premiumdos;
-         }
       }
    }
 
@@ -419,30 +390,17 @@ $headeravif: '../../build/img/header.avif';
       font-size: 1.8rem;
       border-radius: 1rem;
       cursor: pointer;
+      background-color: v.$premium;
+
+      &:hover {
+         background-color: color.adjust(v.$premium, $lightness: -15%);
+         color: v.$blanco;
+      }
 
       @include m.tablet {
          font-size: 2.2rem;
          padding: 1.5rem 3rem;
       }
-
-      &--clasico {
-         background-color: v.$azul;
-
-         &:hover {
-            background-color: darken(v.$azul, 15%);
-            color: v.$blanco;
-         }
-      }
-
-      &--premium {
-         background-color: v.$premium;
-
-         &:hover {
-            background-color: darken(v.$premium, 15%);
-            color: v.$blanco;
-         }
-      }
-      
    }
 
    &__eira {
@@ -475,10 +433,6 @@ $headeravif: '../../build/img/header.avif';
          font-size: 2rem;
       }
 
-      &--clasico {
-         color: v.$azul;
-      }
-
       &--premium {
          color: v.$premiumdos;
       }
@@ -498,12 +452,7 @@ $headeravif: '../../build/img/header.avif';
 
       &--titulo {
          text-align: left;
-         background-color: darken(v.$gris, 10%);
-      }
-
-      &--clasico {
-         color: v.$azul;
-         background-color: rgba(v.$azul, .3);
+         background-color: color.adjust(v.$gris, $lightness: -10%);
       }
 
       &--premium {

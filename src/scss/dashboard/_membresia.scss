@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .wc_membresia {
    display: flex;
@@ -18,15 +19,15 @@
    }
 
    &--limite {
-      background-color: darken(v.$rojo, 5%);
+      background-color: color.adjust(v.$rojo, $lightness: -5%);
    }
 
    &--activo {
-      background-color: darken(v.$verde, 5%);
+      background-color: color.adjust(v.$verde, $lightness: -5%);
    }
 
    &--expirado {
-      background-color: darken(v.$rojo, 5%);
+      background-color: color.adjust(v.$rojo, $lightness: -5%);
    }
 
    &__texto {

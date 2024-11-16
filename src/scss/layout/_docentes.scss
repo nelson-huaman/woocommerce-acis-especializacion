@@ -1,6 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
-
+@use 'sass:color';
 
 .wc_docentes {
    margin-top: 3rem;
@@ -29,7 +29,7 @@
    }
 
    &__item {
-      border: 1px solid darken(v.$gris, 10%);
+      border: 1px solid color.adjust(v.$gris, $lightness: -10%);
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       display: flex;
       flex-direction: column;

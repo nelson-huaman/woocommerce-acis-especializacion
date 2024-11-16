@@ -1,0 +1,238 @@
+@use 'base/variables' as v;
+@use 'sass:color';
+@use 'base/mixins' as m;
+
+.wc_curso {
+   padding: 3.5rem 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 2rem;
+
+   @include m.desktop {
+      align-items: flex-start;
+      flex-direction: row;
+      justify-content: center;
+   }
+
+   &__item {
+      max-width: 32rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+   }
+
+   &__recomendado {
+      text-align: center;
+      background-color: v.$negro;
+      color: v.$plateado;
+      border-bottom: 1px solid v.$plateado;
+      font-weight: 600;
+
+      &--oculto {
+         display: none;
+         @include m.desktop {
+            display: block;
+            visibility: hidden;
+         };
+      }
+   }
+
+   &__contenido {
+      background-color: color.adjust(v.$azul, $lightness: 48%);
+
+      &--premium {
+         background-color: v.$negro;
+      }
+   }
+
+   &__header {
+      padding: 2rem;
+      text-align: center;
+   }
+
+   &__h3 {
+      margin: 0;
+
+      &--premium {
+         color: v.$dorado;
+      }
+   }
+
+   &__slogan {
+      margin-top: 1.5rem;
+      margin-bottom: 0;
+      color: v.$azul;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      font-weight: 600;
+
+      &--premium{
+         color: v.$plateado;
+      }
+   }
+
+   &__precio {
+      font-weight: v.$bold;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: .5rem;
+      align-items: center;
+      line-height: .8;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+
+      bdi {
+         display: flex;
+         align-items: center;
+         gap: 0;
+         color: v.$azul;
+      }
+
+      ins {
+         all: unset;
+         color: v.$azul;
+      }
+
+      .woocommerce-Price-currencySymbol {
+         font-size: 2.4rem;
+      }
+
+      .wc-memberships-variation-member-discount {
+         display: none !important;
+      }
+
+
+      del {
+         font-size: 2rem;
+         
+         bdi {
+            color: color.adjust(v.$gris, $lightness: -60%) !important;
+         }
+      }
+
+      &--premium {
+         font-size: 2.4rem;
+         color: v.$dorado;
+
+         span {
+            font-size: 4rem;
+         }
+      }
+   }
+
+   &__boton {
+      all: unset;
+      background-color: v.$azul;
+      color: v.$blanco;
+      padding: .6rem 2rem;
+      display: inline-block;
+      font-weight: 600;
+      border-radius: .5rem;
+
+      &:hover {
+         cursor: pointer;
+         background-color: color.adjust(v.$azul, $lightness: -10%);
+         color: v.$blanco;
+      }
+
+      &--premium {
+         background-color: v.$plateado;
+         color: v.$negro;
+
+         &:hover {
+            background-color: color.adjust(v.$plateado, $lightness: -5%);
+            color: v.$negro;
+         }
+      }
+   }
+
+   &__boton.activo {
+      background-color: v.$negro;
+      transition: background-color .5ms;
+      color: v.$plateado;
+      cursor: pointer;
+      font-weight: 900;
+   }
+
+   &__body {
+      display: none;
+      background-color: color.adjust(v.$negro, $lightness: 7%);;
+   }
+
+   &__body.activo {
+      display: block;
+   }
+
+   &__vector {
+      fill: v.$dorado;
+   }
+
+   &__ul {
+      padding: 2rem;
+   }
+
+   &__li {
+      color: v.$plateado !important;
+      margin: 0;
+
+      i {
+         color: v.$dorado;
+      }
+   }
+
+   &__pagar {
+      text-align: center;
+
+      &--label {
+         color: v.$plateado;
+      }
+
+      &--premium {
+         font-weight: v.$bold;
+         display: flex;
+         gap: .5rem;
+         flex-direction: row;
+         justify-content: center;
+
+         .woocommerce-Price-currencySymbol {
+            font-size: 1.2rem;
+         }
+
+         bdi {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            color: v.$dorado;
+         }
+
+         ins {
+            all: unset;
+            color: v.$dorado;
+         }
+
+         del {
+            font-size: 1.2rem;
+            bdi {
+               color: color.adjust(v.$gris, $lightness: -40%) !important;
+            }
+         }
+      }
+   }
+
+   &__enlace {
+      text-align: center;
+      padding: 2rem;
+
+      .wc_curso__boton {
+         background-color: v.$dorado;
+      }
+
+      a {
+         color: v.$negro !important;
+      }
+   }
+
+}

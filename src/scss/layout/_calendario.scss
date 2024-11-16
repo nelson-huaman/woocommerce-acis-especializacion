@@ -36,13 +36,14 @@
       }
 
       @include m.desktop {
-         @include m.grid(4, 2rem);
+         @include m.grid(3, 2rem);
       }
    }
 
    &__contenido.flex {
       display: flex;
       flex-direction: column;
+      
       gap: 2rem;
    }
 

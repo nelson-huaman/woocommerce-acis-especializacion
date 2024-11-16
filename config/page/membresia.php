@@ -92,50 +92,34 @@
       <table class="pagina__tabla">
          <tr class="pagina__tr">
             <th class="pagina__th"></th>
-            <th class="pagina__th pagina__th--clasico">Clásico</th>
             <th class="pagina__th pagina__th--premium">Premium</th>
          </tr>
          <tr>
             <td class="pagina__td pagina__td--titulo">Acceso al aula virtual</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-check" aria-hidden="true"></i>
-            </td>
             <td class="pagina__td pagina__td--premium">
                <i class="fa fa-check" aria-hidden="true"></i>
             </td>
          </tr>
          <tr>
-            <td class="pagina__td pagina__td--titulo">Certificación incluida</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-check" aria-hidden="true"></i>
-            </td>
+            <td class="pagina__td pagina__td--titulo">Certificación digital incluida</td>
             <td class="pagina__td pagina__td--premium">
                <i class="fa fa-check" aria-hidden="true"></i>
             </td>
          </tr>
          <tr>
             <td class="pagina__td pagina__td--titulo">Acceso a talleres</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-window-minimize" aria-hidden="true"></i>
-            </td>
             <td class="pagina__td pagina__td--premium">
                <i class="fa fa-check" aria-hidden="true"></i>
             </td>
          </tr>
          <tr>
             <td class="pagina__td pagina__td--titulo">Acceso a la programación anual</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-window-minimize" aria-hidden="true"></i>
-            </td>
             <td class="pagina__td pagina__td--premium">
                <i class="fa fa-check" aria-hidden="true"></i>
             </td>
          </tr>
          <tr>
             <td class="pagina__td pagina__td--titulo">Descuento en diplomado</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-window-minimize" aria-hidden="true"></i>
-            </td>
             <td class="pagina__td pagina__td--premium">
                <i class="fa fa-check" aria-hidden="true"></i>
             </td>

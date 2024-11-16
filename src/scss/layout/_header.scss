@@ -1,9 +1,10 @@
 @use 'base/mixins' as m;
 @use 'base/variables' as v;
+@use 'sass:color';
 
 .wc_header {
    @include m.grid(1, 2rem);
-   border-bottom: 1px solid lighten(v.$verde, 10%);
+   border-bottom: 1px solid color.adjust(v.$verde, $lightness: 10%);
    margin-bottom: 2rem;
 
    &__h1 {

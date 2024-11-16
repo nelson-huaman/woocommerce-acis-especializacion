@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .wc_temario {
    ul {
@@ -9,7 +10,7 @@
       li {
          @include m.reseter-lista;
          padding: 1rem;
-         background-color: lighten(v.$gris, 5);
+         background-color: color.adjust(v.$gris, $lightness: 5%);
          line-height: 1.5;
          font-weight: v.$delgado;
          color: v.$negro;
@@ -25,7 +26,7 @@
          }
          
          &:nth-child(even) {
-            background-color: darken(v.$gris, 2);
+            background-color: color.adjust(v.$gris, $lightness: -2%);
          }
       }
 

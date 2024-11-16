@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .wc_planes {
    padding: 3.5rem 0;
@@ -9,12 +10,9 @@
    gap: 2rem;
 
    @include m.desktop {
-      align-items: flex-start;
-   }
-
-   @include m.desktop {
       flex-direction: row;
-      justify-content: center
+      justify-content: center;
+      align-items: flex-start;
    }
 
    &__item {
@@ -88,7 +86,7 @@
 
       del {
          font-size: 2rem;
-         color: darken(v.$gris, 30%);
+         color: color.adjust(v.$gris, $lightness: 30%);
       }
 
       ins {
@@ -185,7 +183,7 @@
          fill: v.$clasico;
       }
       &--premium {
-         fill: darken(v.$premium, 5%);
+         fill: color.adjust(v.$premium, $lightness: -5%);
       }
    }
 
@@ -275,7 +273,7 @@
 
       del {
          font-size: 2rem;
-         color: darken(v.$gris, 40%);
+         color: color.adjust(v.$gris, $lightness: -40%);
       }
 
       &--clasico {

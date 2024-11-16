@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .wc_descripcion {
 
@@ -30,7 +31,7 @@
    font-size: 1.3rem;
    font-weight: bold;
    color: v.$negro;
-   background-color: lighten(v.$amarillo, 20%);
+   background-color: color.adjust(v.$amarillo, $lightness: 20%);
    border-radius: .5rem;
    padding: .5rem;
 }
