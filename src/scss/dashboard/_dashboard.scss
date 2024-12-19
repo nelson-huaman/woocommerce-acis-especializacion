@@ -99,7 +99,7 @@
          @extend .incluye__body;
          text-align: left;
          font-weight: normal;
-         background-color: darken(v.$gris, 10%);
+         background-color: color.adjust(v.$gris, $lightness: -10%);
       }
 
       &--clasico {
@@ -116,8 +116,9 @@
    }
 }
 
-.woocommerce table tr td {
-   padding: .1rem 1rem !important;
+.woocommerce table tr td,
+.woocommerce table tr th  {
+   padding: 1rem 1.5rem !important;
 }
 
 .tutoriales {

@@ -499,7 +499,7 @@ $headeravif: '../../build/img/header.avif';
 
       &--titulo {
          text-align: left;
-         background-color: darken(v.$gris, 10%);
+         background-color: color.adjust(v.$gris, $lightness: -10%);
       }
 
       &--clasico {

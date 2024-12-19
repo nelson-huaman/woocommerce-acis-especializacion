@@ -44,7 +44,12 @@ $resultado = $db->query($query);
                         <?php echo $certificado['Nota']; ?>
                      </td>
                      <td class="tabla__td">
-                        <?php echo $certificado['Fecha']; ?>
+                        <div class="tabla__td--fecha">
+                           <?php
+                              $date = new DateTime($certificado['Fecha']);
+                              echo $date->format('Y-m-d');
+                           ?>
+                        </div>
                      </td>
                      <td class="tabla__td">
                         <?php if($certificado['Link']) { ?>
