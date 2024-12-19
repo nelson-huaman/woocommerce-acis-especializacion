@@ -1,6 +1,7 @@
 <?php
 
 // Valiables
+$clasico = wc_get_product(CLASICO);
 $premium = wc_get_product(PREMIUM);
 $usuario = wp_get_current_user();
 
@@ -10,7 +11,8 @@ $limite = 2;
 $fechaHoy = date('Y-m-d');
 $planes = [];
 
-$precioPremium = $premium->price;
+// $precioClasio = $clasico->price;
+// $precioPremium = $premium->price;
 
 // Funciones
 function dias($fecha1, $fecha2) {

@@ -3,7 +3,6 @@
 @use 'sass:color';
 
 .wc_acordion {
-
    &__header {
       font-size: 2.2rem;
       color: v.$azul;
@@ -43,5 +42,4 @@
       border-left: 5px solid color.adjust(v.$verde, $lightness: -20%);
       font-weight: v.$bold;
    }
-
 }

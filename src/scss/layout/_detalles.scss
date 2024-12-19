@@ -24,6 +24,7 @@
    @include m.grid(2, 1rem);
    max-width: 40rem;
    margin: 0 auto;
+   padding: 0 1.5rem;
 
    @include m.desktop {
       &--descripcion {

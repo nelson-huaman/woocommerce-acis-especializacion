@@ -3,7 +3,6 @@
 @use 'sass:color';
 
 .wc_dashboard {
-
    &__user {
       text-align: center;
       font-size: 2.2rem;
@@ -31,7 +30,6 @@
       @include m.desktop {
          @include m.grid(2, 2rem);
       }
-      
    }
 
    &__descripcion {
@@ -39,9 +37,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
    }
-
 }
 
 .incluye {
@@ -62,12 +58,15 @@
    &__campo {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      // grid-template-rows: repeat(7, 1fr);
       gap: .5rem;
    }
 
    &__titulo {
-      grid-area: 1 / 1 / 2 / 5;
+      grid-area: 1 / 1 / 2 / 4;
+   }
+
+   &__clasico {
+      grid-area: 1 / 4 / 2 / 5;
    }
 
    &__premium {
@@ -75,9 +74,14 @@
    }
 
    &__header {
-      padding: 1rem ;
+      padding: 1rem;
       font-weight: 900;
       text-align: center;
+
+      &--clasico {
+         @extend .incluye__header;
+         color: v.$azul;
+      }
 
       &--premium {
          @extend .incluye__header;
@@ -86,7 +90,7 @@
    }
 
    &__body {
-      padding: 1rem 1.5rem;
+      padding: .5rem 1.5rem;
       text-align: center;
       border-radius: 1rem;
       font-weight: 900;
@@ -95,7 +99,13 @@
          @extend .incluye__body;
          text-align: left;
          font-weight: normal;
-         background-color: color.adjust(v.$gris, $lightness: -10%);
+         background-color: darken(v.$gris, 10%);
+      }
+
+      &--clasico {
+         @extend .incluye__body;
+         color: v.$azul;
+         background-color: rgba(v.$azul, .3);
       }
 
       &--premium {
@@ -104,6 +114,10 @@
          background-color: rgba(v.$premiumdos, .3);
       }
    }
+}
+
+.woocommerce table tr td {
+   padding: .1rem 1rem !important;
 }
 
 .tutoriales {
@@ -125,9 +139,25 @@
       margin-top: 1rem;
    }
 
+   &__cantidad {
+      font-weight: v.$bold;
+      color: v.$verde;
+   }
+
+   &__slogan {
+      font-size: 1rem;
+      span {
+         font-weight: v.$bold;
+      }
+   }
+
    &__video {
       border-radius: 2rem;
       border: 3px solid v.$verde;
       overflow: auto;
+   }
+
+   &__contenido {
+      overflow-x: auto;
    }
 }

@@ -1,0 +1,58 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.tabla {
+   width: 100%;
+   border-collapse: collapse;
+   white-space: nowrap;
+   @include m.desktop {
+      white-space: normal;
+   }
+
+   &__thead {
+      background-color: color.adjust(v.$azul, $lightness: -10%);
+      color: v.$blanco;
+   }
+
+   &__th {
+      padding: .7rem 1rem;
+      text-align: left;
+      font-weight: v.$bold;
+      border-color: color.adjust(v.$azul, $lightness: -10%) !important;
+   }
+
+   &__tr {
+      &:nth-child(even) {
+         background-color: color.adjust(v.$gris, $lightness: 1%);
+      }
+   }
+
+   &__td {
+      font-size: 1rem !important;
+      line-height: 1.5;
+      text-align: left !important;
+      border-color: v.$azul !important;
+
+      &--texto {
+         height: 1.5rem;
+         overflow: auto;
+      }
+      
+      &--enlace {
+         background-color: v.$verde;
+         padding: .5rem 1rem;
+         border-radius: .5rem;
+         color: v.$blanco !important;
+         font-weight: v.$bold;
+         cursor: pointer;
+      }
+
+      &--pendiente {
+         color: v.$rojo;;
+         font-weight: v.$bold;
+         text-align: center;
+         margin: 0 !important;
+      }
+   }
+}

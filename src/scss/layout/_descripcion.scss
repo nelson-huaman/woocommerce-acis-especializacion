@@ -3,7 +3,6 @@
 @use 'sass:color';
 
 .wc_descripcion {
-
    &__descargar {
       display: flex;
       justify-content: center;
@@ -16,6 +15,7 @@
       color: v.$negro;
    }
 }
+
 .wc_pagar {
    text-align: center;
 

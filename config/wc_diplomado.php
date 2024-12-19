@@ -17,8 +17,11 @@
                
                if($precioRegular > $calculoPrecio) {
                   $descuento = ( ( $precioRegular - $calculoPrecio ) / $precioRegular) * 100;
-                  $etiqueta = 'Incluye ' . round($descuento) . '% de dscto.';
+                  $etiqueta = round($descuento) . '% de dscto.';                  
+               } else if((int) $precioRegular ===  (int)$calculoPrecio) {
+                  $etiqueta = '';
                }
+
                if($cuotasCantidad === 1) {
                   $cuotas = 'Cuota única de:';
                } else {
@@ -53,9 +56,13 @@
                      <span class="wc_variaciones__cuota"><?php echo $cuotas; ?></span>
                      <span class="wc_variaciones__precio">S/. <?php echo $precio; ?></span>
                      <span class="wc_variaciones__etiqueta"><?php echo $etiqueta; ?></span>
-                     <span class="wc_variaciones__ahorro">AHORRAS</span>
-                     <span class="wc_variaciones__dscto">S/. <?php echo $ahorro; ?></span>
-                     <a href="?add-to-cart=<?php echo $variation['variation_id']; ?>" class="wc_variaciones__boton">Pagar</a>
+                     <span class="wc_variaciones__ahorro"><?php echo ($etiqueta === '') ? '' : 'AHORRAS'; ?></span>
+                     <span class="wc_variaciones__dscto"><?php echo ($etiqueta === '') ? '' : 'S/. ' . $ahorro; ?></span>
+                     <?php if( $variation['availability_html'] === '') { ?>
+                        <a href="?add-to-cart=<?php echo $variation['variation_id']; ?>" class="wc_variaciones__boton">Pagar</a>
+                     <?php } else { ?>
+                        <span class="wc_variaciones__agotado">No Disponible</span>
+                     <?php } ?>
                   </div>
                </div>
             <?php } ?>

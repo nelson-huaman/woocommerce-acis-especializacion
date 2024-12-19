@@ -77,8 +77,7 @@ function wc_calendario( $content = null ) {
 
    $content .= "</div></div>";
    return do_shortcode( $content );
-}
-add_shortcode( 'calendario', 'wc_calendario' );
+} add_shortcode( 'calendario', 'wc_calendario' );
 
 // Pagina de Membresia shortcode
 function page_membresia ( $content = null ) {
@@ -88,8 +87,7 @@ function page_membresia ( $content = null ) {
    $content .= "</div>";
 
    return do_shortcode( $content ); 
-}
-add_shortcode( 'page_membresia', 'page_membresia' );
+} add_shortcode( 'page_membresia', 'page_membresia' );
 
 // Home Membresia shortcode
 function home_membresia ( $content = null ) {
@@ -99,26 +97,11 @@ function home_membresia ( $content = null ) {
    $content .= "</div>";
 
    return do_shortcode( $content ); 
-}
-add_shortcode( 'home_membresia', 'home_membresia' );
-
-function my_account_menu_order() {
-   $menuOrder = array(
-      'dashboard'          => __( 'Inicio', 'woocommerce' ),
-      'orders'             => __( 'Mis Compras', 'woocommerce' ),
-      'edit-account'    => __( 'Mis Datos', 'woocommerce' ),
-      'customer-logout'    => __( 'Cerrar Sesión', 'woocommerce' ),
-   );
-   return $menuOrder;
-} add_filter ( 'woocommerce_account_menu_items', 'my_account_menu_order' );
-
+} add_shortcode( 'home_membresia', 'home_membresia' );
 
 function add_endpoint_membresia( $menu_links ){
    
-   $new = array(
-      'skucursos' => 'Mis Cursos',
-      'tutoriales' => 'Tutoriales'
-   );
+   $new = [ 'tutoriales' => 'Tutoriales', 'certificados' => 'Mis Certificados' ];
    $menu_links = array_slice( $menu_links, 0, 2, true ) 
    + $new 
    + array_slice( $menu_links, 2, NULL, true );
@@ -129,42 +112,43 @@ function add_endpoint_membresia( $menu_links ){
 // Add link de la pagina al Menú
 function add_endpoint_url_membresia( $url, $endpoint, $value, $permalink ){
 
-   if ( 'skucursos' === $endpoint ) {
-      $url = site_url('/intranet/eb_my_courses/');
-   }
-
    if( 'tutoriales' === $endpoint) {
       $url = site_url('/intranet/tutoriales/');
+   }
+
+   if( 'certificados' === $endpoint) {
+      $url = site_url('/intranet/certificados/');
    }
    return $url;
 
 } add_filter( 'woocommerce_get_endpoint_url', 'add_endpoint_url_membresia', 10, 4 );
 
-
 // ADD class menu Mi Membresía
 add_filter('woocommerce_account_menu_item_classes', function( $classes, $endpoint ){
-   if ( $endpoint == "skucursos" ) {
-      $urlStub = "/intranet/eb_my_courses/";
+   if ( $endpoint == "tutoriales" ) {
+      $urlStub = "/intranet/tutoriales/";
       if( substr_compare( $_SERVER['REQUEST_URI'], $urlStub, -strlen( $urlStub ) ) === 0 ) $classes[] = 'is-active';
    }
 
-   if ( $endpoint == "tutoriales" ) {
-      $urlStub = "/intranet/tutoriales/";
+   if ( $endpoint == "certificados" ) {
+      $urlStub = "/intranet/certificados/";
       if( substr_compare( $_SERVER['REQUEST_URI'], $urlStub, -strlen( $urlStub ) ) === 0 ) $classes[] = 'is-active';
    }
    return $classes;
 },10,2);
 
-
-add_action( 'init', 'endpoin_tutoriales' );
 function endpoin_tutoriales() {
 	add_rewrite_endpoint( 'tutoriales', EP_PAGES );
-}
+	add_rewrite_endpoint( 'certificados', EP_PAGES );
+} add_action( 'init', 'endpoin_tutoriales' );
 
-add_action( 'woocommerce_account_tutoriales_endpoint', 'wc_tutoriales' );
 function wc_tutoriales() {
    require 'tutoriales.php';
-}
+} add_action( 'woocommerce_account_tutoriales_endpoint', 'wc_tutoriales' );
+
+function wc_cerificados() {
+   require 'certificados.php';
+} add_action( 'woocommerce_account_certificados_endpoint', 'wc_cerificados' );
 
 // Añadir acción en todas las categorías de WooCommerce
 function mi_accion_personalizada_todas_categorias() {
@@ -175,14 +159,9 @@ function mi_accion_personalizada_todas_categorias() {
          </div>
       <?php
    }
-}
-
-// Hook para ejecutar la función antes del loop de productos
-add_action('woocommerce_before_shop_loop', 'mi_accion_personalizada_todas_categorias');
-
+} add_action('woocommerce_before_shop_loop', 'mi_accion_personalizada_todas_categorias');
 
 // Añadir campos personalizados para las cuotas en la página de edición de productos variables
-add_action('woocommerce_product_after_variable_attributes', 'custom_variation_fields', 10, 3);
 function custom_variation_fields($loop, $variation_data, $variation) {
    // Campo de Cuotas
    woocommerce_wp_text_input( array(
@@ -193,22 +172,31 @@ function custom_variation_fields($loop, $variation_data, $variation) {
       'value' => get_post_meta($variation->ID, '_variation_cuotas_field', true)
    ));
 
-}
+} add_action('woocommerce_product_after_variable_attributes', 'custom_variation_fields', 10, 3);
 
 // Guardar los valores de los campos personalizados
-add_action('woocommerce_save_product_variation', 'save_custom_variation_fields', 10, 2);
 function save_custom_variation_fields($variation_id, $i) {
    // Guardar el valor de las Cuotas
    $custom_variation_cuotas_value = $_POST['variation_cuotas_field'][$variation_id];
    update_post_meta($variation_id, '_variation_cuotas_field', esc_attr($custom_variation_cuotas_value));
-}
+} add_action('woocommerce_save_product_variation', 'save_custom_variation_fields', 10, 2);
 
 // Mostrar el valor de los campos personalizados en la página del producto
-add_filter('woocommerce_available_variation', 'display_custom_variation_fields');
 function display_custom_variation_fields($variations) {
    // Obtener el ID de la variación
    $variation_id = $variations['variation_id'];
    $cuotas = get_post_meta($variation_id, '_variation_cuotas_field', true); // Obtener los campos personalizados
    $variations['variation_cuotas_field'] = $cuotas ? $cuotas : __('No disponible', 'woocommerce'); // Añadir los campos personalizados a las variaciones disponibles
    return $variations;
-}
+} add_filter('woocommerce_available_variation', 'display_custom_variation_fields');
+
+function prevent_multiple_products_in_cart($passed ) {
+   // Verifica si el carrito ya contiene productos
+   if (!WC()->cart->is_empty()) {
+      // Redirige al carrito
+      wp_safe_redirect(wc_get_cart_url());
+      exit;
+   }
+
+   return $passed;
+} add_filter('woocommerce_add_to_cart_validation', 'prevent_multiple_products_in_cart', 10, 2);

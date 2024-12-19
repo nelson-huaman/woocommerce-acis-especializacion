@@ -26,7 +26,7 @@
    &__recomendado {
       text-align: center;
       background-color: v.$negro;
-      color: v.$plateado;
+      color: v.$blanco;
       border-bottom: 1px solid v.$plateado;
       font-weight: 600;
 
@@ -45,6 +45,10 @@
       &--premium {
          background-color: v.$negro;
       }
+
+      &--clasico {
+         background-color: color.adjust(v.$dorado, $lightness: 13%);
+      }
    }
 
    &__header {
@@ -58,6 +62,10 @@
       &--premium {
          color: v.$dorado;
       }
+
+      &--clasico {
+         color: v.$negro;
+      }
    }
 
    &__slogan {
@@ -69,7 +77,11 @@
       font-weight: 600;
 
       &--premium{
-         color: v.$plateado;
+         color: v.$blanco;
+      }
+
+      &--clasico{
+         color: v.$negro;
       }
    }
 
@@ -121,6 +133,15 @@
             font-size: 4rem;
          }
       }
+
+      &--clasico {
+         font-size: 2.4rem;
+         color: v.$negro;
+
+         span {
+            font-size: 4rem;
+         }
+      }
    }
 
    &__boton {
@@ -139,11 +160,21 @@
       }
 
       &--premium {
-         background-color: v.$plateado;
+         background-color: v.$blanco;
          color: v.$negro;
 
          &:hover {
-            background-color: color.adjust(v.$plateado, $lightness: -5%);
+            background-color: color.adjust(v.$blanco, $lightness: -5%);
+            color: v.$negro;
+         }
+      }
+
+      &--clasico {
+         background-color: v.$blanco;
+         color: v.$negro;
+
+         &:hover {
+            background-color: color.adjust(v.$blanco, $lightness: -5%);
             color: v.$negro;
          }
       }
@@ -154,12 +185,23 @@
       transition: background-color .5ms;
       color: v.$plateado;
       cursor: pointer;
+   }
+
+   &__boton.wc_curso__boton--premium.activo {
+      background-color: color.adjust(v.$dorado, $lightness: 13%);
+      color: v.$negro;
+      transition: background-color .5ms;
+      cursor: pointer;
       font-weight: 900;
    }
 
    &__body {
       display: none;
-      background-color: color.adjust(v.$negro, $lightness: 7%);;
+      background-color: color.adjust(v.$negro, $lightness: 20%);
+
+      &--clasico {
+         background-color: color.adjust(v.$dorado, $lightness: 30%);
+      }
    }
 
    &__body.activo {
@@ -167,7 +209,11 @@
    }
 
    &__vector {
-      fill: v.$dorado;
+      fill: color.adjust(v.$dorado, $lightness: 13%);
+
+      &--clasico {
+         fill: v.$negro;
+      }
    }
 
    &__ul {
@@ -175,22 +221,35 @@
    }
 
    &__li {
-      color: v.$plateado !important;
-      margin: 0;
+      color: v.$blanco !important;
+      margin: 0 !important;
 
       i {
          color: v.$dorado;
+      }
+
+      &--clasico {
+         color: v.$negro !important;
+
+         i {
+            color: v.$negro;
+         }
       }
    }
 
    &__pagar {
       text-align: center;
 
-      &--label {
+      &--label-premium {
          color: v.$plateado;
       }
 
-      &--premium {
+      &--label-clasico {
+         color: v.$negro;
+      }
+
+      &--premium,
+      &--clasico {
          font-weight: v.$bold;
          display: flex;
          gap: .5rem;
@@ -205,16 +264,43 @@
             display: flex;
             align-items: center;
             gap: 0;
-            color: v.$dorado;
          }
 
          ins {
             all: unset;
-            color: v.$dorado;
          }
 
          del {
             font-size: 1.2rem;
+         }
+      }
+
+      &--premium {
+         bdi {
+            color: v.$dorado;
+         }
+
+         ins {
+            color: v.$dorado;
+         }
+
+         del {
+            bdi {
+               color: color.adjust(v.$gris, $lightness: -40%) !important;
+            }
+         }
+      }
+
+      &--clasico {
+         bdi {
+            color: v.$negro;
+         }
+
+         ins {
+            color: v.$negro;
+         }
+
+         del {
             bdi {
                color: color.adjust(v.$gris, $lightness: -40%) !important;
             }
@@ -226,12 +312,14 @@
       text-align: center;
       padding: 2rem;
 
-      .wc_curso__boton {
+      a.wc_curso__boton--premium {
          background-color: v.$dorado;
+         color: v.$negro !important;
       }
 
-      a {
-         color: v.$negro !important;
+      a.wc_curso__boton--clasico {
+         background-color: v.$negro;
+         color: v.$blanco !important;
       }
    }
 

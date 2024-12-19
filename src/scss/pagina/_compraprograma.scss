@@ -124,4 +124,12 @@
       }
    }
 
+   &__agotado {
+      color: v.$rojo;
+      display: block;
+      font-weight: v.$bold;
+      padding: 1rem;
+      margin-top: 1rem;
+   }
+
 }

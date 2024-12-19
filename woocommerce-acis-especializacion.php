@@ -2,8 +2,8 @@
 /**
  * Plugin Name: ACIS Especialización for WooCommerce 
  * Description: Plugin personalizado! restrocturación de Woocommerce.
- * Version: 22.0
- * Author: Nelson Huamán H.
+ * Version: 23.0
+ * Author: Nelson Huamán
  * Author URI: https://nelsondev.info
  * Text Domain: woocommerce-acis-especializacion
  * Requires at least: 6.5
@@ -12,6 +12,7 @@
 
 define('IMG', plugin_dir_url(__FILE__) . 'build/img/');
 define('PREMIUM', 2390);
+define('CLASICO', 2388);
 
 add_action('after_setup_theme','producto_woocommerce');
 
