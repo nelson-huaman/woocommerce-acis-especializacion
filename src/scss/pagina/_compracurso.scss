@@ -32,10 +32,6 @@
          border-color: v.$basico;
       }
 
-      &--clasico {
-         border-color: v.$azul;
-      }
-
       &--premium {
          border-color: v.$premium;
       }
@@ -51,10 +47,6 @@
 
       &--regular {
          background-color: rgba(v.$basico, .2);
-      }
-
-      &--clasico {
-         background-color: rgba(v.$clasico, .3);
       }
 
       &--premium {
@@ -144,10 +136,6 @@
          cursor: pointer;
       }
 
-      &--clasico {
-         background-color: v.$azul;
-      }
-
       &--premium {
          background-color: v.$premium;
       }
@@ -155,14 +143,6 @@
 
    &__descripcion {
       display: none;
-      &--clasico {
-         background-color: v.$fondoclasico;
-
-         i {
-            background-color: v.$azul;
-         }
-      }
-
       &--premium {
          background-color: v.$fondopremium;
 
@@ -177,9 +157,6 @@
    }
 
    &__vector {
-      &--clasico {
-         fill: v.$clasico;
-      }
       &--premium {
          fill: color.adjust(v.$premium, $lightness: -5%);
       }
@@ -213,10 +190,6 @@
       font-weight: v.$bold;
       text-align: center;
       font-size: 1.8rem;
-
-      &--clasico {
-         color: v.$azul;
-      }
 
       &--premium {
          color: v.$premium;
@@ -274,10 +247,6 @@
          color: color.adjust(v.$gris, $lightness: -40%);
       }
 
-      &--clasico {
-         color: v.$azul;
-      }
-
       &--premium {
          color: v.$premium;
       }
@@ -292,10 +261,6 @@
 
       &--regular {
          background-color: rgba(v.$basico, .1);
-      }
-
-      &--clasico {
-         background-color: v.$fondoclasico;
       }
 
       &--premium {

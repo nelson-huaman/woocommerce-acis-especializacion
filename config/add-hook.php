@@ -200,3 +200,37 @@ function prevent_multiple_products_in_cart($passed ) {
 
    return $passed;
 } add_filter('woocommerce_add_to_cart_validation', 'prevent_multiple_products_in_cart', 10, 2);
+
+
+// Cambiar el texto del label de "Username or Email Address"
+function wc_form_personalizado($translated_text, $text, $domain) {
+   if ('Username or email address' === $text && 'woocommerce' === $domain) {
+      $translated_text = 'DNI o Correo';
+   }
+
+   if('Username or email' === $text && 'woocommerce' === $domain) {
+      $translated_text = 'DNI o Correo';
+   }
+
+   if ('Password' === $text && 'woocommerce' === $domain) {
+      $translated_text = 'Contraseña (DNI)';
+   }
+
+   if('Username' === $text && 'woocommerce' === $domain) {
+      $translated_text = 'DNI';
+   }
+
+   if('Email address' === $text && 'woocommerce' === $domain) {
+      $translated_text = 'Correo';
+   }
+
+   if('Account username' === $text && 'woocommerce' === $domain) {
+      $translated_text = 'DNI';
+   }
+
+   if('Create account password' === $text && 'woocommerce' === $domain) {
+      $translated_text = 'Contraseña (DNI)';
+   }
+
+   return $translated_text;
+} add_filter('gettext', 'wc_form_personalizado', 20, 3);

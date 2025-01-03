@@ -23,6 +23,11 @@
    }
 }
 
+@mixin contenedorSM {
+   width: min(93%, 60rem);
+   margin: 0 auto;
+}
+
 @mixin grid($columna, $espacio) {
    display: grid;
    grid-template-columns: repeat($columna, 1fr);

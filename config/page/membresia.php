@@ -88,58 +88,46 @@
 
 <section class="pagina__seccion">
    <div class="pagina__contenedor">
-      <h2 class="pagina__h2">Detalles</h2>
-      <table class="pagina__tabla">
-         <tr class="pagina__tr">
-            <th class="pagina__th"></th>
-            <th class="pagina__th pagina__th--clasico">Clásico</th>
-            <th class="pagina__th pagina__th--premium">Premium</th>
-         </tr>
-         <tr>
-            <td class="pagina__td pagina__td--titulo">Acceso al aula virtual</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-check" aria-hidden="true"></i>
-            </td>
-            <td class="pagina__td pagina__td--premium">
-               <i class="fa fa-check" aria-hidden="true"></i>
-            </td>
-         </tr>
-         <tr>
-            <td class="pagina__td pagina__td--titulo">Certificación incluida</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-check" aria-hidden="true"></i>
-            </td>
-            <td class="pagina__td pagina__td--premium">
-               <i class="fa fa-check" aria-hidden="true"></i>
-            </td>
-         </tr>
-         <tr>
-            <td class="pagina__td pagina__td--titulo">Acceso a talleres</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-window-minimize" aria-hidden="true"></i>
-            </td>
-            <td class="pagina__td pagina__td--premium">
-               <i class="fa fa-check" aria-hidden="true"></i>
-            </td>
-         </tr>
-         <tr>
-            <td class="pagina__td pagina__td--titulo">Acceso a la programación anual</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-window-minimize" aria-hidden="true"></i>
-            </td>
-            <td class="pagina__td pagina__td--premium">
-               <i class="fa fa-check" aria-hidden="true"></i>
-            </td>
-         </tr>
-         <tr>
-            <td class="pagina__td pagina__td--titulo">Descuento en diplomado</td>
-            <td class="pagina__td pagina__td--clasico">
-               <i class="fa fa-window-minimize" aria-hidden="true"></i>
-            </td>
-            <td class="pagina__td pagina__td--premium">
-               <i class="fa fa-check" aria-hidden="true"></i>
-            </td>
-         </tr>
-      </table>
+      <h2 class="pagina__h2">Beneficios de su Membresía Premium</h2>
+      <div class="pagina__detalles">
+         <div class="pagina__item">Acceso al aula virtual</div>
+         <div class="pagina__item">Certificación incluida</div>
+         <div class="pagina__item">Acceso a los talleres</div>
+         <div class="pagina__item">Acceso a la programación anual</div>
+         <div class="pagina__item">Descuento en diplomado</div>
+      </div>
+   </div>
+</section>
+
+<section class="pagina__seccion">
+   <div class="pagina__contenedor">
+      <h2 class="pagina__h2">Preguntas Frecuentes</h2>
+      <div class="pagina__preguntas">
+         <div class="pagina__pregunta">
+            <h3 class="pagina__h3--pregunta">¿Qué incluye una Membresía PREMIUM?</h3>
+            <div class="pagina__body">
+               <p class="pagina__texto">Una Membresía CLÁSICA O PREMIUM te da acceso ILIMITADO a todos nuestros cursos.</p>
+               <p class="pagina__texto">Todos con sus respectivos certificados. Este acceso durará el tiempo que lo contrates.</p>
+            </div>
+         </div>
+         <div class="pagina__pregunta">
+            <h3 class="pagina__h3--pregunta">¿Cómo puedo saber hasta qué fecha estará activa mi Membresía?</h3>
+            <div class="pagina__body">
+               <p class="pagina__texto">En la intranet encontrarás una opción llamada mi membresía al ingresar podrás verificar el tiempo de inicio y fin.</p>
+            </div>
+         </div>
+         <div class="pagina__pregunta">
+            <h3 class="pagina__h3--pregunta">¿Luego que termine el periodo de duración de la Membresía, podré ingresar a mis cursos?</h3>
+            <div class="pagina__body">
+               <p class="pagina__texto">No, solo tendrás acceso a los cursos durante el periodo de vigencia de tu Membresía.</p>
+            </div>
+         </div>
+         <div class="pagina__pregunta">
+            <h3 class="pagina__h3--pregunta">¿Puedo pagar con tarjeta de crédito?</h3>
+            <div class="pagina__body">
+               <p class="pagina__texto">Si, aceptamos todos los medios de pago. Puedes adquirirlo por la página web con cualquier tarjeta o vía transferencia contactando a nuestros asesores académicos en whatsapp: <span>+51 973 701 035</span></p>
+            </div>
+         </div>
+      </div>
    </div>
 </section>

@@ -26,6 +26,7 @@
       margin-top: 3rem;
       @include m.grid(1, 2rem);
       align-items: center;
+      margin-bottom: 2rem;
 
       @include m.desktop {
          @include m.grid(2, 2rem);
@@ -52,66 +53,21 @@
    &__detalle {
       display: flex;
       flex-direction: column;
-      gap: .5rem;
+      gap: .6rem;
+      @include m.contenedorSM;
+      margin-top: 2rem;
+      @include m.sombra;
+      padding: 2rem;
    }
 
-   &__campo {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: .5rem;
-   }
+   &__item {
+      font-weight: v.$delgado;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
-   &__titulo {
-      grid-area: 1 / 1 / 2 / 4;
-   }
-
-   &__clasico {
-      grid-area: 1 / 4 / 2 / 5;
-   }
-
-   &__premium {
-      grid-area: 1 / 5 / 2 / 6;
-   }
-
-   &__header {
-      padding: 1rem;
-      font-weight: 900;
-      text-align: center;
-
-      &--clasico {
-         @extend .incluye__header;
-         color: v.$azul;
-      }
-
-      &--premium {
-         @extend .incluye__header;
-         color: v.$premiumdos;
-      }
-   }
-
-   &__body {
-      padding: .5rem 1.5rem;
-      text-align: center;
-      border-radius: 1rem;
-      font-weight: 900;
-
-      &--titulo {
-         @extend .incluye__body;
-         text-align: left;
-         font-weight: normal;
-         background-color: color.adjust(v.$gris, $lightness: -10%);
-      }
-
-      &--clasico {
-         @extend .incluye__body;
-         color: v.$azul;
-         background-color: rgba(v.$azul, .3);
-      }
-
-      &--premium {
-         @extend .incluye__body;
-         color: v.$premiumdos;
-         background-color: rgba(v.$premiumdos, .3);
+      i {
+         font-size: 1.2rem;
       }
    }
 }
