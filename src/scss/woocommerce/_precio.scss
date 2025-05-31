@@ -1,0 +1,118 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.simple {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+
+   &__item {
+      border: 1px solid v.$azul;
+      border-radius: 1rem;
+      overflow: auto;
+   }
+
+   &__name {
+      padding: 1rem 1rem 0 1rem;
+      span {
+         font-weight: bold;
+      }
+   }
+
+   &__contenido {
+      padding: 1rem;
+
+      &:hover {
+         cursor: pointer;
+         background-color: v.$gris;
+      }
+   }
+
+   &__flex {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin: .5rem 0;
+   }
+
+   &__precios {
+      flex: 1;
+      font-size: 1.2rem;
+      font-weight: bold;
+
+      &--descuento {
+         text-decoration: line-through;
+         font-size: .9rem;
+         font-weight: 500;
+      }
+   }
+
+   &__input {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      border: 3px solid v.$verde;
+   }
+
+   &__input.activo {
+      background-color: v.$verde;
+   }
+
+
+   &__oferta {
+      border: 1px solid v.$rojo;
+      color: v.$rojo;
+      font-weight: bold;
+      padding: .5rem;
+      border-radius: .5rem;
+      font-size: .8rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      line-height: 1.1;
+   }
+
+   &__texto {
+      margin: 0 !important;
+
+      span {
+         font-weight: bold;
+      }
+
+      &--slogan {
+         font-size: .8rem !important;
+         font-style: italic;
+      }
+   }
+
+   &__body {
+      background-color: color.adjust(v.$azul, $lightness: 52%);
+      padding: 1rem;
+      display: none;
+
+      span {
+         font-size: .8rem;
+         display: flex;
+         align-items: center;
+         gap: .5rem;
+         margin-bottom: .5rem;
+
+         &:last-of-type {
+            margin-bottom: 0;
+         }
+      }
+   }
+
+   &__body.activo {
+      display: block
+   }
+
+   &__boton {
+      @include m.boton(v.$azul, v.$blanco);
+      & {
+         width: 100%;
+         margin-bottom: 0;
+      }
+   }
+}

@@ -1,0 +1,293 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+$forma: '../../build/img/forma.svg';
+$proximowebp: '../../build/img/fondo-2.webp';
+$proximoavif: '../../build/img/fondo-2.avif';
+$proximojpg: '../../build/img/fondo-2.jpg';
+$portadawebp: '../../build/img/portada-header.webp';
+$portadaavif: '../../build/img/portada-header.avif';
+$portadajpg: '../../build/img/portada-header.jpg';
+
+.inicio {
+
+   &__contenedor {
+      @include m.contenedor;
+   }
+
+   &__header {
+      background-color: v.$azul;
+      background-image: image-set(url($portadaavif) 1x, url($portadawebp) 1x, url($portadajpg) 1x);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+   }
+
+   &__h1 {
+      color: v.$blanco !important;
+      text-align: center;
+      line-height: 1.2 !important;
+      @include m.texto-fluido(2rem, 3.5rem);
+
+      span {
+         color: color.adjust(v.$celeste, $lightness: 20%);
+         font-weight: bold;
+      }
+
+      @include m.desktop {
+         text-align: left;
+      }
+   }
+
+   &__h2 {
+      text-align: center;
+      line-height: 1.2 !important;
+      @include m.texto-fluido(1rem, 2rem);
+
+      span {
+         font-weight: 500 !important;
+      }
+
+      &--blanco {
+         color: v.$blanco !important;
+      }
+
+      &--desktop {
+         display: none;
+      }
+
+      @include m.desktop {
+         &--movil {
+            display: none;
+         }
+         &--desktop {
+            display: block;
+         }
+      }
+   }
+
+   &__h3 {
+      @include m.texto-fluido(1rem, 1.2rem);
+      margin: 1rem 0 0 0 !important;
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__imagen {
+      width: 100%;
+
+      &--header {
+         width: auto;
+         max-height: 30rem;
+      }
+   }
+
+   &__flex {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-direction: column;
+      padding: 3rem 0 0 0;
+
+      @include m.desktop {
+         flex-direction: row;
+         gap: 2rem;
+      }
+   }
+
+   &__item {
+
+      &--contenido {
+         width: 100%;
+
+         @include m.desktop {
+            width: 45%;
+            text-align: left;
+         }
+      }
+
+      &--header {
+         width: 100%;
+         text-align: center;
+
+         @include m.desktop {
+            flex: 1;
+            text-align: right;
+         }
+      }
+   }
+
+   &__texto {
+      &--slogan {
+         color: v.$blanco !important;
+         font-weight: bold;
+         text-align: center;
+         margin: 0 !important;
+         @include m.texto-fluido(1rem, 1.6rem);
+
+         @include m.desktop {
+            text-align: left;            
+         }
+      }
+
+      &--blanco {
+         color: v.$blanco;
+      }
+
+      &--years {
+         color: v.$blanco ;
+         @include m.texto-fluido(2rem, 3.2rem);
+         text-align: center;
+         font-weight: bold;
+         line-height: 1.2;
+
+         @include m.desktop {
+            text-align: left;
+         }
+
+         span {
+            font-weight: 500;
+         }
+      }
+
+      &--nombre {
+         color: v.$blanco;
+         display: flex;
+         flex-direction: column;
+         line-height: 1.2;
+         font-weight: bold;
+         padding-right: 1.5rem;
+         border-right: 3px solid v.$premium;
+         margin: 0 !important;
+         @include m.tablet {
+            padding-right: 2rem;
+            font-size: 1.6rem
+         }
+      }
+
+      &--numero {
+         @include m.texto-fluido(2rem, 3rem);
+         color: v.$premium;
+         line-height: 1.2;
+         font-weight: bold;
+         margin: 0 !important;
+         padding-left: 1.5rem;
+         @include m.tablet {
+            padding-left: 2rem;
+         }
+      }
+   }
+
+   &__section {
+      padding: 3rem 0;
+
+      &--experiencia {
+         background-color: v.$azul;
+         background-image: image-set(url($proximoavif) 1x, url($proximowebp) 1x, url($proximojpg) 1x);
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: cover;
+         height: auto;
+      }
+
+      &--maniqui {
+         background-color: v.$gris;
+      }
+   }
+
+   /* Academicas */
+   &__academicas {
+      margin-top: 2rem;
+      @include m.grid(1, 1.5rem);
+      @include m.tablet {
+         @include m.grid(2, 1.5rem);
+      }
+      @include m.desktop {
+         @include m.grid(3, 2rem);
+      }
+
+   }
+
+   &__academica {
+      position: relative;
+      overflow: hidden;
+      border-radius: .5rem;
+      @include m.sombra;
+
+      &:hover img {
+         transform: scale(1.1);
+         transition: transform 5ms ease-out;
+      }
+   }
+
+   /* Metodología */
+   &__metodologias {
+      margin-top: 2rem;
+      @include m.grid(1, 2rem);
+      @include m.desktop {
+         @include m.grid(2, 2rem);
+         align-items: center;
+      }
+   }
+
+   &__metodologia {
+      img {
+         filter: drop-shadow(5px 10px 20px rgba(v.$azul, 0.15));
+      }
+
+      p {
+         text-align: justify;
+      }
+   }
+
+   /* Experiencia */
+   &__experiencias {
+      @include m.grid(1, 1rem);
+
+      @include m.desktop {
+         @include m.grid(2, 1rem);
+         align-items: center;
+      }
+   }
+
+   &__data {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 1.5rem;
+
+      @include m.desktop {
+         justify-content: flex-start;
+         padding: 0;
+      }
+   }
+
+   /* Beneficios */
+   &__beneficios {
+      margin-top: 2rem;
+
+      @include m.grid(1, 1.5rem);
+
+      @include m.tablet {
+         @include m.grid(2, 1.5rem);
+      }
+
+      @include m.desktop {
+         @include m.grid(4, 1.5rem);
+      }
+   }
+
+   &__beneficio {
+      text-align: center;
+      border-radius: 1rem;
+      padding: 2rem 1.2rem;
+      @include m.sombra;
+
+      i {
+         @include m.texto-fluido(3rem, 6rem);
+         color: v.$azul;
+      }
+   }
+
+}

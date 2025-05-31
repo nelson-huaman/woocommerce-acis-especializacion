@@ -1,0 +1,442 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+$headerwebp: '../../build/img/membresia-header.webp';
+$headerjpg: '../../build/img/membresia-header.jpg';
+$headeravif: '../../build/img/membresia-header.avif';
+$testiminiowebp: '../../build/img/fondo-2.webp';
+$testiminiojpg: '../../build/img/fondo-2.jpg';
+$testiminioavif: '../../build/img/fondo-2.avif';
+
+.membresia {
+ 
+   &__header {
+      background-color: v.$azul;
+      background-image: image-set(url($headeravif) 1x, url($headerwebp) 1x, url($headerjpg) 1x);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: auto;
+   }
+
+   &__seccion {
+      padding: 2rem 0;
+
+      &--accede {
+         background-color: v.$premium;
+         padding: 0;
+      }
+      &--barra {
+         background-color: v.$premium;
+      }
+
+      &--benedicios {
+         padding: 0;
+      }
+
+      &--expereincia {
+         background-color: color.adjust(v.$celeste, $lightness: 40%);
+      }
+
+      &--planes {
+         background-color: color.adjust(v.$blanco, $lightness: -10%);
+      }
+
+      &--testimonio {
+         background-color: color.adjust(v.$blanco, $lightness: -10%);
+         padding: 2rem 0 0 0;
+      }
+   }
+
+   &__contenedor {
+      @include m.contenedor;
+   }
+
+   &__titulo {
+      color: v.$azul !important;
+      text-align: center;
+      font-weight: bold;
+      @include m.texto-fluido(1rem, 2rem);
+
+      &--elige {
+         margin-bottom: .5rem !important;
+      }
+
+      &--elige {
+         font-weight: bold;
+         
+         span {
+            font-weight: normal;
+         }
+
+      }
+
+      @include m.desktop {
+         &--vive {
+            text-align: left;
+         }
+      }
+   }
+
+   &__imagen {
+      width: 100%;
+   }
+
+   &__h1 {
+      font-weight: normal !important;
+      color: v.$blanco !important;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2 !important;
+      span {
+         font-weight: bold;
+      }
+   }
+
+   &__texto {
+      margin: 0 !important;
+      line-height: 1.2;
+
+      &--capacitate {
+         color: v.$blanco;
+         font-weight: bold;
+         display: flex;
+         flex-direction: column;
+         font-size: 1.5rem;
+         margin: 1.2rem 0 !important;
+
+         span {
+            font-weight: normal;
+         }
+      }
+
+      &--blanco {
+         color: v.$blanco !important;
+         @include m.texto-fluido(1.5rem, 2.5rem);
+         font-weight: bold;
+      }
+
+      &--azul {
+         color: v.$azul !important;
+         font-size: 1.2rem;
+         
+         span {
+            font-weight: bold;
+            text-decoration: underline;
+         }
+      }
+
+      &--habilidades {
+         font-size: 1.5rem;
+         color: v.$azul;
+         line-height: 1.2;
+      }
+
+      &--boton {
+         background-color: v.$verde;
+         color: v.$blanco;
+         display: inline-block;
+         padding: 1rem 2rem;
+         @include m.texto-fluido(1rem, 1.5rem);
+         border-radius: 1rem;
+         font-weight: bold;
+         margin-top: 1rem !important;
+      }
+
+      &--nombre {
+         display: flex;
+         flex-direction: column;
+         color: v.$blanco;
+         font-size: 1.5rem;
+         font-weight: bold;
+      }
+
+      &--numero {
+         color: v.$premium;
+         @include m.texto-fluido(2rem, 3rem);
+         font-weight: bold;
+      }
+
+      &--years {
+         color: v.$blanco;
+         @include m.texto-fluido(1.5rem, 2.5rem);
+         margin-bottom: 2rem !important;
+         
+         span {
+            font-weight: bold;
+            @include m.texto-fluido(2rem, 3rem);
+         }
+      }
+   }
+
+   &__accede {
+      margin: 0 !important;
+      color: v.$blanco ;
+      text-align: center;
+      font-weight: bold !important;
+      @include m.texto-fluido(2rem, 4.5rem);
+   }
+
+   &__grid-4 {
+      @include m.grid(1, 1rem);
+      align-items: center;
+
+      @include m.tablet {
+         @include m.grid(2, 1rem);
+      }
+
+      @include m.desktop {
+         @include m.grid(4, 2rem);
+      }
+   }
+
+   &__grid-item {
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      padding: 1rem;
+
+      &--1 {
+         background-color: color.adjust(v.$premium, $lightness: 35%);
+         height: 100%;
+         text-align: center;
+
+         p {
+            color: v.$azul;
+            font-size: 1.4rem !important;
+            font-weight: bold;
+         }
+      }
+
+      i {
+         color: color.adjust(v.$premium, $lightness: 20%);
+      }
+
+      p {
+         margin: 0 !important;
+         font-size: 1rem;
+         font-weight: bold;
+      }
+   }
+
+   &__flex {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      &--espacio {
+         gap: 2rem;
+      }
+
+      @include m.desktop {
+         flex-direction: row;
+
+         &--espacio {
+            gap: 4rem;
+         }
+      }
+
+      
+   }
+
+   &__item {
+      text-align: center;
+
+      &--contenido {
+         padding: 2rem 0;
+      }
+
+      @include m.desktop {
+         &--linea {
+            border-right: .5rem solid v.$premium;
+            padding-right: 4rem
+         }
+
+         &--left {
+            text-align: left
+         }
+
+         &--separador {
+            border-right: .2rem solid v.$premium;
+            padding-right: 2rem
+         }
+         
+      }
+      
+   }
+
+   &__grid {
+      @include m.grid(1, 1rem);
+      align-items: center;
+
+      @include m.desktop {
+         @include m.grid(2, 2rem);
+      }
+   }
+
+   &__boton {
+      @include m.boton(v.$azul, v.$blanco);
+      & {
+         padding: .5rem 2rem;
+         font-size: 1.5rem;
+         margin: 0;
+      }
+
+      i {
+         margin-right: .8rem;
+      }
+
+      &--whatsapp {
+         background-color: color.adjust(#25D366, $lightness: -10%);
+
+         &:hover {
+            background-color: color.adjust(#25D366, $lightness: -20%);
+         }
+      }
+
+      &--shop {
+         background-color: v.$rojo;
+
+         &:hover {
+            background-color: color.adjust(v.$rojo, $lightness: -10%);
+         }
+      }
+   }
+
+   &__elegirnos {
+      text-align: center;
+   }
+
+   &__svg {
+      position: relative;
+   }
+
+   &__name {
+      color: v.$blanco !important;
+      margin: 0 !important;
+      font-size: 1.5rem !important;
+   }
+
+   &__elegir {
+      margin: -2rem auto auto auto;
+      max-width: 20rem;
+      padding: 3rem 1rem 1rem 1rem;
+      border-top-right-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      
+      &--azul {
+         background-color: v.$azul;
+         color: v.$blanco;
+         padding-top: 3rem;
+      }
+
+      &--verde {
+         background-color: color.adjust(v.$verde, $lightness: 13%);
+         color: v.$blanco;
+      }
+   }
+
+   &__degradado {
+      background: linear-gradient(90deg, v.$premium 0%, color.adjust(v.$premium, $lightness: 12%) 100%);
+      margin-bottom: .5rem !important;
+      padding: 0 2rem;
+      border-radius: .5rem;
+      @include m.texto-fluido(1.5rem, 2.5rem);
+      font-weight: bold;
+      color: v.$blanco;
+      display: inline-block;
+   }
+
+   &__precio {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-weight: bold !important;
+
+      &--rojo,
+      &--blanco,
+      &--precio,
+      &--precio-2 {
+         @include m.texto-fluido(1.5rem, 2.5rem);
+         text-decoration: line-through;
+         margin-bottom: 0rem;
+         line-height: 1;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         span {
+            font-size: 1.5rem;
+         }
+      }
+
+      &--rojo {
+         color: v.$rojo;
+      }
+
+      &--blanco {
+         color: v.$blanco;
+      }
+      
+      &--precio {
+         color: v.$blanco;
+         text-decoration: none;
+         @include m.texto-fluido(3rem, 5rem);
+      }
+
+      &--precio-2 {
+         color: v.$rojo;
+         text-decoration: none;
+         @include m.texto-fluido(3rem, 5rem);
+      }
+
+      &--actual,
+      &--anaranjado {
+         @include m.texto-fluido(2.5rem, 3.5rem);
+         padding: 0 1.5rem;
+         position: relative;
+         border-radius: 1rem;
+         display: inline-block;
+         margin: 0 auto;
+
+         span {
+            font-size: 2rem;
+         }
+      }
+
+      &--actual {
+         background-color: v.$blanco;
+         color: v.$premium;
+      }
+
+      &--anaranjado {
+         background-color: v.$premium;
+         color: v.$blanco;
+      }
+
+      &--descuento {
+         position: absolute;
+         background-color: v.$rojo;
+         font-size: 1rem !important;
+         color: v.$blanco;
+         padding: .4rem .8rem;
+         border-radius: 50%;
+         top: -1rem;
+      }
+
+   }
+
+   &__contenido {
+      background-color: v.$azul;
+      background-image: image-set(url($testiminioavif) 1x, url($testiminiowebp) 1x, url($testiminiojpg) 1x);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: auto;
+      padding: 3rem 0;
+   }
+
+}

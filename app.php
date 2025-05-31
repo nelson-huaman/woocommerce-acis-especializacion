@@ -1,19 +1,11 @@
 <?php
 
-function woocommerce_acis_style() {
+function woocommerce_acis_scripts() {
+   $version = '1.0';
+   $plugin_url = plugin_dir_url(__FILE__);
 
-   wp_enqueue_style (
-      'public-css',
-      plugins_url('/build/css/app.css', __FILE__),
-      array(), '1.0'
-   );
-
-   wp_enqueue_script (
-      'public-js',
-      plugins_url('/build/js/app.min.js', __FILE__),
-      array('jquery'), '1.0', true
-   );
-
+   wp_enqueue_style('woocommerce-acis', $plugin_url . 'build/css/app.css', array(), $version);
+   wp_enqueue_script('woocommerce-acis', $plugin_url . 'build/js/app.min.js', array('jquery'), $version, true);
 }
 
-add_action( 'wp_enqueue_scripts', 'woocommerce_acis_style' );
+add_action('wp_enqueue_scripts', 'woocommerce_acis_scripts');

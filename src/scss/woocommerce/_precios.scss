@@ -1,0 +1,60 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.precios {
+   border: 1px solid v.$azul;
+   padding: 1rem;
+   border-radius: 1rem;
+
+   &__texto {
+      margin: 0 !important;
+
+      &--titulo {
+         margin-bottom: 1rem !important;
+         color: v.$azul;
+         font-weight: bold;
+         text-align: center;
+         font-size: 1.2rem;
+      }
+
+      &--regular {
+         font-size: 1.5rem;
+         text-decoration: line-through;
+      }
+
+      &--oferta {
+         font-size: 2rem;
+         font-weight: bold;
+      }
+   }
+
+   label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: .5rem;
+   }
+
+   select {
+      border-radius: .5rem;
+
+      option {
+         font-weight: 500;
+         color: v.$negro;
+      }
+   }
+
+   &__mostrar {
+      padding-top: 1rem;
+      text-align: center;
+      background-color: color.adjust(v.$azul, $lightness: 52%)
+   }
+
+   &__boton {
+      @include m.boton(v.$azul, v.$blanco);
+      & {
+         width: 100%;
+         margin-bottom: 0;
+      }
+   }
+}

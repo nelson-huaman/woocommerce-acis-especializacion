@@ -1,0 +1,81 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.seccion-footer {
+
+   &__logo {
+      margin: 2rem 0;
+   }
+
+   &__grid {
+      text-align: left;
+      margin-top: 2rem;
+      @include m.grid(1, 2rem);
+
+      @include m.desktop {
+         @include m.grid(3, 1rem);
+      }
+   }
+
+   &__item {
+      p {
+         margin-bottom: .5rem;
+      }
+   }
+
+   &__title {
+      color: v.$blanco;
+      margin-bottom: 1.5rem;
+      @include m.desktop {
+         text-align: left;
+      }
+   }
+
+   &__menu {
+      display: flex;
+      flex-direction: column;
+      @include m.desktop {
+         align-items: flex-start;
+      }
+   }
+
+   &__enlace {
+      color: v.$blanco;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+         color: v.$blanco;
+         transform: scale(0.9);
+         cursor: pointer;
+      }
+   }
+
+   &__redes {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      color: v.$blanco;
+
+      a {
+         color: v.$blanco;
+         transition: all 0.3s ease-in-out;
+         font-size: 1.4rem;
+         border: 1px solid v.$blanco;
+         border-radius: 50%;
+         width: 2.5rem;
+         height: 2.5rem;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         &:hover {
+            color: color.scale(v.$blanco, $lightness: -10%);
+            transform: scale(1.1);
+            cursor: pointer;
+         }
+      }
+   }
+}

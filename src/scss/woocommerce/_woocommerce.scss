@@ -1,0 +1,21 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.summary.entry-summary {
+   display: none !important;
+}
+
+ul.products li.product {
+   @include m.sombra;
+   border-bottom-left-radius: 1rem;
+   border-bottom-right-radius: 1rem;
+
+   img {
+      margin-bottom: 0 !important;
+   }
+}
+
+span.onsale.wc-memberships-member-discount {
+   display: none !important;
+}

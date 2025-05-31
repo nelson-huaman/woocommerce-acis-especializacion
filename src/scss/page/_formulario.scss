@@ -1,0 +1,35 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.nf-form-cont {
+   @include m.contenedorSM;
+
+   .nf-form-fields-required {
+      display: none;
+   }
+
+   input,
+   select,
+   textarea {
+      padding: .5rem !important;
+      border-radius: .5rem !important;
+   }
+
+   input[type="submit"] {
+      padding: 1rem 3rem !important;
+      font-weight: bold !important;
+   }
+
+   .nf-response-msg {
+      background-color: color.adjust(v.$verde, $lightness: 15%);
+      padding: 1rem;
+      text-align: center;
+      color: v.$blanco;
+      font-weight: bold;
+   }
+
+   p {
+      margin: 0 !important;
+   }
+}

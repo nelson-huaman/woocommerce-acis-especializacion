@@ -10,7 +10,11 @@ const autoPrefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 
 //img
+const webp =require('gulp-webp');
+const imagemin = require('gulp-imagemin');
+const cache = require('gulp-cache'); 
 const avif = require('gulp-avif');
+const svg = require('gulp-svgmin');
 
 // WebPack
 const webpack = require('webpack-stream');
@@ -21,7 +25,7 @@ const path = {
    scss: 'src/scss/**/*.scss',
    css: 'build/css/app.css',
    js: 'src/js/**/*.js',
-   img: 'src/img/**/*.{jpg,png,svg}',
+   img: 'src/img/**/*.{jpg,png}',
    imgmin: 'build/img/**/*.{jpg,png}',
    svg: 'src/img/**/*.svg',
    jsOutput: 'build/js/'
@@ -64,29 +68,25 @@ function compileJS() {
       .pipe(dest(path.jsOutput));
 }
 
-async function imageMin() {
-   const imagemin = (await import('gulp-imagemin')).default;
-   const cache = (await import('gulp-cache')).default;
+function imageMin() {
    return src(path.img)
-      .pipe(cache(imagemin()))
+      .pipe(cache(imagemin({optimizationLevel: 3})))
       .pipe(dest('build/img'));
 }
 
-async function imgWebp() {
-   const webp = (await import('gulp-webp')).default;
+function imgWebp() {
    return src(path.img)
-      .pipe(webp())
+      .pipe(webp({quality: 50}))
       .pipe(dest('build/img'));
 }
 
 function imgAvif() {
    return src(path.img)
-      .pipe(avif())
+      .pipe(avif({quality: 50}))
       .pipe(dest('build/img'));
 }
 
-async function imgSvg() {
-   const svg = (await import('gulp-svgmin')).default;
+function imgSvg() {
    return src(path.svg)
       .pipe(svg())
       .pipe(dest('build/img'));

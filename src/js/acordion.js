@@ -3,33 +3,25 @@
    const acordion = document.querySelector('#acordion');
    if(acordion) {
 
-      document.querySelectorAll('.wc_acordion__header').forEach(header => {
+      document.querySelectorAll('#acordion .acordion__item').forEach(item => {
+         const header = item.querySelector('.acordion__header');
+         const body = item.querySelector('.acordion__body');
+         const icon = header.querySelector('i');
+  
          header.addEventListener('click', () => {
-            // Encuentra el cuerpo relacionado a este encabezado
-            const body = header.nextElementSibling;
-            const icono = header.querySelector('.wc_acordion__icono');
-     
-            // Si el cuerpo ya está abierto, simplemente ciérralo
-            if (body.classList.contains('active')) {
-               body.classList.remove('active');
-               icono.classList.add('fa-plus-circle');
-               icono.classList.remove('fa-minus-circle');
+            const isVisible = body.style.display === 'block';
+   
+            // Toggle current item
+            if (!isVisible) {
+               body.style.display = 'block';
+               icon.classList.remove('fa-angle-right');
+               icon.classList.add('fa-angle-down');
             } else {
-               // Cierra todos los cuerpos activos del acordeón
-               document.querySelectorAll('.wc_acordion__body.active').forEach(activeBody => {
-                  activeBody.classList.remove('active');
-                  activeBody.previousElementSibling.querySelector('.wc_acordion__icono').classList.add('fa-plus-circle');
-                  activeBody.previousElementSibling.querySelector('.wc_acordion__icono').classList.remove('fa-minus-circle');
-               });
-     
-               // Abre el cuerpo actual y cambia el icono
-               body.classList.add('active');
-               icono.classList.remove('fa-plus-circle');
-               icono.classList.add('fa-minus-circle');
+               body.style.display = 'none';
+               icon.classList.remove('fa-angle-down');
+               icon.classList.add('fa-angle-right');
             }
          });
       });
-     
    }
-
 })();

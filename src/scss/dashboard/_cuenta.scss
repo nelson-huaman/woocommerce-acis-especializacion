@@ -1,0 +1,103 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.cuenta {
+   padding: .5rem 0;
+
+   &__usuario {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+
+      span {
+         font-weight: bold;
+         color: v.$azul;
+      }
+   }
+}
+
+.notificacion {
+   padding: 1.2rem;
+   border-radius: 1rem;
+
+   &--activo {
+      background-color: v.$celeste;
+      color: v.$blanco;
+   }
+   
+   &--inactivo {
+      background-color: color.adjust(v.$gris, $lightness: -10%);
+   }
+
+   &__h3 {
+      font-size: 1.2rem !important;
+      margin-top: 1.5rem;
+   }
+
+   &__texto {
+      margin: 0 !important;
+
+      &--membresia {
+         span {
+            font-weight: bold;
+         }
+      }
+
+      &--disponible {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+
+         span {
+            font-size: 2rem;
+            font-weight: bold;
+         }
+      }
+   }
+
+   &__flex {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+   }
+
+   i {
+      font-size: 3rem;
+   }
+
+   &__boton {
+      @include m.boton(v.$verde, v.$blanco);
+      & {
+         margin-bottom: 0;
+      }
+   }
+
+   &__aviso {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      border-radius: 1rem;
+
+      &--activo {
+         background-color: color.adjust(v.$verde, $lightness: 20%);
+      }
+
+      &--expirado {
+         background-color: v.$rojo;
+      }
+
+      
+
+      p {
+         color: v.$blanco;
+      }
+
+      i {
+         font-size: 3rem;
+         color: v.$blanco;
+      }
+   }
+
+}

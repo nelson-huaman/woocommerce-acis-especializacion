@@ -17,6 +17,7 @@
       @content;
    }
 }
+
 @mixin xl_desktop {
    @media (min-width: v.$xl_desktop) {
       @content;
@@ -34,7 +35,7 @@
    gap: $espacio;
 }
 
-@mixin reseter-lista {
+@mixin lista {
    padding: 0;
    margin: 0;
    list-style: none;
@@ -42,18 +43,20 @@
 
 @mixin boton($bgColor, $colorTexto) {
    background-color: $bgColor;
-   padding: 1.5rem 4rem;
+   padding: .5rem 1rem;
    color: $colorTexto !important;
-   margin-top: 2rem;
-   font-size: 2rem;
+   margin: 1rem 0;
+   font-size: 1rem;
    font-weight: 700;
    border: none;
    transition-property: background-color;
    transition-duration: .3s;
+   text-decoration: none !important;
    text-align: center;
    display: inline-block;
    width: 100%;
-   border-radius: 1rem;
+   border-radius: .5rem;
+   transition: all .3s ease-in-out;
 
    @include tablet {
       width: auto;
@@ -63,6 +66,7 @@
       background-color: color.adjust($bgColor, $lightness: -10%);
       color: v.$blanco;
       cursor: pointer;
+      transform: scale(1.05);
    }
 }
 
@@ -95,6 +99,10 @@
 }
 
 @mixin contenedor {
-   width: min(95%, 140rem);
+   width: min(95%, 72.6rem);
    margin: 0 auto;
+}
+
+@mixin texto-fluido($min, $max) {
+   font-size: clamp($min, -0.8rem + 10vw, $max) !important;
 }
