@@ -1,4 +1,4 @@
-<div class="seccion-footer">
+<div class="seccion-footer" data-aos="zoom-in">
    <div class="seccion-footer__logo">
       <picture>
          <source srcset="<?php echo IMAGENES; ?>logo-blanco.avif" type="image/avif" >
@@ -33,7 +33,7 @@
             <a href="<?php echo URL_BASE; ?>/mi-cuenta/" class="seccion-footer__enlace" rel="noreferrer">
                <i class="fa-solid fa-chevron-right"></i> Intranet
             </a>
-            <a href="https://acis.pe/" class="seccion-footer__enlace" rel="noreferrer">
+            <a href="https://acis.pe/" class="seccion-footer__enlace" target="_blank" rel="noreferrer">
                <i class="fa-solid fa-chevron-right"></i> Aula Virtual
             </a>
             <a href="<?php echo URL_BASE; ?>/libro-de-reclamos/" class="seccion-footer__enlace" rel="noreferrer">
@@ -50,19 +50,19 @@
          <p><i class="fa-solid fa-phone"></i> <?php echo CELULAR; ?></p>
          <p><i class="fa-solid fa-envelope"></i> <?php echo EMAIL; ?></p>
          <div class="seccion-footer__redes">
-            <a href="https://www.facebook.com/ACISEspecializacion/" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/ACISEspecializacion/" target="_blank" rel="noreferrer" aria-label="Facebook">
                <i class="fa-brands fa-facebook"></i>
             </a>
-            <a href="https://www.instagram.com/acis_especializacion/" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/acis_especializacion/" target="_blank" rel="noreferrer" aria-label="Instagram">
                <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="https://www.tiktok.com/@acis.especializacion" target="_blank" rel="noreferrer">
+            <a href="https://www.tiktok.com/@acis.especializacion" target="_blank" rel="noreferrer" aria-label="TikTok">
                <i class="fa-brands fa-tiktok"></i>
             </a>
-            <a href="https://www.linkedin.com/company/acis-especializacion/" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/company/acis-especializacion/" target="_blank" rel="noreferrer" aria-label="Linkedin">
                <i class="fa-brands fa-linkedin"></i>
             </a>
-            <a href="https://www.youtube.com/@ACISESPECIALIZACION" target="_blank" rel="noreferrer">
+            <a href="https://www.youtube.com/@ACISESPECIALIZACION" target="_blank" rel="noreferrer" aria-label="YouTube">
                <i class="fa-brands fa-youtube"></i>
             </a>
          </div>

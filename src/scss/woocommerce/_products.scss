@@ -32,6 +32,10 @@
          font-weight: bold;
          color: v.$negro;
       }
+
+      &--sku {
+         font-size: .8rem;
+      }
    }
 
    &__contendio {
@@ -66,18 +70,18 @@
    justify-content: space-between;
    font-weight: bold;
    width: 100%;
-   font-size: 1rem;
+   font-size: .9rem;
    text-transform: uppercase;
 }
 
 .left {
    padding: .5rem;
-   min-width: 10rem;
    display: flex;
    align-items: center;
    text-align: left;
    @include m.tablet {
       padding: .5rem 1rem;
+      min-width: 10rem;
    }
 }
 

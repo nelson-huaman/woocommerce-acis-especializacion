@@ -40,7 +40,7 @@ usort($product_data, fn($a, $b) => $a['fecha'] <=> $b['fecha']);
 ?>
 
 <div class="pagina">
-   <h1 class="pagina__h1">Nuestros Próximos Cursos y Diplomados</h1>
+   <h1 class="pagina__h1" data-aos="fade-up">Nuestros Próximos Cursos y Diplomados</h1>
 
    <div class="calendarios">
       <div class="calendarios__grid">
@@ -51,7 +51,7 @@ usort($product_data, fn($a, $b) => $a['fecha'] <=> $b['fecha']);
             $color = ($data['servicio'] === 'Curso') ? 'curso' : 'diplomado';
             ?>
 
-            <div class="calendarios__calendario calendarios__calendario--<?php echo $color; ?>">
+            <div class="calendarios__calendario calendarios__calendario--<?php echo $color; ?>" data-aos="fade-up">
                <a href="<?php echo $data['link']; ?>" class="calendarios__link">
                   <div class="banner <?php echo ($data['servicio'] === 'Curso') ? 'curso' : 'diplomado'; ?>">
                      <div class="left"><?php echo $data['servicio']; ?></div>

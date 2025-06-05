@@ -29,26 +29,24 @@ function add_product_search_by_sku_and_title()
 }
 
 // Modificar la consulta de búsqueda para incluir SKU
-add_filter('woocommerce_product_query_meta_query', 'search_by_sku_or_title', 10, 2);
-function search_by_sku_or_title($meta_query, $query)
+// Mejorar búsqueda por SKU y título en productos WooCommerce
+add_filter('posts_search', 'acis_search_by_sku_or_title', 10, 2);
+function acis_search_by_sku_or_title($search, $wp_query)
 {
-   if (!is_admin() && isset($_GET['s']) && !empty($_GET['s'])) {
-      $search_term = sanitize_text_field($_GET['s']);
-      $meta_query[] = array(
-         'relation' => 'OR',
-         array(
-            'key' => '_sku',
-            'value' => $search_term,
-            'compare' => 'LIKE'
-         ),
-         array(
-            'key' => '_title',
-            'value' => $search_term,
-            'compare' => 'LIKE'
-         )
-      );
+   global $wpdb;
+
+   // Solo en frontend, tipo producto y si hay término de búsqueda
+   if (!is_admin() && $wp_query->is_search() && isset($wp_query->query_vars['post_type']) && $wp_query->query_vars['post_type'] === 'product' && !empty($wp_query->query_vars['s'])) {
+      $search_term = esc_sql($wpdb->esc_like($wp_query->query_vars['s']));
+      $search = " AND (
+         ({$wpdb->posts}.post_title LIKE '%{$search_term}%')
+         OR ({$wpdb->posts}.ID IN (
+            SELECT post_id FROM {$wpdb->postmeta}
+            WHERE (meta_key = '_sku' AND meta_value LIKE '%{$search_term}%')
+         ))
+      ) ";
    }
-   return $meta_query;
+   return $search;
 }
 
 // Añadir campos personalizados para las cuotas en la página de edición de productos variables

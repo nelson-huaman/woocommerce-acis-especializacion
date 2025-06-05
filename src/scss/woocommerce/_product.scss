@@ -90,6 +90,10 @@
 
    &__incluye {
       @include m.lista;
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+      margin-bottom: 2rem;
    }
 
    &__lista {
