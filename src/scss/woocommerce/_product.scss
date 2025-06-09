@@ -39,17 +39,28 @@
    }
 
    &__texto {
-      margin-bottom: 1rem;
+      margin-bottom: 0 !important;
+
+      &--icono {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+      }
+
+      i {
+         color: v.$azul;
+      }
 
       span {
          font-weight: bold;
       }
+
    }
 
    &__detalles {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: .5rem;
       padding: 1rem;
 
       p {
@@ -64,7 +75,6 @@
       }
    }
 
- 
    &__codigo {
       margin-top: 1rem;
       span {
@@ -72,9 +82,7 @@
       }
    }
 
-
    /* Sidebar */
-   
    &__sidebar {
       width: 100%;
       @include m.desktop {

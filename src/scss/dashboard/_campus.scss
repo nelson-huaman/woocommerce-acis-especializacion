@@ -1,0 +1,106 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.campus {
+   @include m.contenedorSM;
+
+   &__titulo {
+      text-align: center;
+      font-size: 1.8rem !important;
+      color: v.$azul !important;
+   }
+
+   &__descripcion {
+      text-align: center;
+   }
+
+   &__accesos {
+      @include m.grid(1, 2rem);
+      @include m.desktop {
+         @include m.grid(2, 2rem);
+         
+      }
+   }
+
+   &__item {
+      padding: 2rem;
+      border-radius: 1rem;
+      @include m.sombra;
+
+      &--premium {
+         background-color: color.scale(v.$premium, $lightness: 80%);
+      }
+
+      &--aula {
+         background-color: color.scale(v.$azul, $lightness: 80%);
+      }
+   }
+
+   &__subtitulo {
+      text-align: center;
+      font-size: 1.4rem !important;
+   }
+
+   &__texto {
+      text-align: left;
+      font-size: 1rem !important;
+      margin-bottom: .5rem !important;
+
+      i {
+         color: green;
+      }
+
+      a {
+         margin-top: 1rem;
+         text-decoration: none !important;
+         display: inline-block;
+         cursor: pointer;
+         font-weight: bold;
+      }
+   }
+
+   &__link {
+
+      &--premium {
+            @include m.boton(v.$premium, v.$blanco);
+      
+         & {
+               margin-bottom: 0;
+               width: 100%;
+            }
+      }
+      
+      &--aula {
+         @include m.boton(v.$azul, v.$blanco);
+         & {
+            margin-bottom: 0;
+            width: 100%;
+         }
+      }
+
+      &--perfil {
+         @include m.boton(v.$verde, v.$blanco);
+         & {
+            margin-bottom: 0;
+            width: 100%;
+         }
+      }
+
+   }
+
+   &__nuevo {
+      text-align: center;
+      margin-top: 3rem;
+   }
+
+   &__botones {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @include m.desktop {
+         flex-direction: row;
+      }
+   }
+}

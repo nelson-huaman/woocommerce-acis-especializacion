@@ -1,4 +1,4 @@
-<div class="seccion-footer" data-aos="zoom-in">
+<div class="seccion-footer">
    <div class="seccion-footer__logo">
       <picture>
          <source srcset="<?php echo IMAGENES; ?>logo-blanco.avif" type="image/avif" >

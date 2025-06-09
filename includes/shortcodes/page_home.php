@@ -2,11 +2,16 @@
    <header class="inicio__header">
       <div class="inicio__contenedor">
          <div class="inicio__flex">
-            <div class="inicio__item inicio__item--contenido" data-aos="fade-right">
+            <div class="inicio__item inicio__item--contenido">
                <h1 class="inicio__h1">Formando Profesionales en Salud con <span>Pasión y Vocación</span></h1>
-               <p class="inicio__texto inicio__texto--slogan">Cursos y Diplomados en Salud</p>
+               <!-- <div class="inicio__opciones"> -->
+                  <p class="inicio__texto inicio__texto--slogan">Cursos y Diplomados en Salud</p>
+                  <a href="<?php echo URL_BASE; ?>/calendario" class="inicio__boton">
+                     Mira los cursos que vienen
+                  </a>
+               <!-- </div> -->
             </div>
-            <div class="inicio__item inicio__item--header" data-aos="fade-left">
+            <div class="inicio__item inicio__item--header">
                <img class="inicio__imagen inicio__imagen--header" loading="lazy" width="350" height="1000" src="<?php echo IMAGENES; ?>eira-y-rafael.svg" alt="Eira y Rafael">
             </div>
          </div>

@@ -10,11 +10,12 @@ $data = [
    'dia_final' => $fechaDos,
    'creditos' => str_pad(get_field('creditos'), 2, "0", STR_PAD_LEFT),
    'duracion' => str_pad(get_field('duracion'), 2, "0", STR_PAD_LEFT),
-   'beneficios' => get_field('beneficios'),
-   'objetivos' => get_field('objetivos'),
    'area' => get_field('area'),
+   'modalidad' => get_field('modalidad'),
    'temario' => get_field('temario'),
+   'beneficios' => get_field('beneficios'),
    'dirigido' => get_field('dirigido'),
+   'objetivos' => get_field('objetivos'),
    'coordinador' => get_field('coordinador'),
    'docentes' => get_field('docentes'),
    'year' => $year,
@@ -26,6 +27,7 @@ $link = "/RECURSOS_PROGRAMA/{$year}";
 $isCurso = ($data['servicio'] === 'Curso');
 $isVigente = ($data['fecha_actual'] < $data['fecha_inicio']);
 $isDescargar = ($data['servicio'] === 'Curso') ? "{$link}/CURSOS/" : "{$link}/PROGRAMAS/";
+$isDiplomadoVirtual = ($data['modalidad']) ? true : false;
 
 if (!function_exists('fechaFormat')) {
    function fechaFormat($fecha) {

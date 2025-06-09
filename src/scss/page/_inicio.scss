@@ -118,13 +118,26 @@ $portadajpg: '../../build/img/portada-header.jpg';
       }
    }
 
+   &__opciones {
+      display: flex;
+      gap: 2rem;
+   }
+
+   &__boton {
+      @include m.boton(v.$blanco, v.$negro);
+      & {
+         padding: 1rem 2rem;
+         font-size: 1.2rem;
+      }
+   }
+
    &__texto {
       &--slogan {
          color: v.$blanco !important;
          font-weight: bold;
          text-align: center;
          margin: 0 !important;
-         @include m.texto-fluido(1rem, 1.6rem);
+         @include m.texto-fluido(1rem, 1.5rem);
 
          @include m.desktop {
             text-align: left;            

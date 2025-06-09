@@ -10,6 +10,7 @@ $shortcodes = [
    'page_convenios' => 'page_convenios',
    'page_contacto' => 'page_contacto',
    'page_reclamos' => 'page_reclamos',
+   'page_campus' => 'page_campus',
    'page_politica_privacidad' => 'page_politica_privacidad',
    'page_certificacion_iso' => 'page_certificacion_iso',
    'seccion_footer' => 'seccion_footer'

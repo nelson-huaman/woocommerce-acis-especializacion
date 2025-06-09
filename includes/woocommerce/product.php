@@ -17,10 +17,24 @@
                Forma parte del futuro de la salud con nuestros <span><?php echo $isCategoria; ?></span>. Aprende, crece y desarrolla tu vocación con conocimientos actualizados y prácticas de calidad para brindar el mejor cuidado a quienes más lo necesitan.
             </p>
             <div class="servicio__detalles">
-               <?php if($isVigente) { ?>
-                  <p><span>Inicia:</span> <?php echo fechaFormat($data['dia_inicio']); ?></p>
-                  <p><span>Duración:</span> <?php echo $isDuracion; ?></p>
-               <?php } ?>
+               <?php if($isCurso): ?>
+                  <?php if($isVigente){ ?>
+                     <p class="servicio__texto"><span>Inicio</span> <?php echo fechaFormat($data['dia_inicio']); ?></p>
+                  <?php } else { ?>
+                     <p class="servicio__texto"><span>Clases</span> Grabadas</p>
+                  <?php } ?>
+               <?php else: ?>
+                  <?php if($isDiplomadoVirtual): ?>
+                     <p class="servicio__texto"><span>Clases:</span> Grabadas</p>
+                  <?php else: ?>
+                     <?php if($isVigente): ?>
+                        <p class="servicio__texto"><span>Inicio</span> <?php echo fechaFormat($data['dia_inicio']); ?></p>
+                     <?php else: ?>
+                        <p class="servicio__texto servicio__texto--icono"><i class="fa-solid fa-lock"></i> <span>Próximamente</span></p>
+                     <?php endif; ?>
+                  <?php endif; ?>
+               <?php endif; ?>
+               <p class="servicio__texto"><span>Duración:</span> <?php echo $isDuracion; ?></p>
                <p class="servicio__coordinador">
                   <span>Coordinador: </span>
                   <?php 
@@ -120,7 +134,7 @@
                class="servicio__descargar"
                download="BROCHURE <?php echo $product->sku; ?>.pdf"
                target="_blank"
-            >Descargar</a>
+            >Descargar Temario</a>
          </div>
       </div>
    </div>

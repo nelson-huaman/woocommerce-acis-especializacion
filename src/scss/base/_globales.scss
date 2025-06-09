@@ -15,7 +15,6 @@
       }
    }
 
-
    @include m.tablet {
       h1 {
          font-size: 2.5rem;
@@ -37,16 +36,14 @@
    }
 }
 
-
 .accesos {
    display: flex;
    gap: .5rem;
 
-
    a {
       border-radius: .5rem;
       padding: .5rem 1rem;
-      width: 8rem;
+      width: 100%;
       text-align: center;
       display: flex;
       align-items: center;
@@ -55,19 +52,9 @@
    }
 
    .intranet {
-      border: 1px solid v.$azul;
-      color: v.$azul;
-      gap: .5rem;
-
-      &:hover {
-         background-color: v.$azul;
-         color: v.$blanco;
-      }
-   }
-
-   .aula {
       background-color: v.$azul;
       color: v.$blanco;
+      gap: .5rem;
 
       &:hover {
          background-color: color.adjust(v.$azul, $lightness: -20%);

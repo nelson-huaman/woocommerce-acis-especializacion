@@ -41,7 +41,7 @@
                </div>
             <?php } ?>
          </div>
-         <p class="simple__texto simple__texto--slogan">100% dscto. en todo los Curso</p>
+         <p class="simple__texto simple__texto--slogan">+170 cursos durante el año</p>
       </div>
       <div class="simple__body">
          <span><i class="fa-solid fa-check"></i>Disfruta de este curso y otros de manera ilimitada.</span>

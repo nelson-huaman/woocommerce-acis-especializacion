@@ -7,9 +7,6 @@ $name = getenv('DB_NAME');
 
 // $db = mysqli_connect($host, $user, $pass, $name);
 
-echo "Valor de ${host}: ";
-var_dump($host);
-
 // if (!$db) {
 //    echo "Error: No se pudo conectar a MySQL.";
 //    echo "errno de depuración: " . mysqli_connect_errno();
