@@ -12,6 +12,7 @@ $data = [
    'duracion' => str_pad(get_field('duracion'), 2, "0", STR_PAD_LEFT),
    'area' => get_field('area'),
    'modalidad' => get_field('modalidad'),
+   'alianza' => get_field('alianza'),
    'temario' => get_field('temario'),
    'beneficios' => get_field('beneficios'),
    'dirigido' => get_field('dirigido'),

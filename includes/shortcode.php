@@ -13,6 +13,7 @@ $shortcodes = [
    'page_campus' => 'page_campus',
    'page_politica_privacidad' => 'page_politica_privacidad',
    'page_certificacion_iso' => 'page_certificacion_iso',
+   'page_login' => 'page_login',
    'seccion_footer' => 'seccion_footer'
 ];
 

@@ -100,6 +100,7 @@ $portadajpg: '../../build/img/portada-header.jpg';
 
       &--contenido {
          width: 100%;
+         text-align: center;
 
          @include m.desktop {
             width: 45%;
@@ -116,11 +117,6 @@ $portadajpg: '../../build/img/portada-header.jpg';
             text-align: right;
          }
       }
-   }
-
-   &__opciones {
-      display: flex;
-      gap: 2rem;
    }
 
    &__boton {

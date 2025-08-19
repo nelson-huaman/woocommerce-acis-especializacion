@@ -67,3 +67,5 @@ $name = getenv('DB_NAME');
       <?php } ?>
    </div>
 </div>  -->
+
+<p>Próximamente</p>

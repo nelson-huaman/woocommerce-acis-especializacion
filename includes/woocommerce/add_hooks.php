@@ -165,15 +165,15 @@ function limit_cart_purchases_per_day_and_month($passed, $product_id)
 function wc_form_personalizado($translated_text, $text, $domain)
 {
    if ('Username or email address' === $text && 'woocommerce' === $domain) {
-      $translated_text = 'DNI o Correo';
+      $translated_text = 'Usuario o Correo';
    }
 
    if ('Username or email' === $text && 'woocommerce' === $domain) {
-      $translated_text = 'DNI o Correo';
+      $translated_text = 'Usuario o Correo';
    }
 
    if ('Password' === $text && 'woocommerce' === $domain) {
-      $translated_text = 'Contraseña (DNI)';
+      $translated_text = 'Contraseña';
    }
 
    if ('Username' === $text && 'woocommerce' === $domain) {
@@ -189,7 +189,7 @@ function wc_form_personalizado($translated_text, $text, $domain)
    }
 
    if ('Create account password' === $text && 'woocommerce' === $domain) {
-      $translated_text = 'Contraseña (DNI)';
+      $translated_text = 'Contraseña';
    }
 
    return $translated_text;
@@ -204,8 +204,8 @@ function acis_add_custom_my_account_menu_items($items)
 {
    $logout = $items['customer-logout'];
    unset($items['customer-logout']);
-   $items['tutoriales'] = __('Tuturiales', 'woocommerce');
-   $items['mis-certificados'] = __('Mis Certificados', 'woocommerce');
+   $items['tutoriales'] = __('Tutoriales', 'woocommerce');
+   // $items['mis-certificados'] = __('Mis Certificados', 'woocommerce');
    $items['customer-logout'] = $logout;
    return $items;
 }
@@ -235,14 +235,108 @@ add_action('woocommerce_account_mis-certificados_endpoint', 'acis_custom_my_acco
 /**
  * Mostrar texto encima de la imagen del producto en la página de producto individual
  */
-function acis_text_above_product_image_loop() {
+function acis_text_above_product_image_loop()
+{
    include 'data.php';
 
    ?>
-      <div class="banner <?php echo $isCurso ? 'curso' : 'diplomado'; ?>">
-         <div class="left"><?php echo $data['servicio']; ?></div>
-         <div class="right"><?php echo $data['area']; ?></div>
-      </div>
-   <?php
+   <div class="banner <?php echo $isCurso ? 'curso' : 'diplomado'; ?>">
+      <div class="left"><?php echo $data['servicio']; ?></div>
+      <div class="right"><?php echo $data['area']; ?></div>
+   </div>
+<?php
 }
 add_action('woocommerce_before_shop_loop_item_title', 'acis_text_above_product_image_loop', 5);
+
+
+/** Boton para cambiar de Producto */
+
+// 1) Endpoint AJAX que vacía el carrito
+add_action('wp_ajax_mi_vaciar_carrito', 'mi_vaciar_carrito');
+add_action('wp_ajax_nopriv_mi_vaciar_carrito', 'mi_vaciar_carrito');
+function mi_vaciar_carrito()
+{
+   check_ajax_referer('mi_vaciar_carrito_nonce', 'nonce');
+   if (WC()->cart) {
+      WC()->cart->empty_cart();
+   }
+   wp_send_json_success();
+}
+
+// 2) Inyectar el botón y el JS SOLO en checkout
+add_action('wp_footer', function () {
+   if (! is_checkout() || is_order_received_page()) return;
+
+   // ⚠️ Cambia esta URL por la categoría a la que quieres enviar al usuario
+   $redirect = home_url('/categoria-programa/cursos/');
+
+   $nonce = wp_create_nonce('mi_vaciar_carrito_nonce');
+?>
+   <script>
+      jQuery(function($) {
+
+         // Variables
+         var MiCambiarCurso = {
+            ajaxUrl: "<?php echo admin_url('admin-ajax.php'); ?>",
+            redirectUrl: "<?php echo esc_js($redirect); ?>",
+            nonce: "<?php echo esc_js($nonce); ?>",
+            buttonText: "Cambiar a otro curso o diplomado"
+         };
+
+         // Inserta el botón SOLO si no existe (evita duplicados al refrescar checkout)
+         function colocarBoton() {
+            if ($('#btn-cambiar-curso').length) return;
+
+            var $orderTable = $('.woocommerce-checkout-review-order-table');
+            var $rowTotal = $orderTable.find('.order-total').last();
+
+            // Fila contenedora dentro de la tabla (queda justo debajo del "Total")
+            var $fila = $('<tr class="change-course-row"><td colspan="2"><div id="change-course-container" style="margin-top:12px;"></div></td></tr>');
+            var $boton = $('<button type="button" id="btn-cambiar-curso" class="button alt" style="background:#ff6f00;color:#fff;">' + MiCambiarCurso.buttonText + '</button>');
+
+            if ($rowTotal.length) {
+               $rowTotal.after($fila);
+               $('#change-course-container').append($boton);
+            } else {
+               // Fallback por si el tema no usa tabla clásica
+               var $wrap = $('.woocommerce-checkout-review-order');
+               if ($wrap.length) {
+                  $wrap.append('<div id="change-course-container" style="margin-top:12px;"></div>');
+                  $('#change-course-container').append($boton);
+               }
+            }
+         }
+
+         // Colocar al cargar y cada vez que WooCommerce refresque el checkout por AJAX
+         colocarBoton();
+         $(document.body).on('updated_checkout', colocarBoton);
+
+         // Click: vaciar carrito y redirigir (funciona al primer clic)
+         $(document).on('click', '#btn-cambiar-curso', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation(); // evita que otros handlers interfieran
+
+            var $btn = $(this);
+            if ($btn.data('processing')) return; // evita doble envíos
+            $btn.data('processing', true).prop('disabled', true);
+
+            $.ajax({
+               type: 'POST',
+               url: MiCambiarCurso.ajaxUrl,
+               data: {
+                  action: 'mi_vaciar_carrito',
+                  nonce: MiCambiarCurso.nonce
+               },
+               complete: function() {
+                  // Redirigir siempre, incluso si hubiese algún error de red
+                  window.location.href = MiCambiarCurso.redirectUrl;
+               }
+            });
+         });
+      });
+   </script>
+<?php
+});
+
+

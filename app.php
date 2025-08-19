@@ -1,7 +1,6 @@
 <?php
 
 function woocommerce_acis_scripts() {
-   $version = '1.0';
    $plugin_url = plugin_dir_url(__FILE__);
    $plugin_path = plugin_dir_path(__FILE__);
 

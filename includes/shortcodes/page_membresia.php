@@ -15,7 +15,7 @@
    <div class="membresia__header">
       <div class="membresia__contenedor">
          <div class="membresia__flex">
-            <div class="membresia__item membresia__item--contenido" data-aos="fade-right">
+            <div class="membresia__item membresia__item--contenido">
                <h1 class="membresia__h1">Adquiere nuestra <span>Membresía</span></h1>
                <div class="membresia__degradado">Premium</div>
                <p class="membresia__texto membresia__texto--capacitate">Capacítate por todo 1 año <span>a tan solo</span></p>
@@ -33,7 +33,7 @@
                   <?php } ?>
                </div>
             </div>
-            <div class="membresia__item" data-aos="fade-left">
+            <div class="membresia__item">
                <picture>
                   <source srcset="<?php echo IMAGENES; ?>enfermeros-membresia.avif" type="image/avif" >
                   <source srcset="<?php echo IMAGENES; ?>enfermeros-membresia.webp" type="image/webp" >
@@ -43,44 +43,54 @@
          </div>
       </div>
    </div>
-   <div class="membresia__seccion membresia__seccion--accede" data-aos="zoom-in">
+
+   <div class="membresia__seccion membresia__seccion--accede">
       <div class="membresia__contenedor">
-         <p class="membresia__accede">Accede a <span>+170</span> Cursos</p>
+         <p class="membresia__accede">Accede a <span>+180</span> Cursos</p>
       </div>
    </div>
+
    <div class="membresia__seccion membresia__seccion--benedicios">
       <div class="membresia__contenedor membresia__contenedor--padding">
-         <div class="membresia__grid-4">
-            <div class="membresia__grid-item membresia__grid-item--1" data-aos="zoom-in-up">
+         <div class="membresia__grid-4" data-aos="zoom-in">
+            <div class="membresia__grid-item membresia__grid-item--1">
                <p>Beneficios Premium</p>
             </div>
-            <div class="membresia__grid-item" data-aos="zoom-in-up">
+            <div class="membresia__grid-item">
                <i class="fa-solid fa-star"></i>
                <p>Certificación incluida</p>
             </div>
-            <div class="membresia__grid-item" data-aos="zoom-in-up">
+            <div class="membresia__grid-item">
                <i class="fa-solid fa-star"></i>
                <p>Acceso a talleres</p>
             </div>
-            <div class="membresia__grid-item" data-aos="zoom-in-up">
+            <div class="membresia__grid-item">
                <i class="fa-solid fa-star"></i>
                <p>Descuentos en diplomados</p>
             </div>
          </div>
       </div>
    </div>
-   <div class="membresia__seccion" data-aos="zoom-out-up">
+
+   <div class="membresia__seccion" data-aos="zoom-in">
       <div class="membresia__contenedor">
          <h2 class="membresia__titulo">Vacantes Limitadas</h2>
          <div class="membresia__flex">
-            <a href="" class="membresia__boton membresia__boton--whatsapp"><i class="fa-brands fa-whatsapp"></i> +51 997 001 966</a>
-            <a href="<?php echo $add_to_cart_url; ?>" class="membresia__boton membresia__boton--shop"><i class="fa-solid fa-cart-shopping"></i> Comprar ahora</a>
+            <a href="" class="membresia__boton membresia__boton--whatsapp">
+               <i class="fa-brands fa-whatsapp"></i>
+               <?php echo CELULAR; ?>
+            </a>
+            <a href="<?php echo $add_to_cart_url; ?>" class="membresia__boton membresia__boton--shop">
+               <i class="fa-solid fa-cart-shopping"></i>
+               Comprar ahora
+            </a>
          </div>
       </div>
    </div>
+
    <div class="membresia__seccion membresia__seccion--expereincia">
       <div class="membresia__contenedor">
-         <h2 class="membresia__titulo">¿Por qué elegirnos?</h2>
+         <h2 class="membresia__titulo" data-aos="zoom-in">¿Por qué elegirnos?</h2>
          <div class="membresia__grid-4">
             <div class="membresia__item" data-aos="fade-up">
                <div class="membresia__elegirnos">
@@ -121,15 +131,16 @@
          </div>
       </div>
    </div>
+
    <div class="membresia__seccion">
       <div class="membresia__contenedor">
          <div class="membresia__flex">
-            <div class="membresia__item membresia__item--left" data-aos="fade-up-right">
+            <div class="membresia__item membresia__item--left" data-aos="fade-up">
                <h2 class="membresia__titulo membresia__titulo--vive">Vive la experiencia <span>de nuestros</span> talleres presenciales</h2>
                <p class="membresia__texto membresia__texto--habilidades">Refuerza tus habilidades con práctica en escenarios reales</p>
                <p class="membresia__texto membresia__texto--boton">Únete a la membresía y participa</p>
             </div>
-            <div class="membresia__item" data-aos="fade-up-left">
+            <div class="membresia__item" data-aos="zoom-in">
                <picture>
                   <source srcset="<?php echo IMAGENES; ?>galeria.avif" type="image/avif" >
                   <source srcset="<?php echo IMAGENES; ?>galeria.webp" type="image/webp" >
@@ -139,15 +150,16 @@
          </div>
       </div>
    </div>
+
    <div class="membresia__seccion membresia__seccion--planes">
       <div class="membresia__contenedor">
          <div class="membresia__flex membresia__flex--espacio">
-            <div class="membresia__item membresia__item--linea" data-aos="flip-up">
+            <div class="membresia__item membresia__item--linea" data-aos="zoom-in">
                <h2 class="membresia__titulo membresia__titulo--elige">Elige destacar con</h2>
                <p class="membresia__degradado">Membresía Premium</p>
                <p class="membresia__texto membresia__texto--azul">Accede a muchos beneficios <span>con un solo pago.</span></p>
             </div>
-            <div class="membresia__item" data-aos="flip-down">
+            <div class="membresia__item" data-aos="zoom-in">
                <div class="membresia__precio">
                   <?php if(!empty($premium->sale_price)) { ?>
                      <span class="membresia__precio--rojo"><span>S/.</span> <?php echo $premium->regular_price; ?></span>
@@ -166,7 +178,8 @@
          </div>
       </div>
    </div>
-   <div class="membresia__seccion membresia__seccion--barra" data-aos="zoom-in">
+
+   <div class="membresia__seccion membresia__seccion--barra" data-aos="fade-up">
       <div class="membresia__contenedor">
          <div class="membresia__flex">
             <p class="membresia__texto membresia__texto--blanco">Promoción por tiempo limitado</p>
@@ -174,7 +187,8 @@
          </div>
       </div>
    </div>
-   <div class="membresia__seccion" data-aos="zoom-in">
+
+   <div class="membresia__seccion" data-aos="fade-up">
       <div class="membresia__contenedor">
          <picture>
             <source srcset="<?php echo IMAGENES; ?>socios.avif" type="image/avif" >
@@ -183,21 +197,22 @@
          </picture>
       </div>
    </div>
-   <div class="membresia__seccion membresia__seccion--testimonio" data-aos="zoom-in-up">
-      <div class="membresia__contenedor" data-aos="zoom-in-down">
-         <h2 class="membresia__titulo">Testimonios</h2>
+
+   <div class="membresia__seccion membresia__seccion--testimonio">
+      <div class="membresia__contenedor">
+         <h2 class="membresia__titulo" data-aos="zoom-in">Testimonios</h2>
       </div>
-      <div class="membresia__contenido" data-aos="zoom-in-right">
+      <div class="membresia__contenido">
          <div class="membresia__contenedor">
             <div class="membresia__grid">
-               <div class="membresia__item">
+               <div class="membresia__item" data-aos="fade-up">
                   <p class="membresia__texto membresia__texto--years"><span>+10 años</span> formando expertos en salud</p>
                   <div class="membresia__flex">
                      <div class="membresia__item membresia__item--separador">
                         <p class="membresia__texto membresia__texto--nombre">Profecionales <span>capacitados</span></p>     
                      </div>
                      <div class="membresia__item">
-                        <p class="membresia__texto membresia__texto--numero">+20.000</p> 
+                        <p class="membresia__texto membresia__texto--numero">+22.000</p> 
                      </div>
                   </div>
                </div>
@@ -205,9 +220,10 @@
          </div>
       </div>
    </div>
-   <div class="membresia__seccion" data-aos="zoom-out">
+
+   <div class="membresia__seccion" data-aos="fade-up">
       <div class="membresia__contenedor">
-         <h2 class="membresia__titulo">Medios de pago</h2>
+         <h2 class="membresia__titulo" data-aos="zoom-in">Medios de pago</h2>
          <picture>
             <source srcset="<?php echo IMAGENES; ?>pagos.avif" type="image/avif" >
             <source srcset="<?php echo IMAGENES; ?>pagos.webp" type="image/webp" >

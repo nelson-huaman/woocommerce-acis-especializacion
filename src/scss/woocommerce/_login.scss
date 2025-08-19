@@ -1,0 +1,40 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.login_account {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+
+   @include m.desktop {
+      flex-direction: row;
+      gap: 3rem;
+   }
+
+
+   &__item {
+      flex: 1;
+
+      @include m.desktop {
+         width: 50%;
+      }
+   }
+
+   .slogan {
+      font-size: 1.6rem;
+      font-weight: bold;
+      line-height: 1.2;
+   }
+
+   #customer_login {
+      display: flex !important;
+      flex-direction: column !important;
+
+      .col-1,
+      .col-2 {
+         float: none !important;
+         width: 100% !important;
+      }
+   }
+}

@@ -2,6 +2,11 @@
 @use 'base/mixins' as m;
 @use 'sass:color';
 
+#btn-cambiar-curso {
+   background-color: #ff6f00 !important;
+   width: 100%;
+}
+
 .servicio {
    padding: 2rem 0;
 
@@ -79,6 +84,28 @@
       margin-top: 1rem;
       span {
          font-weight: bold;
+      }
+   }
+
+   &__alianza {
+      border: 2px solid v.$celeste;
+      background-color: color.adjust(v.$celeste, $lightness: 46%);;
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+
+      .titulo {
+         font-weight: bold;
+         font-size: 1.2rem;
+      }
+      img {
+         width: 10rem;
+      }
+
+      .frase {
+         color: red;
       }
    }
 
