@@ -36,10 +36,6 @@
             mostrarDOM.appendChild(precioOferta)
             mostrarDOM.appendChild(botonAddToCard)
          }
-   
       })
    }
-
-
-
 })();

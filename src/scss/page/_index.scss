@@ -1,8 +1,10 @@
 @forward 'inicio';
 @forward 'footer';
 @forward 'pagina';
-@forward 'nosotros';
-@forward 'membresia';
+@use 'nosotros';
+@use 'acispro';
+@use 'membresia';
 @forward 'calendarios';
 @forward 'tabla';
 @forward 'formulario';
+@forward 'membresia';

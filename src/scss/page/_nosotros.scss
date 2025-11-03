@@ -1,0 +1,164 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+$headerwebp: '../../build/img/nosotros-header.webp';
+$headerjpg: '../../build/img/nosotros-header.jpg';
+$headeravif: '../../build/img/nosotros-header.avif';
+
+.nosotros {
+
+   &__header {
+      background-color: v.$azul;
+      background-image: image-set(url($headeravif) 1x, url($headerwebp) 1x, url($headerjpg) 1x);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: auto;
+      min-height: 80vh;
+      border-bottom: 1rem solid color.adjust(v.$verde, $lightness: 15%);
+   }
+
+   &__contenedor {
+      @include m.contenedor;
+
+      &--header {
+
+         @include m.desktop {
+            height: 80vh;
+         };
+      }
+   }
+
+   &__flex {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+
+   }
+
+   &__item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &__titulo {
+      color: v.$blanco;
+      font-weight: 100 !important;
+      text-align: center;
+
+      span {
+         font-weight: 700;
+      }
+   }
+
+   &__bold {
+      @include m.texto-fluido(3rem, 4.5rem);
+      font-weight: 900;
+      display: block;
+   }
+
+   &__pagina {
+      background-color: v.$blanco;
+      color: v.$azul;
+      padding: 0 1.5rem;
+      @include m.texto-fluido(1rem, 2rem);
+      // font-size: 2rem;
+      font-weight: 100;
+      border-radius: 1rem;
+      display: inline-block;
+      margin-bottom: .5rem !important;
+
+      span {
+         color: v.$verde;
+         font-weight: 900;
+      }
+   }
+
+   &__section {
+      padding: 2rem 0;
+
+      &--barra {
+         background-color: v.$azul;
+         padding: 1rem 0;
+      }
+
+      &--gris {
+         background-color: color.adjust(v.$gris, $lightness: 5%);
+         padding: 3rem 0;
+      }
+   }
+
+   &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+
+      @include m.desktop {
+         flex-direction: row
+      };
+   }
+
+   &__imagen {
+      width: 100%;
+
+      &--foto {
+         min-width: 20rem;
+         max-width: 25rem;
+      }
+   }
+
+   &__img {
+      width: 100%;
+   }
+
+   &__h2 {
+      font-size: 1.5rem;
+      color: v.$azul !important;
+      font-weight: bold;
+      margin: 0 !important;
+   }
+
+   &__h3 {
+      @include m.texto-fluido(1rem, 2.5rem);
+      // font-size: 2.5rem;
+      text-align: center;
+      color: v.$blanco !important;
+      font-weight: 500 !important;
+      margin: 0 !important;
+
+      span {
+         font-weight: 900;
+      }
+   }
+
+   &__data {
+      @include m.grid(1, 2rem);
+      align-items: center;
+
+      @include m.desktop {
+         @include m.grid(2, 2rem);
+      }
+   }
+
+   &__video {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+
+      iframe {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         border: 0;
+      }
+   }
+
+}

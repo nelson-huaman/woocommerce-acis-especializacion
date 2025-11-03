@@ -14,7 +14,7 @@
       <p class="campus__descripcion">Elije un tipo de acceso para continuar</p>
       <div class="campus__accesos">
          <div class="campus__item campus__item--premium">
-            <h2 class="campus__subtitulo">Comprastes en la web o eres Miembro Premium</h2>
+            <h2 class="campus__subtitulo">Compraste en la web o eres Miembro Premium</h2>
             <p class="campus__texto"><i class="fa-solid fa-check"></i> Comprastes una membresia o curso en esta pagina</p>
             
             <a class="campus__link campus__link--premium" href="<?php echo URL_BASE; ?>/mi-cuenta/">Ingresar a la Intranet web</a>

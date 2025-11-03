@@ -240,11 +240,11 @@ function acis_text_above_product_image_loop()
    include 'data.php';
 
    ?>
-   <div class="banner <?php echo $isCurso ? 'curso' : 'diplomado'; ?>">
-      <div class="left"><?php echo $data['servicio']; ?></div>
-      <div class="right"><?php echo $data['area']; ?></div>
-   </div>
-<?php
+      <div class="banner <?php echo $isCurso ? 'curso' : 'diplomado'; ?>">
+         <div class="left"><?php echo $data['servicio']; ?></div>
+         <div class="right"><?php echo $data['area']; ?></div>
+      </div>
+   <?php
 }
 add_action('woocommerce_before_shop_loop_item_title', 'acis_text_above_product_image_loop', 5);
 
@@ -254,8 +254,7 @@ add_action('woocommerce_before_shop_loop_item_title', 'acis_text_above_product_i
 // 1) Endpoint AJAX que vacía el carrito
 add_action('wp_ajax_mi_vaciar_carrito', 'mi_vaciar_carrito');
 add_action('wp_ajax_nopriv_mi_vaciar_carrito', 'mi_vaciar_carrito');
-function mi_vaciar_carrito()
-{
+function mi_vaciar_carrito() {
    check_ajax_referer('mi_vaciar_carrito_nonce', 'nonce');
    if (WC()->cart) {
       WC()->cart->empty_cart();
@@ -269,74 +268,72 @@ add_action('wp_footer', function () {
 
    // ⚠️ Cambia esta URL por la categoría a la que quieres enviar al usuario
    $redirect = home_url('/categoria-programa/cursos/');
-
    $nonce = wp_create_nonce('mi_vaciar_carrito_nonce');
-?>
-   <script>
-      jQuery(function($) {
+   
+   ?>
+      <script>
+         jQuery(function($) {
 
-         // Variables
-         var MiCambiarCurso = {
-            ajaxUrl: "<?php echo admin_url('admin-ajax.php'); ?>",
-            redirectUrl: "<?php echo esc_js($redirect); ?>",
-            nonce: "<?php echo esc_js($nonce); ?>",
-            buttonText: "Cambiar a otro curso o diplomado"
-         };
+            // Variables
+            var MiCambiarCurso = {
+               ajaxUrl: "<?php echo admin_url('admin-ajax.php'); ?>",
+               redirectUrl: "<?php echo esc_js($redirect); ?>",
+               nonce: "<?php echo esc_js($nonce); ?>",
+               buttonText: "Cambiar a otro curso o diplomado"
+            };
 
-         // Inserta el botón SOLO si no existe (evita duplicados al refrescar checkout)
-         function colocarBoton() {
-            if ($('#btn-cambiar-curso').length) return;
+            // Inserta el botón SOLO si no existe (evita duplicados al refrescar checkout)
+            function colocarBoton() {
+               if ($('#btn-cambiar-curso').length) return;
 
-            var $orderTable = $('.woocommerce-checkout-review-order-table');
-            var $rowTotal = $orderTable.find('.order-total').last();
+               var $orderTable = $('.woocommerce-checkout-review-order-table');
+               var $rowTotal = $orderTable.find('.order-total').last();
 
-            // Fila contenedora dentro de la tabla (queda justo debajo del "Total")
-            var $fila = $('<tr class="change-course-row"><td colspan="2"><div id="change-course-container" style="margin-top:12px;"></div></td></tr>');
-            var $boton = $('<button type="button" id="btn-cambiar-curso" class="button alt" style="background:#ff6f00;color:#fff;">' + MiCambiarCurso.buttonText + '</button>');
+               // Fila contenedora dentro de la tabla (queda justo debajo del "Total")
+               var $fila = $('<tr class="change-course-row"><td colspan="2"><div id="change-course-container" style="margin-top:12px;"></div></td></tr>');
+               var $boton = $('<button type="button" id="btn-cambiar-curso" class="button alt" style="background:#ff6f00;color:#fff;">' + MiCambiarCurso.buttonText + '</button>');
 
-            if ($rowTotal.length) {
-               $rowTotal.after($fila);
-               $('#change-course-container').append($boton);
-            } else {
-               // Fallback por si el tema no usa tabla clásica
-               var $wrap = $('.woocommerce-checkout-review-order');
-               if ($wrap.length) {
-                  $wrap.append('<div id="change-course-container" style="margin-top:12px;"></div>');
+               if ($rowTotal.length) {
+                  $rowTotal.after($fila);
                   $('#change-course-container').append($boton);
+               } else {
+                  // Fallback por si el tema no usa tabla clásica
+                  var $wrap = $('.woocommerce-checkout-review-order');
+                  if ($wrap.length) {
+                     $wrap.append('<div id="change-course-container" style="margin-top:12px;"></div>');
+                     $('#change-course-container').append($boton);
+                  }
                }
             }
-         }
 
-         // Colocar al cargar y cada vez que WooCommerce refresque el checkout por AJAX
-         colocarBoton();
-         $(document.body).on('updated_checkout', colocarBoton);
+            // Colocar al cargar y cada vez que WooCommerce refresque el checkout por AJAX
+            colocarBoton();
+            $(document.body).on('updated_checkout', colocarBoton);
 
-         // Click: vaciar carrito y redirigir (funciona al primer clic)
-         $(document).on('click', '#btn-cambiar-curso', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation(); // evita que otros handlers interfieran
+            // Click: vaciar carrito y redirigir (funciona al primer clic)
+            $(document).on('click', '#btn-cambiar-curso', function(e) {
+               e.preventDefault();
+               e.stopPropagation();
+               e.stopImmediatePropagation(); // evita que otros handlers interfieran
 
-            var $btn = $(this);
-            if ($btn.data('processing')) return; // evita doble envíos
-            $btn.data('processing', true).prop('disabled', true);
+               var $btn = $(this);
+               if ($btn.data('processing')) return; // evita doble envíos
+               $btn.data('processing', true).prop('disabled', true);
 
-            $.ajax({
-               type: 'POST',
-               url: MiCambiarCurso.ajaxUrl,
-               data: {
-                  action: 'mi_vaciar_carrito',
-                  nonce: MiCambiarCurso.nonce
-               },
-               complete: function() {
-                  // Redirigir siempre, incluso si hubiese algún error de red
-                  window.location.href = MiCambiarCurso.redirectUrl;
-               }
+               $.ajax({
+                  type: 'POST',
+                  url: MiCambiarCurso.ajaxUrl,
+                  data: {
+                     action: 'mi_vaciar_carrito',
+                     nonce: MiCambiarCurso.nonce
+                  },
+                  complete: function() {
+                     // Redirigir siempre, incluso si hubiese algún error de red
+                     window.location.href = MiCambiarCurso.redirectUrl;
+                  }
+               });
             });
          });
-      });
-   </script>
-<?php
+      </script>
+   <?php
 });
-
-

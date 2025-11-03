@@ -4,6 +4,7 @@
 $shortcodes = [
    'page_home' => 'page_home',
    'page_membresia' => 'page_membresia',
+   'page_acis_pro' => 'page_acis_pro',
    'page_nosotros' => 'page_nosotros',
    'page_nuestro_equipo' => 'page_nuestro_equipo',
    'page_calendario' => 'page_calendario',

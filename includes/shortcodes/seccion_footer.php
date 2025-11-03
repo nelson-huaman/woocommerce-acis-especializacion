@@ -10,15 +10,18 @@
       <div class="seccion-footer__item">
          <h4 class="seccion-footer__title">Información</h4>
          <nav class="seccion-footer__menu">
-            <a href="<?php echo URL_BASE; ?>/nosotros/" class="seccion-footer__enlace" rel="noreferrer">
+            <a href="<?php echo URL_BASE; ?>/nosotros" class="seccion-footer__enlace" rel="noreferrer">
                <i class="fa-solid fa-chevron-right"></i> Nosotros
             </a>
-            <a href="<?php echo URL_BASE; ?>/calendario/" class="seccion-footer__enlace" rel="noreferrer">
+            <a href="<?php echo URL_BASE; ?>/calendario" class="seccion-footer__enlace" rel="noreferrer">
                <i class="fa-solid fa-chevron-right"></i> Calendario
             </a>
-            <!-- <a href="<?php echo URL_BASE; ?>/nuestro-equipo/" class="seccion-footer__enlace" rel="noreferrer">
-               <i class="fa-solid fa-chevron-right"></i> Nuestro Equipo
-            </a> -->
+            <a href="<?php echo URL_BASE; ?>/noticias" class="seccion-footer__enlace" rel="noreferrer">
+               <i class="fa-solid fa-chevron-right"></i> Noticias
+            </a>
+            <a href="<?php echo URL_BASE; ?>/acispro/" class="seccion-footer__enlace" rel="noreferrer">
+               <i class="fa-solid fa-chevron-right"></i> ACIS Pro
+            </a>
             <!-- <a href="<?php echo URL_BASE; ?>/convenios/" class="seccion-footer__enlace" rel="noreferrer">
                <i class="fa-solid fa-chevron-right"></i> Convenios
             </a> -->
@@ -30,10 +33,10 @@
       <div class="seccion-footer__item">
          <h4 class="seccion-footer__title">Enlaces</h4>
          <nav class="seccion-footer__menu">
-            <a href="<?php echo URL_BASE; ?>/mi-cuenta/" class="seccion-footer__enlace" rel="noreferrer">
+            <a href="<?php echo URL_BASE; ?>/mi-cuenta" class="seccion-footer__enlace" rel="noreferrer">
                <i class="fa-solid fa-chevron-right"></i> Intranet
             </a>
-            <a href="https://acis.pe/" class="seccion-footer__enlace" target="_blank" rel="noreferrer">
+            <a href="https://acis.pe" class="seccion-footer__enlace" target="_blank" rel="noreferrer">
                <i class="fa-solid fa-chevron-right"></i> Aula Virtual
             </a>
             <a href="<?php echo URL_BASE; ?>/libro-de-reclamos/" class="seccion-footer__enlace" rel="noreferrer">

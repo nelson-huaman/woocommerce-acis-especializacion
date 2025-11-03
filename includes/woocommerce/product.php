@@ -1,9 +1,9 @@
 <?php
-global $product;
-include 'data.php';
-$categoria = wc_get_product_category_list(get_the_ID());
-$isCategoria = $isCurso ? 'Curso de ' . $categoria : $categoria;
-$isDuracion = $isCurso ? $data['duracion'] . ' Días' : $data['duracion'] . ' Meses';
+   global $product;
+   include 'data.php';
+   $categoria = wc_get_product_category_list(get_the_ID());
+   $isCategoria = $isCurso ? 'Curso de ' . $categoria : $categoria;
+   $isDuracion = $isCurso ? $data['duracion'] . ' Días' : $data['duracion'] . ' Meses';
 ?>
 
 <div class="servicio">

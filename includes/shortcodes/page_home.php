@@ -1,15 +1,26 @@
+<?php
+
+   $categorias = [
+      ['nombre' => 'Emergencia', 'slug' => 'emergencia'],
+      ['nombre' => 'UCI Adulto', 'slug' => 'uci-adulto'],
+      ['nombre' => 'UCI Neonatal', 'slug' => 'uci-neonatal'],
+      ['nombre' => 'UCI Pediátrico', 'slug' => 'uci-pediatrico'],
+      ['nombre' => 'CRED', 'slug' => 'cred'],
+      ['nombre' => 'Inmunización', 'slug' => 'inmunizacion'],
+      ['nombre' => 'Cardiología', 'slug' => 'cardiologia'],
+      ['nombre' => 'Nefrología', 'slug' => 'nefrologia'],
+      ['nombre' => 'Quirúrgico', 'slug' => 'quirurgico'],
+   ];
+
+?>
+
 <div class="inicio">
    <header class="inicio__header">
       <div class="inicio__contenedor">
          <div class="inicio__flex">
             <div class="inicio__item inicio__item--contenido">
                <h1 class="inicio__h1">Formando Profesionales en Salud con <span>Pasión y Vocación</span></h1>
-               <!-- <div class="inicio__opciones"> -->
-                  <p class="inicio__texto inicio__texto--slogan">Cursos y Diplomados en Salud</p>
-                  <a href="<?php echo URL_BASE; ?>/calendario" class="inicio__boton">
-                     Próximos Cursos y Diplomados
-                  </a>
-               <!-- </div> -->
+               <p class="inicio__texto inicio__texto--slogan">Cursos y Diplomados en Salud</p>
             </div>
             <div class="inicio__item inicio__item--header">
                <img class="inicio__imagen inicio__imagen--header" loading="lazy" width="350" height="1000" src="<?php echo IMAGENES; ?>eira-y-rafael.svg" alt="Eira y Rafael">
@@ -22,87 +33,18 @@
       <div class="inicio__contenedor">
          <h2 class="inicio__h2" data-aos="fade-up"><span>Conoce Nuestra Extraordinaria</span> Oferta Académica</h2>
          <div class="inicio__academicas">
-            <div class="inicio__academica" data-aos="zoom-in">
-               <a href="<?php echo URL_BASE; ?>/categoria-programa/cursos/emergencia/">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>emergencia.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>emergencia.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>emergencia.jpg" alt="Cursos de Emergencia" class="inicio__imagen">
-                  </picture>
-               </a>
-            </div>
-            <div class="inicio__academica" data-aos="zoom-in">
-               <a href="<?php echo URL_BASE; ?>/categoria-programa/cursos/uci-adulto/">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>uci-adulto.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>uci-adulto.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>uci-adulto.jpg" alt="Cursos de UCI Adulto" class="inicio__imagen">
-                  </picture>
-               </a>
-            </div>
-            <div class="inicio__academica" data-aos="zoom-in">
-               <a href="<?php echo URL_BASE; ?>/categoria-programa/cursos/uci-neonatal/">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>uci-neonatal.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>uci-neonatal.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>uci-neonatal.jpg" alt="Cursos de UCI Neonatal" class="inicio__imagen">
-                  </picture>
-               </a>
-            </div>
-            <div class="inicio__academica" data-aos="zoom-in">
-               <a href="<?php echo URL_BASE; ?>/categoria-programa/cursos/uci-pediatrico/">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>uci-pediatrico.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>uci-pediatrico.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>uci-pediatrico.jpg" alt="Cursos de UCI Pediátrico" class="inicio__imagen">
-                  </picture>
-               </a>
-            </div>
-            <div class="inicio__academica" data-aos="zoom-in">
-               <a href="<?php echo URL_BASE; ?>/categoria-programa/cursos/cred/">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>cred.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>cred.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>cred.jpg" alt="Cursos de CRED" class="inicio__imagen">
-                  </picture>
-               </a>
-            </div>
-            <div class="inicio__academica" data-aos="zoom-in">
-               <a href="<?php echo URL_BASE; ?>/categoria-programa/cursos/inmunizacion/">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>inmunizacion.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>inmunizacion.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>inmunizacion.jpg" alt="Cursos de Inmunización" class="inicio__imagen">
-                  </picture>
-               </a>
-            </div>
-            <div class="inicio__academica" data-aos="zoom-in">
-               <a href="<?php echo URL_BASE; ?>/categoria-programa/cursos/cardiologia/">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>cardiologia.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>cardiologia.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>cardiologia.jpg" alt="Cursos de Cardiología" class="inicio__imagen">
-                  </picture>
-               </a>
-            </div>
-            <div class="inicio__academica" data-aos="zoom-in">
-               <a href="<?php echo URL_BASE; ?>/categoria-programa/cursos/nefrologia/">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>nefrologia.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>nefrologia.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>nefrologia.jpg" alt="Cursos de Nefrología" class="inicio__imagen">
-                  </picture>
-               </a>
-            </div>
-            <div class="inicio__academica" data-aos="zoom-in">
-               <a href="<?php echo URL_BASE; ?>/categoria-programa/cursos/nefrologia/">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>quirurgico.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>quirurgico.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>quirurgico.jpg" alt="Cursos de Nefrología" class="inicio__imagen">
-                  </picture>
-               </a>
-            </div>
+
+            <?php foreach ($categorias as $categoria): ?>
+               <div class="inicio__academica" data-aos="zoom-in">
+                  <a href="<?php echo URL_BASE . '/categoria-programa/cursos/' . $categoria['slug']; ?>/">
+                     <picture>
+                        <source srcset="<?php echo IMAGENES . $categoria['slug']; ?>.avif" type="image/avif">
+                        <source srcset="<?php echo IMAGENES . $categoria['slug']; ?>.webp" type="image/webp">
+                        <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES . $categoria['slug']; ?>.jpg" alt="Cursos de <?php echo $categoria['nombre']; ?>" class="inicio__imagen">
+                     </picture>
+                  </a>
+               </div>
+            <?php endforeach; ?>
          </div>
       </div>
    </section>
@@ -169,6 +111,28 @@
                <h3 class="inicio__h3">Certificación <span>por capacitación</span></h3>
             </div>
          </div>
+      </div>
+   </section>
+
+   <section class="inicio__section">
+      <div class="inicio__contenedor">
+         <h2 class="inicio__h2" data-aos="zoom-in">Socios <span>Estratégicos</span></h2>
+         <picture data-aos="fade-up">
+            <source srcset="<?php echo IMAGENES; ?>socios.avif" type="image/avif">
+            <source srcset="<?php echo IMAGENES; ?>socios.webp" type="image/webp">
+            <img loading="lazy" width="700" height="800" src="<?php echo IMAGENES; ?>socios.png" alt="Nuestros Socios" class="nosotros__img">
+         </picture>
+      </div>
+   </section>
+
+   <section class="inicio__section">
+      <div class="inicio__contenedor">
+         <h2 class="inicio__h2" data-aos="zoom-in">Quienes <span>Confiaron en Nosotros</span></h2>
+         <picture data-aos="fade-up">
+            <source srcset="<?php echo IMAGENES; ?>confiaron.avif" type="image/avif">
+            <source srcset="<?php echo IMAGENES; ?>confiaron.webp" type="image/webp">
+            <img loading="lazy" width="700" height="800" src="<?php echo IMAGENES; ?>confiaron.png" alt="Imagen Queines Confiaron en Nosotros" class="nosotros__img">
+         </picture>
       </div>
    </section>
 </div>

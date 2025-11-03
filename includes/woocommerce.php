@@ -15,7 +15,6 @@ function wc_contenido_completo() {
    include 'woocommerce/product.php';
 }
 
-
 // Dashboard
 add_action( 'woocommerce_account_dashboard', 'wc_dashboard' );
 function wc_dashboard() {
