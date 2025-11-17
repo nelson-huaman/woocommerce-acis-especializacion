@@ -1,0 +1,178 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+// $forma: '../../build/img/asesor.svg';
+$portadawebp: '../../build/img/portada-asesor.webp';
+$portadaavif: '../../build/img/portada-asesor.avif';
+$portadajpg: '../../build/img/portada-asesor.jpg';
+
+.asesor {
+
+   &__header {
+      background-color: v.$azul;
+      background-image: image-set(url($portadaavif) 1x, url($portadawebp) 1x, url($portadajpg) 1x);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+   }
+
+   &__contenedor {
+      @include m.contenedor;
+   }
+
+   &__flex {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-direction: column;
+      padding: 3rem 0 0 0;
+
+      @include m.desktop {
+         flex-direction: row;
+         gap: 2rem;
+      }
+   }
+
+   &__item {
+
+      &--contenido {
+         width: 100%;
+         text-align: center;
+
+         @include m.desktop {
+            width: 45%;
+            text-align: left;
+         }
+      }
+
+      &--header {
+         width: 100%;
+         text-align: center;
+
+         @include m.desktop {
+            flex: 1;
+            text-align: right;
+         }
+      }
+   }
+
+   &__titulo {
+      color: v.$blanco !important;
+      text-align: center;
+      line-height: 1.2 !important;
+      @include m.texto-fluido(2rem, 3.5rem);
+
+      @include m.desktop {
+         text-align: left;
+      }
+   }
+
+   &__texto {
+      &--slogan {
+         color: v.$blanco !important;
+         font-weight: bold;
+         text-align: center;
+         margin: 0 !important;
+         @include m.texto-fluido(1rem, 1.5rem);
+
+         @include m.desktop {
+            text-align: left;
+         }
+      }
+
+   }
+
+   &__imagen {
+      width: 100%;
+
+      &--header {
+         width: auto;
+         max-height: 30rem;
+      }
+   }
+
+
+   &__section {
+      padding: 2rem 0;
+
+      &--barra {
+         background: linear-gradient(to right, v.$azul, color.adjust(v.$verde, $lightness: 25%))
+
+      }
+   }
+
+   &__subtitulo {
+      font-size: 2rem;
+      text-align: center;
+
+      span {
+         background-color: color.adjust(v.$verde, $lightness: 15%);
+         color: v.$blanco;
+         padding: 0 1rem;
+         border-radius: 1rem;
+      }
+   }
+
+   &__asesores {
+      @include m.grid(1, 1rem);
+
+      @include m.tablet {
+         @include m.grid(2, 2rem);
+      }
+
+      @include m.desktop {
+         @include m.grid(3, 2rem);
+      }
+   }
+
+   &__asesor {
+      background-color: v.$azul;
+      border-radius: 1rem;
+      overflow: hidden;
+   }
+
+   &__foto {
+      background-color: color.adjust(v.$blanco, $lightness: -5%);
+      border-radius: 1rem;
+   }
+
+   &__body {
+      padding: 1.5rem;
+      text-align: center;
+   }
+
+   &__nombre {
+      color: v.$blanco;
+      margin: 0;
+   }
+
+   &__slogan {
+      margin-bottom: 0.5rem !important;
+      color: v.$blanco;
+      border-bottom: 1px solid v.$blanco;
+   }
+
+   &__telefono {
+      margin: 0 !important;
+      font-weight: bold;
+      color: v.$blanco;
+   }
+
+   &__boton {
+      @include m.boton(color.adjust(v.$verde, $lightness: 15%), v.$blanco);
+      & {
+         font-size: 1.5rem;
+         margin-bottom: 0;
+      }
+   }
+
+   &__frase {
+      margin: 0 !important;
+      font-size: 2rem;
+      font-weight: bold;
+      color: v.$blanco;
+      text-align: center;
+   }
+
+}

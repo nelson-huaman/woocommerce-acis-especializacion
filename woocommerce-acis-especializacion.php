@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ACIS Especialización for WooCommerce 
  * Description: Plugin Personalizado -  Restrocturación de Woocommerce.
- * Version: 29.0
+ * Version: 30.0
  * Author: Nelson Huamán
  * Author URI: https://facebook.com/nelson.huaman.20
  * Text Domain: woocommerce-acis-especializacion
@@ -12,7 +12,7 @@
 
 if (! defined('ABSPATH')) exit;
 
-define('URL_BASE', 'http://localhost/acis.edu.pe');
+define('URL_BASE', 'https://acis.edu.pe');
 define('IMAGENES', plugin_dir_url(__FILE__) . 'build/img/');
 define('CELULAR', '+51 997 001 966');
 define('EMAIL', 'informes@acis.edu.pe');

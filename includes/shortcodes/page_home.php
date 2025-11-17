@@ -114,25 +114,4 @@
       </div>
    </section>
 
-   <section class="inicio__section">
-      <div class="inicio__contenedor">
-         <h2 class="inicio__h2" data-aos="zoom-in">Socios <span>Estratégicos</span></h2>
-         <picture data-aos="fade-up">
-            <source srcset="<?php echo IMAGENES; ?>socios.avif" type="image/avif">
-            <source srcset="<?php echo IMAGENES; ?>socios.webp" type="image/webp">
-            <img loading="lazy" width="700" height="800" src="<?php echo IMAGENES; ?>socios.png" alt="Nuestros Socios" class="nosotros__img">
-         </picture>
-      </div>
-   </section>
-
-   <section class="inicio__section">
-      <div class="inicio__contenedor">
-         <h2 class="inicio__h2" data-aos="zoom-in">Quienes <span>Confiaron en Nosotros</span></h2>
-         <picture data-aos="fade-up">
-            <source srcset="<?php echo IMAGENES; ?>confiaron.avif" type="image/avif">
-            <source srcset="<?php echo IMAGENES; ?>confiaron.webp" type="image/webp">
-            <img loading="lazy" width="700" height="800" src="<?php echo IMAGENES; ?>confiaron.png" alt="Imagen Queines Confiaron en Nosotros" class="nosotros__img">
-         </picture>
-      </div>
-   </section>
 </div>
