@@ -2,13 +2,18 @@
 @use 'base/mixins' as m;
 @use 'sass:color';
 
-$forma: '../../build/img/forma.svg';
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
+
+// $forma: '../../build/img/forma.svg';
 $proximowebp: '../../build/img/fondo-2.webp';
 $proximoavif: '../../build/img/fondo-2.avif';
 $proximojpg: '../../build/img/fondo-2.jpg';
 $portadawebp: '../../build/img/portada-header.webp';
 $portadaavif: '../../build/img/portada-header.avif';
 $portadajpg: '../../build/img/portada-header.jpg';
+$navidadwebp: '../../build/img/navidad/navidad-header.webp';
+$navidadavif: '../../build/img/navidad/navidad-header.avif';
+$navidadjpg: '../../build/img/navidad/navidad-header.jpg';
 
 .inicio {
 
@@ -22,9 +27,14 @@ $portadajpg: '../../build/img/portada-header.jpg';
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
+
+      &--navidad {
+         background-image: image-set(url($navidadavif) 1x, url($navidadwebp) 1x, url($navidadjpg) 1x);
+
+      }
    }
 
-   &__h1 {
+   &__titulo {
       color: v.$blanco !important;
       text-align: center;
       line-height: 1.2 !important;
@@ -37,6 +47,26 @@ $portadajpg: '../../build/img/portada-header.jpg';
 
       @include m.desktop {
          text-align: left;
+      }
+
+      &--navidad {
+         @include m.texto-fluido(2rem, 3.5rem);
+         display: flex;
+         line-height: 1 !important;
+         font-weight: 400;
+         flex-direction: column;
+         font-family: "Oleo Script", system-ui;
+         
+         span {
+            color: v.$blanco;
+         }
+
+         span.normal {
+            font-size: 1.5rem;
+            font-family: "montserrat", system-ui;
+            font-weight: 500;
+            margin-top: 1rem;
+         }
       }
    }
 
@@ -61,6 +91,7 @@ $portadajpg: '../../build/img/portada-header.jpg';
          &--movil {
             display: none;
          }
+
          &--desktop {
             display: block;
          }
@@ -94,6 +125,15 @@ $portadajpg: '../../build/img/portada-header.jpg';
          flex-direction: row;
          gap: 2rem;
       }
+
+      &--navidad {
+         flex-direction: column-reverse;
+         padding: 0;
+
+         @include m.desktop {
+            flex-direction: row;
+         }
+      }
    }
 
    &__item {
@@ -121,6 +161,7 @@ $portadajpg: '../../build/img/portada-header.jpg';
 
    &__boton {
       @include m.boton(v.$blanco, v.$negro);
+
       & {
          padding: 1rem 2rem;
          font-size: 1.2rem;
@@ -136,7 +177,7 @@ $portadajpg: '../../build/img/portada-header.jpg';
          @include m.texto-fluido(1rem, 1.5rem);
 
          @include m.desktop {
-            text-align: left;            
+            text-align: left;
          }
       }
 
@@ -169,6 +210,7 @@ $portadajpg: '../../build/img/portada-header.jpg';
          padding-right: 1.5rem;
          border-right: 3px solid v.$premium;
          margin: 0 !important;
+
          @include m.tablet {
             padding-right: 2rem;
             font-size: 1.6rem
@@ -182,8 +224,63 @@ $portadajpg: '../../build/img/portada-header.jpg';
          font-weight: bold;
          margin: 0 !important;
          padding-left: 1.5rem;
+
          @include m.tablet {
             padding-left: 2rem;
+         }
+      }
+
+      &--navidad {
+         display: flex;
+         align-items: center;
+         gap: .5rem;
+         color: v.$blanco;
+         font-size: 1.5rem;
+         justify-content: center;
+         
+         @include m.tablet {
+            justify-content: flex-start;
+         }
+
+         span {
+            background-color: v.$premium;
+            padding: .1rem 1rem;
+            line-height: 1.2;
+            border-radius: 1rem;
+            font-size: 2.5rem;
+            font-weight: bold;
+         }
+      }
+
+      &--valido {
+         font-size: .7rem;
+         color: v.$blanco;
+         margin: 0;
+         text-align: center;
+
+         span {
+            font-weight: bold;
+         }
+      }
+
+      &--barra {
+         display: flex;
+         justify-content: center;
+         flex-direction: column;
+         text-align: center;
+         align-items: center;
+         gap: .5rem;
+         color: v.$blanco;
+         margin: 0 !important;
+         font-size: 1.5rem;
+
+         @include m.tablet {
+            flex-direction: row;
+         }
+
+         span {
+            font-weight: bold;
+            font-size: 2rem;
          }
       }
    }
@@ -203,15 +300,31 @@ $portadajpg: '../../build/img/portada-header.jpg';
       &--maniqui {
          background-color: v.$gris;
       }
+
+      &--oferta {
+         background-color: color.adjust(v.$azul, $lightness: -12%);
+         padding: 1.2rem 0;
+      }
+   }
+
+   /** Testimonios */
+   &__testimonios {
+      @include m.grid(1, 1rem);
+
+      @include m.tablet {
+         @include m.grid(3, 2rem);
+      }
    }
 
    /* Academicas */
    &__academicas {
       margin-top: 2rem;
       @include m.grid(1, 1.5rem);
+
       @include m.tablet {
          @include m.grid(2, 1.5rem);
       }
+
       @include m.desktop {
          @include m.grid(3, 2rem);
       }
@@ -234,6 +347,7 @@ $portadajpg: '../../build/img/portada-header.jpg';
    &__metodologias {
       margin-top: 2rem;
       @include m.grid(1, 2rem);
+
       @include m.desktop {
          @include m.grid(2, 2rem);
          align-items: center;
