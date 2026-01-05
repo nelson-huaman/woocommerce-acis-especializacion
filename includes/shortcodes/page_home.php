@@ -11,60 +11,52 @@ $categorias = [
    ['nombre' => 'Nefrología', 'slug' => 'nefrologia'],
    ['nombre' => 'Quirúrgico', 'slug' => 'quirurgico'],
 ];
-
-$hoy = strtotime(date('Y-m-d'));
-$navidad = strtotime(NAVIDAD);
-
 ?>
 
 <div class="inicio">
-   <?php if ($hoy <= $navidad) { ?>
-      <header class="inicio__header inicio__header--navidad">
-         <div class="inicio__contenedor">
-            <div class="inicio__flex inicio__flex--navidad">
-               <div class="inicio__item inicio__item--contenido" style="flex: 1">
-                  <h1 class="inicio__titulo inicio__titulo--navidad">
-                     <span>Esta navidad,</span>
-                     <span>seguimos formando a</span>
-                     <span>quienes cuidan al Perú</span>
-                     <span class="normal">ACIS premia tu vocaión con:</span>
+   <header class="inicio__header">
+      <div class="barra-top"></div>
+      <div class="inicio__contenedor">
+         <div class="flex">
+            <div class="contenido">
+               <div>
+                  <h1 class="titulo">
+                     <span class="verde">Avanza Seguro</span>
+                     <span class="azul">Avanza con Acis</span>
+                     Capacitación para profesionales de la Salud
                   </h1>
-                  <p class="inicio__texto inicio__texto--navidad"><span>20%</span> de descuento</p>
-               </div>
-               <div class="inicio__item inicio__item--header">
-                  <picture>
-                     <source srcset="<?php echo IMAGENES; ?>navidad/esfera.avif" type="image/avif">
-                     <source srcset="<?php echo IMAGENES; ?>navidad/esfera.webp" type="image/webp">
-                     <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>navidad/esfera.png" alt="Esfera de Navidad" class="inicio__imagen inicio__imagen--navidad">
-                  </picture>
-               </div>
-            </div>
-         </div>
-      </header>
-   <?php } else { ?>
-      <header class="inicio__header">
-         <div class="inicio__contenedor">
-            <div class="inicio__flex">
-               <div class="inicio__item inicio__item--contenido">
-                  <h1 class="inicio__titulo">Formando Profesionales en Salud con <span>Pasión y Vocación</span></h1>
-                  <p class="inicio__texto inicio__texto--slogan">Cursos y Diplomados en Salud</p>
-               </div>
-               <div class="inicio__item inicio__item--header">
-                  <img class="inicio__imagen inicio__imagen--header" loading="lazy" width="350" height="1000" src="<?php echo IMAGENES; ?>eira-y-rafael.svg" alt="Eira y Rafael">
+                  <div class="logos">
+                     <div>
+                        <p>Convenio Interinstitucional</p>
+                        <img class="inicio__imagen inicio__imagen--header" loading="lazy" width="200" height="50" src="<?php echo IMAGENES; ?>logos.svg" alt="Certificación ISO">
+                     </div>
+                     <div>
+                        <p>Certificación</p>
+                        <img class="inicio__imagen inicio__imagen--header" loading="lazy" width="200" height="50" src="<?php echo IMAGENES; ?>iso.svg" alt="Certificación ISO">
+                     </div>
+                  </div>
                </div>
             </div>
+            <picture>
+               <source srcset="<?php echo IMAGENES; ?>personajes.avif" type="image/avif">
+               <source srcset="<?php echo IMAGENES; ?>personajes.webp" type="image/webp">
+               <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES; ?>personajes.jpg" alt="Testiono de Teresa Perea Paredes" class="inicio__imagen">
+            </picture>
          </div>
-      </header>
-   <?php } ?>
-   <?php if ($hoy <= $navidad) { ?>
-      <section class="inicio__section inicio__section--oferta">
-         <div class="inicio__contenedor">
-            <p class="inicio__texto inicio__texto--barra">Disfruta tú Navidad con grandes Promociones código: <span>NAVIDAD</span></p>
-            <p class="inicio__texto inicio__texto--valido">* Valido para nuestros cursos desde <span>2025/12/15</span> hasta <span>2025/12/31</span> Conjea tu código.</p>
+      </div>
+      <div class="barra-button"></div>
+      <!-- <div class="inicio__contenedor">
+         <div class="inicio__flex">
+            <div class="inicio__item inicio__item--contenido">
+               <h1 class="inicio__titulo">Formando Profesionales en Salud con <span>Pasión y Vocación</span></h1>
+               <p class="inicio__texto inicio__texto--slogan">Cursos y Diplomados en Salud</p>
+            </div>
+            <div class="inicio__item inicio__item--header">
+               <img class="inicio__imagen inicio__imagen--header" loading="lazy" width="350" height="1000" src="<?php echo IMAGENES; ?>eira-y-rafael.svg" alt="Eira y Rafael">
+            </div>
          </div>
-      </section>
-   <?php } ?>
-
+      </div> -->
+   </header>
 
    <section class="inicio__section">
       <div class="inicio__contenedor">
@@ -105,32 +97,17 @@ $navidad = strtotime(NAVIDAD);
       <div class="inicio__contenedor">
          <h2 class="inicio__h2" data-aos="fade-up"><span>Conoce Nuestra Extraordinaria</span> Oferta Académica</h2>
          <div class="inicio__academicas">
-            <?php if ($hoy < $navidad) { ?>
-               <?php foreach ($categorias as $categoria): ?>
-                  <div class="inicio__academica" data-aos="zoom-in">
-                     <a href="<?php echo URL_BASE . '/categoria-programa/cursos/' . $categoria['slug']; ?>/">
-                        <picture>
-                           <source srcset="<?php echo IMAGENES . 'navidad/' . $categoria['slug']; ?>.avif" type="image/avif">
-                           <source srcset="<?php echo IMAGENES . 'navidad/' . $categoria['slug']; ?>.webp" type="image/webp">
-                           <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES . 'navidad/' . $categoria['slug']; ?>.jpg" alt="Cursos de <?php echo $categoria['nombre']; ?>" class="inicio__imagen">
-                        </picture>
-                     </a>
-                  </div>
-               <?php endforeach; ?>
-            <?php } else { ?>
-               <?php foreach ($categorias as $categoria): ?>
-                  <div class="inicio__academica" data-aos="zoom-in">
-                     <a href="<?php echo URL_BASE . '/categoria-programa/cursos/' . $categoria['slug']; ?>/">
-                        <picture>
-                           <source srcset="<?php echo IMAGENES . 'categoria/' . $categoria['slug']; ?>.avif" type="image/avif">
-                           <source srcset="<?php echo IMAGENES . 'categoria/' . $categoria['slug']; ?>.webp" type="image/webp">
-                           <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES . 'categoria/' . $categoria['slug']; ?>.jpg" alt="Cursos de <?php echo $categoria['nombre']; ?>" class="inicio__imagen">
-                        </picture>
-                     </a>
-                  </div>
-               <?php endforeach; ?>
-            <?php } ?>
-
+            <?php foreach ($categorias as $categoria): ?>
+               <div class="inicio__academica" data-aos="zoom-in">
+                  <a href="<?php echo URL_BASE . '/categoria-programa/cursos/' . $categoria['slug']; ?>/">
+                     <picture>
+                        <source srcset="<?php echo IMAGENES . 'categoria/' . $categoria['slug']; ?>.avif" type="image/avif">
+                        <source srcset="<?php echo IMAGENES . 'categoria/' . $categoria['slug']; ?>.webp" type="image/webp">
+                        <img loading="lazy" width="1000" height="700" src="<?php echo IMAGENES . 'categoria/' . $categoria['slug']; ?>.jpg" alt="Cursos de <?php echo $categoria['nombre']; ?>" class="inicio__imagen">
+                     </picture>
+                  </a>
+               </div>
+            <?php endforeach; ?>
          </div>
       </div>
    </section>

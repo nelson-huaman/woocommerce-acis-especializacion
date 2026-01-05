@@ -1,9 +1,9 @@
 <?php
-   global $product;
-   include 'data.php';
-   $categoria = wc_get_product_category_list(get_the_ID());
-   $isCategoria = $isCurso ? 'Curso de ' . $categoria : $categoria;
-   $isDuracion = $isCurso ? $data['duracion'] . ' Días' : $data['duracion'] . ' Meses';
+global $product;
+include 'data.php';
+$categoria = wc_get_product_category_list(get_the_ID());
+$isCategoria = $isCurso ? 'Curso de ' . $categoria : $categoria;
+$isDuracion = $isCurso ? $data['duracion'] . ' Días' : $data['duracion'] . ' Meses';
 ?>
 
 <div class="servicio">
@@ -17,36 +17,44 @@
                Sé parte del futuro de la salud con nuestro <span><?php echo $isCategoria; ?></span>. Actualiza tus conocimientos, potencia tus habilidades y fortalece tu vocación con formación práctica y de calidad. Prepárate para ofrecer el mejor cuidado a quienes más lo necesitan, en los momentos más decisivos.
             </p>
             <div class="servicio__detalles">
-               <?php if ($isCurso): ?>
+               <!-- Cursos -->
+               <?php if ($isCurso) { ?>
                   <?php if ($isVigente) { ?>
                      <p class="servicio__texto"><span>Inicio</span> <?php echo fechaFormat($data['dia_inicio']); ?></p>
                   <?php } else { ?>
                      <p class="servicio__texto"><span>Clases</span> Grabadas</p>
                   <?php } ?>
-               <?php else: ?>
-                  <?php if ($isDiplomadoVirtual): ?>
+               <?php } ?>
+
+               <!-- Diplomado -->
+               <?php if ($isDiplomado) { ?>
+                  <?php if ($isDiplomadoVirtual) { ?>
                      <p class="servicio__texto"><span>Clases:</span> Grabadas</p>
-                  <?php else: ?>
-                     <?php if ($isVigente): ?>
+                  <?php } else { ?>
+                     <?php if ($isVigente) { ?>
                         <p class="servicio__texto"><span>Inicio</span> <?php echo fechaFormat($data['dia_inicio']); ?></p>
-                     <?php else: ?>
+                     <?php } else { ?>
                         <p class="servicio__texto servicio__texto--icono"><i class="fa-solid fa-lock"></i> <span>Próximamente</span></p>
-                     <?php endif; ?>
-                  <?php endif; ?>
-               <?php endif; ?>
+                     <?php } ?>
+                  <?php } ?>
+               <?php } ?>
+
                <p class="servicio__texto"><span>Duración:</span> <?php echo $isDuracion; ?></p>
-               <p class="servicio__coordinador">
-                  <span>Coordinador: </span>
-                  <?php
-                  if (!empty($data['coordinador'])) {
-                     $coordinadores = array_map(function ($coordinador_id) {
-                        $coordinador = get_post($coordinador_id);
-                        return esc_html($coordinador->post_title);
-                     }, $data['coordinador']);
-                     echo implode(', ', $coordinadores);
-                  }
-                  ?>
-               </p>
+               <?php if (!$isMembresia) { ?>
+                  <p class="servicio__coordinador">
+                     <span>Coordinador: </span>
+                     <?php
+                     if (!empty($data['coordinador'])) {
+                        $coordinadores = array_map(function ($coordinador_id) {
+                           $coordinador = get_post($coordinador_id);
+                           return esc_html($coordinador->post_title);
+                        }, $data['coordinador']);
+                        echo implode(', ', $coordinadores);
+                     }
+                     ?>
+                  </p>
+               <?php } ?>
+
                <p class="servicio__codigo"><span>ID: </span><?php echo $product->sku; ?></p>
 
                <?php if ($data['alianza']): ?>
@@ -123,21 +131,37 @@
             </div>
             <h3 class="servicio__h3">Este <?php echo $data['servicio']; ?> Incluye</h3>
             <ul class="servicio__incluye">
-               <li class="servicio__lista"><i class="fa-solid fa-graduation-cap"></i> <?php echo $data['creditos']; ?> Créditos</li>
-               <li class="servicio__lista"><i class="fa-solid fa-video"></i> Clases <?php echo $isVigente ? ' por ZOOM' : 'Virtuales'; ?></li>
-               <?php if (!$isCurso) { ?>
-                  <li class="servicio__lista"><i class="fa-solid fa-list-ol"></i> <?php echo $data['duracion']; ?> Unidades</li>
-               <?php } ?>
-               <li class="servicio__lista"><i class="fa-solid fa-file"></i> Material de Estudio</li>
-               <li class="servicio__lista"><i class="fa-solid fa-tv"></i> Acceso a la Aula Virtual</li>
                <?php if ($isCurso) { ?>
+                  <li class="servicio__lista"><i class="fa-solid fa-graduation-cap"></i> <?php echo $data['creditos']; ?> Créditos</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-video"></i> Clases <?php echo $isVigente ? ' por ZOOM' : 'Virtuales'; ?></li>
+                  <li class="servicio__lista"><i class="fa-solid fa-file"></i> Material de Estudio</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-tv"></i> Acceso a la Aula Virtual</li>
                   <li class="servicio__lista"><i class="fa-solid fa-unlock-keyhole"></i> Acceso por 30 Días</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-award"></i> Cuestionario</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-trophy"></i>Certificado Incluido</li>
                <?php } ?>
-               <li class="servicio__lista"><i class="fa-solid fa-award"></i> Cuestionario <?php echo $isCurso ? '' : 'por Unidad'; ?></li>
-               <li class="servicio__lista"><i class="fa-solid fa-trophy"></i><?php echo $isCurso ? 'Certificado' : 'Diploma'; ?> Incluido</li>
+
+               <?php if ($isDiplomado) { ?>
+                  <li class="servicio__lista"><i class="fa-solid fa-graduation-cap"></i> <?php echo $data['creditos']; ?> Créditos</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-video"></i> Clases <?php echo $isVigente ? ' por ZOOM' : 'Virtuales'; ?></li>
+                  <li class="servicio__lista"><i class="fa-solid fa-list-ol"></i> <?php echo $data['duracion']; ?> Unidades</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-file"></i> Material de Estudio</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-tv"></i> Acceso a la Aula Virtual</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-award"></i> Cuestionario por Unidad</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-trophy"></i>Diploma Incluido</li>
+               <?php } ?>
+
+               <?php if ($isMembresia) { ?>
+                  <li class="servicio__lista"><i class="fa-solid fa-video"></i> Clases <?php echo $isVigente ? ' por ZOOM' : 'Virtuales'; ?></li>
+                  <li class="servicio__lista"><i class="fa-solid fa-file"></i> Material de Estudio</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-tv"></i> Acceso a la Aula Virtual</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-unlock-keyhole"></i> Acceso por 30 Días</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-award"></i> Cuestionario</li>
+                  <li class="servicio__lista"><i class="fa-solid fa-trophy"></i>Certificado Incluido</li>
+               <?php } ?>
             </ul>
 
-            <?php if ($isCurso && $isVigente):  ?>
+            <?php if ($isCurso && $isVigente) {  ?>
                <a
                   href="<?php echo URL_BASE . '/RECURSOS_PROGRAMA/TEMP/' . $product->sku; ?>.pdf"
                   class="servicio__descargar"
@@ -146,7 +170,9 @@
                   <i class="fa-solid fa-download"></i>
                   Descargar Temario
                </a>
-            <?php else: ?>
+            <?php } ?>
+
+            <?php if ($isDiplomado || $isCurso) { ?>
                <a
                   href="<?php echo URL_BASE . $isDescargar . $product->sku; ?>.pdf"
                   class="servicio__descargar"
@@ -155,7 +181,7 @@
                   <i class="fa-solid fa-download"></i>
                   Descargar Temario
                </a>
-            <?php endif; ?>
+            <?php } ?>
          </div>
       </div>
    </div>

@@ -26,9 +26,13 @@ $data = [
 
 $link = "/RECURSOS_PROGRAMA/{$year}";
 $isCurso = ($data['servicio'] === 'Curso');
+$isDiplomado = ($data['servicio'] === 'Diplomado');
+$isMembresia = ($data['servicio'] === 'Membresía');
 $isVigente = ($data['fecha_actual'] < $data['fecha_inicio']);
 $isDescargar = ($data['servicio'] === 'Curso') ? "{$link}/CURSOS/" : "{$link}/PROGRAMAS/";
 $isDiplomadoVirtual = ($data['modalidad']) ? true : false;
+
+
 
 if (!function_exists('fechaFormat')) {
    function fechaFormat($fecha) {

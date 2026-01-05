@@ -8,12 +8,9 @@
 $proximowebp: '../../build/img/fondo-2.webp';
 $proximoavif: '../../build/img/fondo-2.avif';
 $proximojpg: '../../build/img/fondo-2.jpg';
-$portadawebp: '../../build/img/portada-header.webp';
-$portadaavif: '../../build/img/portada-header.avif';
-$portadajpg: '../../build/img/portada-header.jpg';
-$navidadwebp: '../../build/img/navidad/navidad-header.webp';
-$navidadavif: '../../build/img/navidad/navidad-header.avif';
-$navidadjpg: '../../build/img/navidad/navidad-header.jpg';
+$portadawebp: '../../build/img/banner-fondo.webp';
+$portadaavif: '../../build/img/banner-fondo.avif';
+$portadajpg: '../../build/img/banner-fondo.jpg';
 
 .inicio {
 
@@ -21,52 +18,83 @@ $navidadjpg: '../../build/img/navidad/navidad-header.jpg';
       @include m.contenedor;
    }
 
+   // Portada
    &__header {
-      background-color: v.$azul;
+      background-color: v.$blanco;
       background-image: image-set(url($portadaavif) 1x, url($portadawebp) 1x, url($portadajpg) 1x);
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
 
-      &--navidad {
-         background-image: image-set(url($navidadavif) 1x, url($navidadwebp) 1x, url($navidadjpg) 1x);
-
-      }
-   }
-
-   &__titulo {
-      color: v.$blanco !important;
-      text-align: center;
-      line-height: 1.2 !important;
-      @include m.texto-fluido(2rem, 3.5rem);
-
-      span {
-         color: color.adjust(v.$celeste, $lightness: 20%);
-         font-weight: bold;
+      .barra-top {
+         height: 1.5rem;
+         background-color: v.$secundario;
+         background: linear-gradient(90deg, rgba(v.$secundario, 1) 0%, rgba(v.$azul, 1) 100%);
       }
 
-      @include m.desktop {
-         text-align: left;
+      .barra-button {
+         height: 1.5rem;
+         background-color: v.$azul;
+         background: linear-gradient(90deg, rgba(v.$azul, 1) 0%, rgba(v.$secundario, 1) 100%);
       }
 
-      &--navidad {
-         @include m.texto-fluido(2rem, 3.5rem);
+      .flex {
          display: flex;
-         line-height: 1 !important;
-         font-weight: 400;
          flex-direction: column;
-         font-family: "Oleo Script", system-ui;
-         
-         span {
-            color: v.$blanco;
+         justify-content: space-between;
+
+         @include m.desktop {
+            flex-direction: row;
+         }
+      }
+
+      .contenido {
+         max-width: 33rem;
+         padding-top: 3rem;
+         display: flex;
+         flex-direction: column;
+         justify-content: end;
+         padding-bottom: 1.5rem;
+
+         img {
+            display: block;
+            max-height: 5rem;
+         }
+      }
+
+      .titulo {
+         margin: 0 !important;
+         display: flex;
+         flex-direction: column;
+         font-size: 2rem;
+
+         .verde {
+            font-size: 2.5rem;
+            color: v.$secundario;
          }
 
-         span.normal {
-            font-size: 1.5rem;
-            font-family: "montserrat", system-ui;
-            font-weight: 500;
-            margin-top: 1rem;
+         .azul {
+            font-size: 3.5rem;
+            color: v.$azul;
+            font-weight: bolder !important;
          }
+      }
+
+      .logos {
+         display: flex;
+         flex-direction: column;
+         gap: 1rem;
+         margin-top: 2rem;
+      }
+
+      p {
+         margin: 0 !important;
+         padding: .3rem 1rem;
+         border-radius: 1rem;
+         font-size: .7rem;
+         background-color: color.adjust(v.$gris, $lightness: -45%);
+         color: v.$blanco;
+         display: inline-block;
       }
    }
 
@@ -237,7 +265,7 @@ $navidadjpg: '../../build/img/navidad/navidad-header.jpg';
          color: v.$blanco;
          font-size: 1.5rem;
          justify-content: center;
-         
+
          @include m.tablet {
             justify-content: flex-start;
          }
