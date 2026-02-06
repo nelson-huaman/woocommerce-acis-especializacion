@@ -205,7 +205,7 @@ function acis_add_custom_my_account_menu_items($items)
    $logout = $items['customer-logout'];
    unset($items['customer-logout']);
    $items['tutoriales'] = __('Tutoriales', 'woocommerce');
-   // $items['mis-certificados'] = __('Mis Certificados', 'woocommerce');
+   $items['mis-certificados'] = __('Mis Certificados', 'woocommerce');
    $items['customer-logout'] = $logout;
    return $items;
 }

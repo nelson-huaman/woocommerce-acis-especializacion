@@ -32,8 +32,6 @@ $isVigente = ($data['fecha_actual'] < $data['fecha_inicio']);
 $isDescargar = ($data['servicio'] === 'Curso') ? "{$link}/CURSOS/" : "{$link}/PROGRAMAS/";
 $isDiplomadoVirtual = ($data['modalidad']) ? true : false;
 
-
-
 if (!function_exists('fechaFormat')) {
    function fechaFormat($fecha) {
       $meses = [

@@ -77,7 +77,7 @@ $premium = wc_get_product(PREMIUM);
                <h3 class="titulo">Plan Dual <span>(2 Personas)</span></h3>
                <div class="precio">
                   S/.
-                  <span><?php echo $dual->regular_price; ?></span>
+                  <span>400</span>
                </div>
                <span class="slogan">(Pago único por persona/año)</span>
                <a href="?add-to-cart=<?php echo $dual->get_id(); ?>" class="boton">Inscribirme Ahora</a>

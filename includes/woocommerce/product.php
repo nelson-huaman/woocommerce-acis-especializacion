@@ -172,7 +172,7 @@ $isDuracion = $isCurso ? $data['duracion'] . ' Días' : $data['duracion'] . ' Me
                </a>
             <?php } ?>
 
-            <?php if ($isDiplomado || $isCurso) { ?>
+            <?php if ($isDiplomado || $isCurso && !$isVigente) { ?>
                <a
                   href="<?php echo URL_BASE . $isDescargar . $product->sku; ?>.pdf"
                   class="servicio__descargar"

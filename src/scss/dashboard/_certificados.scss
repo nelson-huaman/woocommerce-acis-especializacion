@@ -1,0 +1,48 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.certificados {
+
+   &__tabla {
+      table {
+         width: 100%;
+         border-radius: 1rem;
+         overflow: hidden;
+         border: none;
+      }
+
+      thead {
+         background-color: v.$azul;
+         text-align: left;
+         color: v.$blanco;
+
+         th {
+            border: none;
+         }
+      }
+
+      tbody {
+         background-color: color.adjust(v.$blanco, $lightness: -5%);
+
+         td {
+            border: none;
+
+            span {
+               color: v.$rojo;
+               font-weight: bold;
+            }
+         }
+      }
+
+      .boton {
+         @include m.boton(v.$verde, v.$blanco);
+
+         & {
+            margin: 0;
+            font-size: .8rem;
+            padding: .5rem 1rem;
+         }
+      }
+   }
+}
